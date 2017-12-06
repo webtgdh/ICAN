@@ -1,0 +1,56 @@
+@using TGDH;
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    var followIndex = Model.GetPropertyValue<bool>("dontFollow") ? "NOFOLLOW, NOINDEX" : "FOLLOW, INDEX";
+
+    var siteUrl = Request.Url.ToString();
+    var websiteName = TGDH.Settings<string>("websiteName");
+    var title = Model.GetPropertyValue<string>("sEOTitle", Model.Name + " | " + websiteName);
+    var description = Model.GetPropertyValue<string>("seoDescription", Model.GetPropertyValue<string>("excerpt"));
+    var imageUrl = GetPageSocialImage(Model, siteUrl);
+    var twitterHandle = TGDH.Settings<string>("twitterHandle");
+    var pageUrl = siteUrl + Model.Url;
+}
+
+<title>@title</title>
+
+<meta itemprop="name" content="@title">
+<meta itemprop="url" content="@pageUrl">
+<meta name="description" content="@description.Truncate(160)">
+<meta name="robots" content="@followIndex">
+
+<meta property="og:title" content="@title">
+<meta property="og:type" content="website">
+<meta property="og:url" content="@pageUrl">
+<meta property="og:image" content="@imageUrl">
+<meta property="og:description" content="@description.Truncate(200)">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="@websiteName">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@siteUrl">
+<meta name="twitter:creator" content="@twitterHandle">
+<meta name="twitter:url" content="@pageUrl">
+<meta name="twitter:title" content="@title">
+<meta name="twitter:description" content="@description.Truncate(140)">
+<meta name="twitter:image" content="@imageUrl">
+
+@functions {
+
+    private string GetPageSocialImage(IPublishedContent model, string siteUrl)
+    {
+        var imageUrl = string.Empty;
+        var image = Model.GetPropertyValue<IPublishedContent>("socialMediaImage", 
+                Model.GetPropertyValue<IPublishedContent>("featuredImage", 
+                    TGDH.Settings<IPublishedContent>("defaultSocialMediaImage"
+            )));
+
+        if (image != null)
+        {
+            imageUrl = siteUrl + Url.GetCropUrl(image, cropAlias: "open-graph", width: 1024, htmlEncode: false);
+        }
+
+        return imageUrl;
+    }
+
+}

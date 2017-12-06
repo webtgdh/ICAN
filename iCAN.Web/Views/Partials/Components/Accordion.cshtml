@@ -1,0 +1,23 @@
+@using TGDH.Core.Models;
+@using TGDH.Core.ExtensionMethods
+@inherits UmbracoViewPage<TabListViewModel>
+@{
+    if (!Model.Tabs.Any())
+    {
+        return;
+    }
+}
+
+<div class="c-accordion js-accordion@Model.ModifierClass">
+    @foreach (var tab in Model.Tabs)
+    {
+        var uniqueId = StringExtensionMethods.CreateGuid();
+
+        <h2 id="accordion-header-@uniqueId" class="c-accordion__header js-accordion__header">@tab.Name</h2>
+        <div id="accordion-panel-@uniqueId" class="c-accordion__panel js-accordion__panel">
+            <div class="c-accordion__panel-inner">
+                @tab.Content
+            </div>
+        </div>
+    }
+</div>

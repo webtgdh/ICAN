@@ -1,0 +1,69 @@
+﻿@using TGDH;
+@using TGDH.Core.Models;
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "Master.cshtml";
+    var headline = Model.GetPropertyValue<string>("headline", Model.Name);
+	var releaseDate = Model.GetPropertyValue<DateTime>("releaseDate");
+
+	var featuredImage = Model.GetPropertyValue<IPublishedContent>("featuredImage");
+}
+
+<main id="main" class="o-page__inner" role="main">
+	<article>
+		<header>
+			<h1 itemprop="headline">@headline</h1>
+			<ul class="c-meta">
+				<li class="c-meta__item">
+					<span class="u-visually-hidden">Published on: </span>
+					<time datetime="@releaseDate.ToString("yyyy-MM-dd")">@releaseDate.ToString("%d MMM yyyy")</time>
+					<meta content="@releaseDate.ToString("yyyy-MM-ddThh:mm:ss")" itemprop="datePublished" />
+				</li>
+			</ul>
+		</header>
+		<div class="u-intro" itemprop="description">
+			<p>@Model.GetPropertyValue("pageDescription")</p>
+		</div>
+		<div class="s-free-content" itemprop="articleBody">
+			@Html.Partial("Modules/PageComponents")
+		</div>
+
+		@*
+		* @TODO: 
+		* Related articles
+		* Social share
+		* Comments
+		*@
+
+		@*
+		* meta data related to the article - an image that will appear in search results
+		*@
+		@if (featuredImage != null) {
+			var searchImageUrl = Url.GetCropUrl(featuredImage, cropAlias: "1:1", width: 800, htmlEncode: false);
+			<div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+				<meta itemprop="url" content="@searchImageUrl">
+				<meta itemprop="width" content="800">
+				<meta itemprop="height" content="800">
+			</div>
+		}
+
+		@*
+		* @TODO: test use case - think it helps with google search results
+		*@
+		@{
+			var websiteName = TGDH.Settings<string>("websiteName");
+			var siteLogo = TGDH.Settings<IPublishedContent>("siteLogo");
+			if(!String.IsNullOrWhiteSpace(websiteName) && siteLogo != null) {
+				var siteLogoUrl = Url.GetCropUrl(siteLogo, cropAlias: "1:1", width: 60, htmlEncode: false);
+				<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+					<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+						<meta itemprop="url" content="@siteLogoUrl">
+						<meta itemprop="width" content="60">
+						<meta itemprop="height" content="60">
+					</div>
+					<meta itemprop="name" content="@websiteName">
+				</div>
+			}
+		}
+	</article>
+</main>

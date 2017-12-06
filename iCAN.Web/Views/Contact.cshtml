@@ -1,0 +1,14 @@
+﻿@using TGDH.Forms.Models
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "Master.cshtml";
+	var headline = Model.GetPropertyValue<string>("headline", Model.Name);
+}
+
+<main class="o-page__inner u-clearfix" role="main">
+	<h1>@headline</h1>
+
+	@Html.Partial("~/Views/Partials/Forms/ContactFormView.cshtml", new ContactForm {
+		PageName = Model.Name
+	})
+</main>

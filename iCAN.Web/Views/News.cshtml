@@ -1,0 +1,67 @@
+﻿@using TGDH.Core.Data;
+@using TGDH.Core.Utility;
+@using TGDH.Core.Models;
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "Master.cshtml";
+	var headline = Model.GetPropertyValue<string>("headline", Model.Name);
+
+    var qCat = Request.QueryString["category"];
+    var qMonth = Request.QueryString["month"];
+    var qYear = Request.QueryString["year"];
+
+    var allArticles = News.AllArticles(Umbraco).ToList().Where(x => x.IsVisible()).ToList();
+    var filteredArticles = News.FilterSelection(allArticles, qCat, qMonth, qYear).ToList();
+
+    var paging = new Paging(filteredArticles.Count(), 5);
+    var selection = filteredArticles.Skip(paging.Skip).Take(paging.Take).ToList();
+}
+
+<main class="o-page__inner u-clearfix" role="main">
+	<h1>@headline</h1>
+
+	@if (selection.Any()) {
+
+        foreach (var item in selection) {
+            if (item.DocumentTypeAlias == "inTheMedia") {
+                @Html.Partial("Components/Card", new CardViewModel {
+                    Headline = item.GetPropertyValue<string>("headline", item.Name),
+                    Url = item.GetPropertyValue<string>("source", "#"),
+                    Image = item.GetPropertyValue<IPublishedContent>("featuredImage"),
+                    UrlTarget = "_blank",
+                    ModifierClass = "is-external"
+                })
+            } else {
+                @Html.Partial("Components/Card", new CardViewModel {
+                    Headline = item.GetPropertyValue<string>("headline", item.Name),
+                    Url = item.Url,
+                    Image = item.GetPropertyValue<IPublishedContent>("featuredImage")
+                })
+            }
+        }
+
+        @Html.Partial("Components/Pagination", new PaginationViewModel {
+            Paging = paging,
+            CurrentModel = Model
+        })
+    } else {
+        @Model.GetPropertyValue("noResultsMessage")
+    }
+
+</main>
+<aside>
+    @{
+        var pageUrl = Model.Url;
+        var dateLinks = Filters.GetDatesFromSelection(allArticles, pageUrl, qMonth, qYear);
+        var categoryLinks = News.GetCategoryLinks(allArticles, pageUrl, qCat);
+    }
+
+    @if (categoryLinks != null) {
+        <h2>Categories</h2>
+        @Html.Partial("Components/LinkList", new LinkListViewModel(categoryLinks))
+    }
+    @if (dateLinks != null) {
+        <h2>Archive</h2>
+        @Html.Partial("Components/LinkList", new LinkListViewModel(dateLinks))
+    }
+</aside>

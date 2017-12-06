@@ -1,0 +1,27 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    var selection = Model.Ancestors().Where(x => x.IsVisible() && x.TemplateId > 0).OrderBy(x => x.Level);
+}
+
+@if (selection.Any()) {
+    <nav class="c-breadcrumb">
+        <span id="label-breadcrumb" class="u-visually-hide">You are here:</span>
+        <ol class="c-breadcrumb__items" aria-labelledby="label-breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+            @foreach (var item in selection)
+            {
+                <li class="c-breadcrumb__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="@item.Url" class="c-breadcrumb__link" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+                        <span itemprop="name">@item.Name</span>
+                        <meta itemprop="position" content="@item.Level">
+                    </a>
+                </li>
+            }
+            <li class="c-breadcrumb__item">
+                <a class="c-breadcrumb__link is-active" aria-current="location" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+                    <span itemprop="name">@Model.Name</span>
+                    <meta itemprop="position" content="@Model.Level">
+                </a>
+            </li>
+        </ol>
+    </nav>
+}

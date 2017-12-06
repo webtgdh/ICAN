@@ -1,0 +1,69 @@
+﻿@using TGDH;
+@using TGDH.Core.Data;
+@using TGDH.Core.Utility;
+@using TGDH.Core.Models;
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "Master.cshtml";
+	var headline = Model.GetPropertyValue<string>("headline", Model.Name);
+
+    var qAuthor = Request.QueryString["author"];
+    var qCat = Request.QueryString["category"];
+    var qMonth = Request.QueryString["month"];
+    var qYear = Request.QueryString["year"];
+
+	var allposts = Blog.AllOrderedPosts(Umbraco).ToList().Where(x => x.IsVisible() && x.TemplateId > 0).ToList();
+    var filteredPosts = Blog.FilterSelection(allposts, qAuthor, qCat, qMonth, qYear).ToList();
+
+    var paging = new Paging(filteredPosts.Count(), 5);
+    var selection = filteredPosts.Skip(paging.Skip).Take(paging.Take).ToList();
+}
+
+<main class="o-page__inner u-clearfix" role="main">
+	<h1>@headline</h1>
+
+	@if (selection.Any()) {
+
+        foreach (var item in selection) {
+            @Html.Partial("Components/Card", new CardViewModel {
+                Headline = item.GetPropertyValue<string>("headline", item.Name),
+                Url = item.Url,
+                Image = item.GetPropertyValue<IPublishedContent>("featuredImage")
+            })
+        }
+
+        @Html.Partial("Components/Pagination", new PaginationViewModel {
+            Paging = paging,
+            CurrentModel = Model
+        })
+    } else {
+        @Model.GetPropertyValue("noResultsMessage")
+    }
+
+</main>
+<aside>
+    @{
+        var pageUrl = Model.Url;
+        var categoryLinks = Filters.GetCategoryLinks(Umbraco, pageUrl, qCat);
+        var authorLinks = Filters.GetAuthorLinks(Umbraco, pageUrl, qAuthor);
+
+        var dateLinks = Filters.GetDatesFromSelection(allposts, pageUrl, qMonth, qYear);
+    }
+
+    @if (categoryLinks != null) {
+        <h2>Categories</h2>
+        @Html.Partial("Components/LinkList", new LinkListViewModel(categoryLinks))
+    }
+
+    @if (authorLinks != null) {
+        <h2>Authors</h2>
+        @Html.Partial("Components/LinkList", new LinkListViewModel(authorLinks))
+    }
+
+    @if (dateLinks != null) {
+        <h2>Archive</h2>
+        @Html.Partial("Components/LinkList", new LinkListViewModel(dateLinks))
+    }
+</aside>
+
+

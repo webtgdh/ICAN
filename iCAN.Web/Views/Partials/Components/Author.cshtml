@@ -1,0 +1,26 @@
+@using TGDH.Core.Models;
+@inherits UmbracoViewPage<AuthorViewModel>
+@{
+    if (String.IsNullOrWhiteSpace(Model.Name)) {
+        return;
+    }
+}
+
+<footer class="c-author @Model.ModifierClass" itemprop="author">
+    @if (Model.Image != null) {
+        var imageUrl = Url.GetCropUrl(Model.Image, cropAlias: "1:1", width: 200, htmlEncode: false);
+        var altText = Model.Image.GetPropertyValue<string>("altText", Model.Name);
+        <div class="c-author__image-container">
+            <img src="@imageUrl" class="c-author__image" alt="@altText">
+        </div>
+    }
+	<div class="c-author__content" itemscope itemtype="http://schema.org/Person">
+		<h2 class="c-author__headline"><span class="u-visually-hidden">Posted by </span><span itemprop="name">@Model.Name</span></h2>
+		@if (!String.IsNullOrWhiteSpace(Model.Bio.ToString())) {
+			<div class="c-author__description" itemprop="description">
+				<span class="u-visually-hidden">Author bio: </span>
+				@Model.Bio
+			</div>
+		}
+	</div>
+</footer>

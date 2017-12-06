@@ -1,0 +1,40 @@
+@using TGDH;
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    var navigationLinks = TGDH.Settings<IEnumerable<IPublishedContent>>("footerNavigation");
+
+    if( navigationLinks == null ) {
+        return;
+    }
+
+    navigationLinks = navigationLinks
+        .Where(DocumentTypeIsNotIgnored)
+        .Where(x => x.TemplateId > 0);
+}
+
+@if (navigationLinks.Any())
+{
+    <nav class="c-nav--footer">
+        <ul class="c-nav__list">
+            @foreach (var link in navigationLinks)
+            {
+                <li class="c-nav__item">
+                    <a href="@link.Url" class="c-nav__link">
+                        @link.Name
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
+
+@functions {
+
+    private static bool DocumentTypeIsNotIgnored(IPublishedContent arg)
+    {
+        const string ignoredDocTypes = "errorPage,notFound";
+
+        return ignoredDocTypes.Split(',').All(docType => docType != arg.DocumentTypeAlias);
+    }
+
+}

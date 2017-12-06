@@ -1,0 +1,29 @@
+@using TGDH;
+@using TGDH.Core.Models;
+@inherits UmbracoViewPage<CardViewModel>
+@{
+    if (Model.Image == null) {
+        Model.Image = TGDH.Settings<IPublishedContent>("defaultFeaturedImage");
+        if( Model.Image == null ) {
+            return;
+        }
+    }
+
+    var imageUrl = Url.GetCropUrl(Model.Image, cropAlias: "16:9", width: 400, htmlEncode: false);
+    var altText = Model.Image.GetPropertyValue("altText", Model.Headline);
+
+    var urlTarget = !String.IsNullOrWhiteSpace(Model.UrlTarget) ? "target=" + Model.UrlTarget  : "";
+}
+
+<article class="c-card @Model.ModifierClass">
+    <a href="@Model.Url" class="c-card__link" @urlTarget>
+        <div class="c-card__image-wrap">
+            <img src="@imageUrl" alt="@altText" class="c-card__image">
+        </div>
+        <div class="c-card__content">
+            @if(!String.IsNullOrWhiteSpace(Model.Headline)) {
+                <h2 class="c-card__headline">@Model.Headline</h2>
+            }
+        </div>
+    </a>
+</article>

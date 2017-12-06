@@ -1,0 +1,64 @@
+@using TGDH.Forms.Models
+@inherits UmbracoViewPage<StyleguideForm>
+@{
+    var success = TempData["StyleguideFormValidationPasses"] != null;
+    var error = TempData["StyleguideFormValidationFailed"] != null;
+    var folderId = TempData["StyleguideFormFormFolderId"];
+}
+
+@if (success)
+{
+    if (folderId != null)
+    {
+        var folder = Umbraco.TypedContent(folderId);
+        var message = folder.GetPropertyValue<string>("submitMessage");
+
+        @message
+    }
+}
+else
+{
+    if (error)
+    {
+        @Html.ValidationSummary()
+    }
+
+    using (Html.BeginUmbracoForm("ProcessFormSubmission", "StyleguideForm", FormMethod.Post, new { id = "contact-form", @class = "js-form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="o-form__field o-form__field--compact is-required">
+            @Html.TextBoxFor(x => x.TextboxInput, new {required = "required", @class = "o-input"})
+            @Html.LabelFor(x => x.TextboxInput, new {@class = "o-label"})
+            @Html.ValidationMessageFor(x => x.TextboxInput)
+        </div>
+
+        <button type="submit" class="c-button c-button--primary">Send form</button>
+
+
+
+        @*
+        <fieldset class="o-form__fieldset">
+            <legend class="o-legend u-hide-text">Contact form</legend>
+             <div class="o-form__field o-form__field--compact is-required">
+                @Html.TextBoxFor(x => x.SenderName, new {required = "required", @class = "o-input"})
+                @Html.LabelFor(x => x.SenderName, new {@class = "o-label"})
+                @Html.ValidationMessageFor(x => x.SenderName)
+            </div>
+            <div class="o-form__field o-form__field--compact is-required">
+                @Html.TextBoxFor(x => x.Email, new { required = "required", @class = "o-input" })
+                @Html.LabelFor(x => x.Email, new { @class = "o-label" })
+                @Html.ValidationMessageFor(x => x.Email)
+            </div>
+            <div class="o-form__field o-form__field--compact is-required">
+                @Html.TextAreaFor(x => x.Message, new { required = (string)null, @class = "o-input", rows = 6 })
+                @Html.LabelFor(x => x.Message, new { @class = "o-label" })
+                @Html.ValidationMessageFor(x => x.Message)
+            </div>
+            <div class="o-form__field o-form__field--submit">
+                <button type="submit" class="c-button c-button--primary">Send form</button>
+            </div>
+        </fieldset>
+        *@
+    }
+}

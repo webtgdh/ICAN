@@ -1,0 +1,51 @@
+@using TGDH.Core.Models;
+@using TGDH.Core.ExtensionMethods;
+@inherits UmbracoViewPage<DownloadsViewModel>
+@{
+    if (Model.Media == null)
+    {
+        return;
+    }
+}
+
+<div class="c-downloads @Model.ModifierClass">
+    @if (!string.IsNullOrWhiteSpace(Model.Headline))
+    {
+        <h2>@Model.Headline</h2>
+    }
+
+    <ul class="c-link-list">
+        @foreach (var media in Model.Media)
+        {
+            if (media != null)
+            {
+                if (media.DocumentTypeAlias == "Folder")
+                {
+                    foreach (var file in media.Descendants())
+                    {
+                        @RenderFile(file)
+                    }
+                }
+                else
+                {
+                    @RenderFile(media)
+                }
+            }
+        }
+    </ul>
+</div>
+
+@helper RenderFile(IPublishedContent file)
+{
+    var fileSize = file.GetPropertyValue<int>("umbracoBytes").ToFileSize();
+    var altText = file.GetPropertyValue<string>("altText");
+    var iconClass = "ico-file";
+
+    <li class="c-link-list__item">
+        <a href="@file.Url" title="@altText" class="c-link-list__link u-clearfix" download>
+            <i class="@iconClass c-link-list__icon"></i>
+            <span class="c-link-list__name">@file.Name</span>
+            <span class="c-link-list__meta">@fileSize</span>
+        </a>
+    </li>
+}

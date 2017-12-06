@@ -1,0 +1,34 @@
+﻿@using TGDH;
+@using TGDH.Core.Models;
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = "Master.cshtml";
+
+    var featuredPages = Model.GetPropertyValue<IEnumerable<IPublishedContent>>("featuredPages");
+	var remainingPages = Model.Children().Where(x => !featuredPages.Contains(x));
+}
+
+<main class="o-page__inner u-clearfix" role="main">
+	<h1>@Model.Name</h1>
+    @if (featuredPages.Any()) {
+        <h2>Featured</h2>
+        foreach(var item in featuredPages) {
+            @Html.Partial("Components/Card", new CardViewModel {
+                Headline = item.GetPropertyValue<string>("headline", item.Name),
+                Url = item.Url,
+                Image = item.GetPropertyValue<IPublishedContent>("featuredImage", TGDH.Settings<IPublishedContent>("defaultFeaturedImage"))
+            })
+        }
+    }
+
+    @if (remainingPages.Any()) {
+        <h2>Others</h2>
+        <ul>
+            @foreach( var item in remainingPages ) {
+                <li>
+                    <a href="@item.Url">@item.Name</a>
+                </li>
+            }
+        </ul>
+    }
+</main>

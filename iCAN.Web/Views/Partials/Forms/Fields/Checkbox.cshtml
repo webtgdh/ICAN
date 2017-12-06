@@ -1,0 +1,49 @@
+@using TGDH.Core.Models;
+@inherits UmbracoViewPage<CheckboxViewModel>
+@{
+
+}
+
+
+
+<input class="b-form__checkbox" id="ExampleCheckbox" value="@Model.Label" name="ExampleCheckbox" type="checkbox" value="true">
+<input name="ExampleCheckbox" type="hidden" value="false">
+
+
+<input class="b-form__checkbox" value="@Model.Label" id="@Model.Id" type="checkbox" name="{{ .name }}">
+<label for="@Model.Id" class="b-form__label b-form__label--alt">
+	<span class="b-form__checkbox-button">
+		<div class="b-form__checkbox-icon"></div>
+	</span>
+    @Model.Label
+</label>
+
+
+<style>
+    .b-form__checkbox,
+    .b-form__radio {
+        float: left;
+        width: auto;
+    }
+
+    .b-form__checkbox-button {
+        width: 20px;
+        height: 20px;
+        border: 1px solid #000;
+        border-radius: 0;
+        display: inline-block;
+        margin-right: 10px;
+        position: relative;
+        vertical-align: middle;
+    }
+
+    .b-form__checkbox-button {
+        display: inline-block;
+        background-color: #fff;
+    }
+
+    .b-form__checkbox:checked + .b-form__label .b-form__checkbox-button {
+        background-color: #000;
+    }
+
+</style>

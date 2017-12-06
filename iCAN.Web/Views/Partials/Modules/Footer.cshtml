@@ -1,0 +1,21 @@
+@using TGDH;
+@using TGDH.Core.Models;
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    var siteName = TGDH.Settings<string>("websiteName");
+    var copyright = TGDH.Settings<string>("copyrightDisclaimer");
+}
+
+<footer id="footer" class="c-footer u-spacer" role="contentinfo">
+    @Html.Partial("~/Views/Partials/Components/FooterNavigation.cshtml")
+    @Html.Partial("Components/SocialChannels", new SocialChannelsViewModel {
+        SocialChannels = TGDH.Settings<IEnumerable<IPublishedContent>>("socialChannels")
+    })
+
+    @if (!string.IsNullOrWhiteSpace(copyright))
+    {
+        <p class="c-footer__copyright">
+            @Html.Raw(copyright.Replace("\n", "<br/>"))
+        </p>
+    }
+</footer>

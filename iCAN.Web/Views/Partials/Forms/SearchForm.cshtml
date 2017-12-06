@@ -1,0 +1,21 @@
+@inherits UmbracoViewPage<IPublishedContent>
+@{ 
+    var query = Request.QueryString["q"];
+    if (query.IsNullOrWhiteSpace())
+    {
+        query = "";
+    }
+}
+
+<form class="c-search" role="search" method="get" action="/search">
+    <label class="c-search__label" for="q">Search</label>
+    <div class="c-search__inner">
+        <input type="search" class="c-search__input" name="q" value="@query"/>
+        <button type="submit" class="c-search__submit">
+            <svg class="u-icon u-icon--32">
+                <use xlink:href="/assets/icons/icons.svg#search"></use>
+            </svg>
+            <span class="u-visually-hidden">Search</span>
+        </button>
+    </div>
+</form>

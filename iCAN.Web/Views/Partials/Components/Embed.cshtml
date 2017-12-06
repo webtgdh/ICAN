@@ -1,0 +1,12 @@
+@using TGDH.Core.Models;
+@inherits UmbracoViewPage<EmbedViewModel>
+@{
+    if (string.IsNullOrWhiteSpace(Model.EmbedCode))
+    {
+        return;
+    }
+}
+
+<div class="c-embed @Model.ModifierClass">
+    @Html.Raw(Model.EmbedCode)
+</div>

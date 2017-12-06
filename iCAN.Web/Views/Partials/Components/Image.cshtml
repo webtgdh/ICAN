@@ -1,0 +1,40 @@
+@using TGDH.Core.Models;
+@inherits UmbracoViewPage<ImageViewModel>
+@{
+    if (Model.Image == null)
+    {
+        return;
+    }
+
+    @* aspect ratio *@
+    var hasRatio = !string.IsNullOrEmpty(Model.AspectRatio);
+    var aspectRatio = hasRatio ? Model.AspectRatio : null;
+    var aspectRatioClass = hasRatio ? "o-aspect--" + aspectRatio.Replace(":", "-") : "";
+
+        @* alignment *@
+    var alignment = !string.IsNullOrEmpty(Model.Alignment) ? Model.Alignment.ToLower() : "default";
+    if (alignment == "full width")
+    {
+        alignment = "full";
+		Model.ModifierClass = Model.ModifierClass + " o-page-component";
+    }
+    Model.ModifierClass = Model.ModifierClass + " o-align--" + alignment;
+
+        @* images *@
+    var imageWidth = alignment != "default" && alignment != "full width" ? Model.ImageWidth / 2 : Model.ImageWidth;
+    var imageUrlLow = Url.GetCropUrl(Model.Image, cropAlias: aspectRatio, width: 20, htmlEncode: false);
+    var imageUrlHigh = Url.GetCropUrl(Model.Image, cropAlias: aspectRatio, width: imageWidth, htmlEncode: false);
+
+    var caption = Model.Image.GetPropertyValue<string>("caption");
+    var altText = Model.Image.GetPropertyValue<string>("altText");
+}
+
+<figure class="o-media @Model.ModifierClass">
+	<div class="@aspectRatioClass">
+    	<img class="o-media__image js-lazyload" src="@imageUrlLow" data-src="@imageUrlHigh" alt="@altText" />
+	</div>
+    @if (!string.IsNullOrEmpty(caption))
+    {
+        <figcaption class="c-caption">@caption</figcaption>
+    }
+</figure>

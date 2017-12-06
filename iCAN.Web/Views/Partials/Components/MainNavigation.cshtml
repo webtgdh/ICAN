@@ -1,0 +1,61 @@
+@using TGDH.Core.Models;
+@inherits UmbracoViewPage<PageListingViewModel>
+@{
+    if( Model.Listing == null ) {
+        return;
+    }
+}
+
+<nav id="mainNavigation" class="c-nav c-nav--main js-nav" role="navigation" aria-labelledby="toggle-menu">
+    <ul class="c-nav__list">
+        @foreach (var item in Model.Listing)
+        {
+            var activeStateClass = item.IsAncestorOrSelf(Model.CurrentModel) ? "is-active" : null;
+
+            <li class="c-nav__item c-nav__item--parent">
+                <a href="@item.Url" class="c-nav__link @activeStateClass">
+                    @item.Name
+                </a>
+                @Traverse(item)
+            </li>
+        }
+    </ul>
+</nav>
+
+@helper Traverse(IPublishedContent node)
+{
+    const int maxLevelForNav = 1;
+
+    var items = node.Children
+        .Where(DocumentTypeIsNotIgnored)
+        .Where(x => x.IsVisible() && x.TemplateId > 0 && x.Level <= maxLevelForNav)
+        .ToList();
+
+    if (items.Any())
+    {
+        <ul class="c-nav__list c-nav__list--sub js-nav-sub">
+            @foreach (var item in items)
+            {
+                var activeStateClass = Model.CurrentModel == item ? "is-active" : null;
+
+                <li class="c-nav__item">
+                    <a href="@item.Url" class="c-nav__link @activeStateClass">
+                        @item.Name
+                    </a>
+                    @Traverse(item)
+                </li>
+            }
+        </ul>
+    }
+}
+
+@functions {
+
+    private static bool DocumentTypeIsNotIgnored(IPublishedContent arg)
+    {
+        const string ignoredDocTypes = "errorPage,notFound,generalNews,inTheMedia,pressRelease,post";
+
+        return ignoredDocTypes.Split(',').All(docType => docType != arg.DocumentTypeAlias);
+    }
+
+}

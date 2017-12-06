@@ -1,0 +1,33 @@
+@inherits UmbracoViewPage<InputViewModel>
+
+@*
+<div class="o-form__field o-form__field--compact is-required">
+    @Html.TextBoxFor(x => x.TextboxInput, new {required = "required", @class = "o-input"})
+    @Html.LabelFor(x => x.TextboxInput, new {@class = "o-label"})
+    @Html.ValidationMessageFor(x => x.TextboxInput)
+</div>
+
+<div class="o-form__field o-form__field--compact is-required">
+    <input class="o-input" id="TextboxInput" name="TextboxInput" required="required" type="text" value="">
+    <label class="o-label" for="TextboxInput">Textbox input</label>
+</div>
+(*@
+
+<div class="o-form__field">
+    <input class="o-input" id="@Model.Id" name="@Model.Name" type="text" value="">
+    <label class="o-label" for="@Model.Id">@Model.Label</label>
+</div>
+
+@*
+<div class="b-form__row @Model.ModifierClass">
+	<label for="@Model.Id" class="b-form__label">@Model.Label</label>
+	<div class="b-form__field">
+		<input class="b-form__input" id="@Model.Id" type="{{ .type }}" name="@Model.Name"
+            @String.IsNullOrWhiteSpace(Model.Placeholder) ? placeholder="@Model.Placeholder" : "";
+        >
+	</div>
+    @if( Model.ValidationMessage ) {
+	    <span class="b-form__validation" id="@Model.Id-description">@Model.ValidationMessage</span>
+    }
+</div>
+*@
