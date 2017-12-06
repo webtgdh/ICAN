@@ -1,0 +1,173 @@
+/* ===========================================================
+
+	# Carousel
+
+=========================================================== */
+
+.js-carousel {
+
+	.c-carousel__item {
+		display: none;
+	}
+
+	.c-carousel__item--first {
+		display: block;
+	}
+
+	&.slick-initialized {
+
+		.c-carousel__item {
+			display: block;
+		}
+
+	}
+
+}
+
+.c-carousel {
+	position: relative;
+}
+
+.c-carousel__nav {
+	color: $white;
+	background-color: $pri;
+	padding: 1rem;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	z-index: 2;
+	line-height: 1;
+	font-size: 3.2rem;
+	text-align: center;
+	transition: color $speed $ease,
+				background-color $speed $ease;
+
+	&:hover,
+	&:focus {
+		background-color: $sec;
+	}
+
+	&.slick-disabled {
+		&:before {
+			color: lighten( $border-colour, 5 );
+		}
+	}
+}
+
+.c-carousel__nav--prev {
+	left: 0;
+	transform: translate( -50%, -50% );
+}
+
+.c-carousel__nav--next {
+	right: 0;
+	transform: translate( 50%, -50% );
+}
+
+.c-carousel--invert {
+
+	.c-carousel__nav {
+		color: $white;
+		opacity: .5;
+		transition: opacity $speed $ease;
+
+		&:hover,
+		&:focus {
+			opacity: 1;
+		}
+	}
+
+}
+
+/* dots */
+
+.c-carousel__dots {
+    position: relative;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    li {
+        position: relative;
+        display: inline-block;
+        width: 2.1rem;
+		height: 2.1rem;
+        margin: 0 .5rem;
+        padding: 0;
+        cursor: pointer;
+	}
+
+    button {
+        border: .2rem solid $pri;
+        background: transparent;
+        display: block;
+        height: 2.1rem;
+        width: 2.1rem;
+        outline: none;
+        line-height: 0;
+        font-size: 0;
+        color: transparent;
+        padding: .5rem;
+        cursor: pointer;
+		border-radius: 50%;
+		transition: background-color $speed $ease,
+					border-color $speed $ease;
+
+        &:hover,
+		&:focus {
+            outline: none;
+			background-color: $pri;
+        }
+    }
+
+	.slick-active {
+
+		button {
+			background-color: $pri;
+		}
+
+	}
+
+}
+
+.c-carousel--invert {
+
+	.c-carousel__dots {
+
+		button {
+			border-color: $white;
+		}
+
+		li {
+			&.slick-active {
+				background-color: $white;
+			}
+
+			&:hover,
+			&:focus {
+				background-color: $white;
+			}
+		}
+
+	}
+
+}
+
+.c-carousel--images {
+	.c-carousel__dots {
+		position: absolute;
+		bottom: $line-height;;
+	}
+}
+
+
+@include respond-min( $mq-large ) {
+
+	.c-carousel__nav {
+		font-size: 4.8rem;
+	}
+
+}
