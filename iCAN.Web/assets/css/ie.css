@@ -2426,6 +2426,22 @@ img.mfp-img {
   margin-bottom: 3.4em; }
 
 /* ===========================================================
+  # Colours
+=========================================================== */
+.u-background--light {
+  background-color: #f7f5f2; }
+
+.u-background--purple {
+  color: #FFFFFF;
+  background-color: #3a113e;
+  position: relative;
+  z-index: 1; }
+  .u-background--purple h1,
+  .u-background--purple h2,
+  .u-background--purple h3 {
+    color: inherit; }
+
+/* ===========================================================
 
 	# Free Content
 

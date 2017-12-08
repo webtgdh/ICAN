@@ -1,0 +1,21 @@
+
+/* ===========================================================
+  # Colours
+=========================================================== */
+
+.u-background--light {
+	background-color: $light-1;
+}
+
+.u-background--purple {
+	color: $white;
+	background-color: $purple-1;
+	position: relative;
+	z-index: 1;
+
+	h1,
+	h2,
+	h3 {
+		color: inherit;
+	}
+}
