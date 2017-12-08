@@ -2,7 +2,7 @@
   "name": "ican",
   "version": "3.0.2",
   "description": "",
-  "siteURL": "http://http://www.ican.org.uk/",
+  "siteURL": "http://www.ican.org.uk/",
   "devDependencies": {
     "assemble": "~0.17.1",
     "del": "^2.2.0",
