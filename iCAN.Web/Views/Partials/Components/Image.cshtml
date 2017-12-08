@@ -26,14 +26,14 @@
     var imageUrlHigh = Url.GetCropUrl(Model.Image, cropAlias: aspectRatio, width: imageWidth, htmlEncode: false);
 
     var caption = Model.Image.GetPropertyValue<string>("caption");
-    var altText = Model.Image.GetPropertyValue<string>("altText");
+    var altText = Model.Image.GetPropertyValue<string>("altText", Model.Image.Name);
 
 	var hasLink = !String.IsNullOrWhiteSpace(Model.Url);
 }
 
 <figure class="o-media @Model.ModifierClass">
 	@if (hasLink) {
-		<a href="@Model.Url" class="@aspectRatioClass" target="@Model.Target">
+		<a href="@Model.Url" class="@aspectRatioClass" target="@Model.Target" title="@Model.Name">
 			<img class="o-media__image js-lazyload" src="@imageUrlLow" data-src="@imageUrlHigh" alt="@altText" />
 		</a>
 	} else {
