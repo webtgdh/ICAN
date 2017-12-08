@@ -17,7 +17,7 @@
 }
 
 <nav class="c-pagination @Model.ModifierClass">
-    <span id="label-pagination" class="u-visually-hide">Pagination</span>
+    <span id="label-pagination" class="u-visually-hidden">Pagination</span>
     <ol class="c-pagination__items" aria-labelledby="label-pagination">
         @if (Model.Paging.CurrentIndex > 1) {
             @*
@@ -30,7 +30,7 @@
                     <svg class="u-icon u-icon--24">
                         <use xlink:href="/assets/icons/icons.svg#arrow-left"></use>
                     </svg>
-                    <span class="u-visually-hide">Go to previous page</span>
+                    <span class="u-visually-hidden">Go to previous page</span>
                 </a>
             </li>
         } else {
@@ -48,7 +48,7 @@
 
             <li class="c-pagination__item c-pagination__item--index @activeClass">
                 <a href="@Model.CurrentModel.Url?page=@page@queryString@Model.HashLink" class="c-pagination__link">
-                    <span class="u-visually-hide">Go to page</span> <span class="c-pagination__no">@page</span>
+                    <span class="u-visually-hidden">Go to page</span> <span class="c-pagination__no">@page</span>
                 </a>
             </li>
         }

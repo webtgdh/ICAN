@@ -8,10 +8,11 @@
 	@include hide-text;
 }
 
-.c-breadcrumb__list {
+.c-breadcrumb__items {
 	margin: inherit;
 	list-style: none;
 	@include clearfix();
+	font-size: 1.4rem;
 }
 
 .c-breadcrumb__item {
@@ -22,7 +23,7 @@
 	margin: 0;
 
 	&:before {
-		content: "/";
+		content: "\003E";
 	}
 
 	&:first-of-type {
@@ -39,8 +40,7 @@
 	display: inline-block;
 
 	&.is-active {
-		color: $text-colour;
 		cursor: default;
+		font-weight: 900;
 	}
 }
-

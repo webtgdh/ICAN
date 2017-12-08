@@ -4,8 +4,8 @@
 }
 
 @if (selection.Any()) {
-    <nav class="c-breadcrumb">
-        <span id="label-breadcrumb" class="u-visually-hide">You are here:</span>
+    <nav class="c-breadcrumb o-wrap o-wrap--x-large">
+        <span id="label-breadcrumb" class="u-visually-hidden">You are here:</span>
         <ol class="c-breadcrumb__items" aria-labelledby="label-breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
             @foreach (var item in selection)
             {
