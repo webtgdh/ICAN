@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "3bb7176141d2ca41")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "c33ef10216c3981a")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -3216,6 +3216,24 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Image, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Alt text: Describe what's in the image. Search engines use this as a ranking factor
+		///</summary>
+		[ImplementPropertyType("altText")]
+		public string AltText
+		{
+			get { return this.GetPropertyValue<string>("altText"); }
+		}
+
+		///<summary>
+		/// Caption: Text will be shown with the image
+		///</summary>
+		[ImplementPropertyType("caption")]
+		public string Caption
+		{
+			get { return this.GetPropertyValue<string>("caption"); }
 		}
 
 		///<summary>

@@ -6,9 +6,7 @@
 }
 
 <main class="o-page__inner u-clearfix" role="main">
-	<h1>@Model.GetPropertyValue("headline", Model.Name)</h1>
-	
-	<h2>Cover</h2>
+
 	@Html.Partial("Components/Cover", new CoverViewModel {
         Image = TGDH.Settings<IPublishedContent>("defaultFeaturedImage"),
 		Headline = "Example headline"

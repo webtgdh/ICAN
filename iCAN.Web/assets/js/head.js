@@ -897,22 +897,6 @@ Check if browser implements ECMAScript 6 `String.prototype.contains` per specifi
   
 /*!
 {
-  "name": "CSS Transforms",
-  "property": "csstransforms",
-  "caniuse": "transforms2d",
-  "tags": ["css"]
-}
-!*/
-
-  Modernizr.addTest('csstransforms', function() {
-    // Android < 3.0 is buggy, so we sniff and blacklist
-    // http://git.io/hHzL7w
-    return navigator.userAgent.indexOf('Android 2.') === -1 &&
-           testAllProps('transform', 'scale(1)', true);
-  });
-
-/*!
-{
   "name": "Flexbox",
   "property": "flexbox",
   "caniuse": "flexbox",
@@ -931,6 +915,22 @@ Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows 
 */
 
   Modernizr.addTest('flexbox', testAllProps('flexBasis', '1px', true));
+
+/*!
+{
+  "name": "CSS Transforms",
+  "property": "csstransforms",
+  "caniuse": "transforms2d",
+  "tags": ["css"]
+}
+!*/
+
+  Modernizr.addTest('csstransforms', function() {
+    // Android < 3.0 is buggy, so we sniff and blacklist
+    // http://git.io/hHzL7w
+    return navigator.userAgent.indexOf('Android 2.') === -1 &&
+           testAllProps('transform', 'scale(1)', true);
+  });
 
 
   // Run each test

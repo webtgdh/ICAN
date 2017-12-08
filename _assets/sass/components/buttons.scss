@@ -55,6 +55,20 @@
 	}
 }
 
+.c-button--skiplink {
+	color: $white;
+	background-color: $pri;
+	position: fixed;
+	left: 100%; // Moves button off screen
+	top: 1rem;
+	z-index: 21;
+
+	&:focus {
+		left: 1rem; // Moves button back on screen
+	}
+}
+
+
 @include respond-max( $mq-small ) {
 
 	.c-button + .c-button {

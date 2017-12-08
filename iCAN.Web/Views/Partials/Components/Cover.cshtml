@@ -5,19 +5,20 @@
     {
         return;
     }
+
 }
-<section class="c-cover u-clearfix @Model.ModifierClass">
+<section class="c-cover @Model.ModifierClass">
 	@RenderImage(Model.Image)
-	<div class="c-cover__content o-wrap">
-		<div class="c-cover__copy">
-            @if(!String.IsNullOrWhiteSpace(Model.Headline)) {
-                <h1 class="c-cover__headline">@Model.Headline</h1>
-            }
-            @if(Model.Copy != null) {
-                <div class="c-cover__copy">
-                    @Model.Copy
-                </div>
-            }
+	<div class="c-cover__inner o-wrap o-wrap--x-large">
+		<div class="c-cover__content">
+			@if (!String.IsNullOrWhiteSpace(Model.Headline)) {
+				<h1 class="c-cover__headline u-mega">@Model.Headline</h1>
+			}
+			@if(Model.Copy != null) {
+				<div class="c-cover__copy">
+					@Model.Copy
+				</div>
+			}
 			@RenderCTA(Model.Cta)
 		</div>
 	</div>
@@ -40,41 +41,41 @@
 
 	string smallImageUrl = Url.GetCropUrl(
 		image,
-		cropAlias: "1:1",
+		cropAlias: "3:4",
 		width: 800,
 		htmlEncode: false
 	).ToString();
 
 	string mediumImageUrl = Url.GetCropUrl(
 		image,
-		cropAlias: "16:9",
-		width: 800,
+		cropAlias: "1:1",
+		width: 1200,
 		htmlEncode: false
 	).ToString();
 
 	string largeImageUrl = Url.GetCropUrl(image,
 		cropAlias: "16:9",
-		width: 600,
+		width: 1400,
 		htmlEncode: false
 	).ToString();
 
 	string xLargeImageUrl = Url.GetCropUrl(
 		image,
 		cropAlias: "16:9",
-		width: 700,
+		width: 1600,
 		htmlEncode: false
 	).ToString();
 
 	string xxLargeImageUrl = Url.GetCropUrl(image,
 		cropAlias: "16:9",
-		width: 900,
+		width: 1800,
 		htmlEncode: false
 	).ToString();
 
 	string xxxLargeImageUrl = Url.GetCropUrl(
 		image,
-		cropAlias: "16:9",
-		width: 1200,
+		cropAlias: "21:9",
+		width: 2200,
 		htmlEncode: false
 	).ToString();
 
@@ -87,6 +88,6 @@
         <source srcset="@mediumImageUrl" data-srcset="@mediumImageUrl" media="(min-width: 600px)">
         <source srcset="@smallImageUrl" data-srcset="@smallImageUrl" media="(max-width: 599px)">
         <!--[if IE 9]></video><![endif]-->
-        <img src="@xLargeImageUrl&quality=18" data-src="@xLargeImageUrl" alt="@altText" class="c-cover__image js-lazyload" alt="@altText">
+        <img src="@largeImageUrl&quality=18" data-src="@xLargeImageUrl" alt="@altText" class="c-cover__image js-lazyload" alt="@altText">
     </picture>
 }

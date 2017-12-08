@@ -8,33 +8,72 @@
 	position: relative;
 	overflow: hidden;
 	background-color: $placeholder-colour;
+/*
+	&::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		opacity: 0.67;
+		background-image: linear-gradient(to right top, #000000, rgba(0,0,0, 0) 56%);
+	}
+	 */
 }
 
-.c-cover__wrap {
-	width: 100%;
-	height: 100%;
-	margin: 0 auto;
-}
-
-.c-cover__content {
-	z-index: 1;
+.c-cover__inner {
+	z-index: 2;
 	position: absolute;
 	top: 30%;
 	right: 0;
 	left: 0;
 }
 
+.c-cover__headline {
+	color: $white;
+}
+
 .csstransforms {
-	
-	.c-cover__content {
+
+	.c-cover__inner {
 		top: 50%;
 		transform: translateY(-50%);
 	}
 
 }
 
+.c-cover__image-wrap {
+
+	&::before {
+		content: "";
+		width: 100%;
+		height: 28%;
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		background-image: linear-gradient(0deg,rgba(0,0,0,.3) 0%,rgba(0,0,0,.0) 100%);
+	}
+
+	&::after {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: rgba(0,0,0,0.15);
+	}
+}
+
 .c-cover__image {
 	width: 100%;
+	height: 100%;
 }
 
 .c-cover__wrap,
@@ -51,14 +90,64 @@
 =========================================================== */
 
 .c-cover {
-	
+
 	&:before {
 		content: '';
 		display: block;
 		height: 0;
 		width: 100%;
-		@include pad-top( 800, 400 );
+		@include pad-top( 160, 90 );
 	}
 
 }
 
+@include respond-max( $mq-small ) {
+
+	.c-cover::before {
+
+		@include pad-top( 30, 40 );
+	}
+
+}
+
+@include respond-min-max( $mq-small, $mq-medium ) {
+
+	.c-cover::before {
+		padding-top: 100%;
+	}
+
+}
+
+@include respond-min( $mq-large ) {
+
+	.c-cover__content {
+		max-width: $mq-xx-large / 1.5;
+	}
+
+	.c-cover__copy {
+		max-width: 52rem;
+	}
+
+}
+
+@include respond-min( 1800px ) {
+
+	.c-cover::before {
+		@include pad-top(210,90);
+	}
+
+}
+
+
+.flexbox {
+
+	.c-cover__content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.c-cover__subtitle {
+		order: -1;
+	}
+
+}

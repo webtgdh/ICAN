@@ -9,7 +9,6 @@ $base-dir: 					'/assets';
 $fonts: 					'#{$base-dir}/fonts';
 $images: 					'#{$base-dir}/img';
 
-
 /* ===========================================================
 
 	# COLOURS
@@ -21,14 +20,17 @@ $black: 					#000000;
 $red:						#f44336;
 $green:						#4caf50;
 
-$dark-1:					#1d1d1d;
+$dark-1:					#222222;
 
-$light-1:					#f7f7f7;
-$light-2:					darken( $light-1, 5% );
+$light-1:					#f7f5f2;
 
-$pri: 						#00b7ce;
-$sec: 						#ed1165;
-$ter:				 		#fad620;
+$purple-1:					#3a113e;
+$purple-2:					#4f1c47;
+
+$orange-1:					#ff9933;
+
+$pri: 						$purple-2;
+$sec: 						$orange-1;
 
 $facebook: 					#3b5998;
 $twitter: 					#55acee;
