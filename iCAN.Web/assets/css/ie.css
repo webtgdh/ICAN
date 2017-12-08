@@ -238,7 +238,7 @@ button {
           font-feature-settings: 'liga', 'kern';
   -webkit-font-kerning: normal;
           font-kerning: normal;
-  line-height: 1.4em;
+  line-height: 1.7em;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased; }
 
@@ -247,7 +247,7 @@ p + ul,
 p + ol,
 ul + p,
 ol + p {
-  margin-top: 1.4em; }
+  margin-top: 1.7em; }
 
 p + h1,
 p + h2,
@@ -267,7 +267,7 @@ ol + h3,
 ol + h4,
 ol + h5,
 ol + h6 {
-  padding-top: 1.4em; }
+  padding-top: 1.7em; }
 
 em {
   font-style: italic; }
@@ -489,14 +489,14 @@ button {
 
 =========================================================== */
 li {
-  margin: 0.35em 3rem; }
+  margin: 0.425em 3rem; }
   li:first-child {
     margin-top: 0; }
   li:last-child {
     margin-bottom: 0; }
   li > ul,
   li > ol {
-    margin-top: 0.35em; }
+    margin-top: 0.425em; }
 
 /* ===========================================================
 
@@ -674,7 +674,7 @@ html {
 =========================================================== */
 @media only screen and (max-width: 599px) {
   .o-col + .o-col {
-    margin-top: 1.4em; } }
+    margin-top: 1.7em; } }
 
 @media only screen and (min-width: 600px) {
   .o-col--three .o-col {
@@ -741,7 +741,7 @@ html {
 
 .o-validation {
   display: none;
-  margin-top: 0.35em; }
+  margin-top: 0.425em; }
   .is-valid .o-validation {
     display: block;
     color: #4caf50; }
@@ -751,7 +751,7 @@ html {
 
 .o-label {
   font-weight: 700;
-  padding-bottom: 0.35em; }
+  padding-bottom: 0.425em; }
 
 .o-label__note {
   color: #ccc;
@@ -794,7 +794,7 @@ html {
 
 .o-fieldset__legend {
   font-weight: 700;
-  padding-bottom: 0.35em;
+  padding-bottom: 0.425em;
   width: 100%; }
   .o-fieldset__legend .o-label__note {
     float: none; }
@@ -813,7 +813,7 @@ html {
 .enhance .o-checkbox,
 .enhance .o-radio {
   font-weight: normal;
-  padding: 0.7em 0.7em 0.7em 3rem;
+  padding: 0.85em 0.85em 0.85em 3rem;
   position: relative; }
   .enhance .o-checkbox .o-checkbox__label:before,
   .enhance .o-checkbox .o-radio__label:before,
@@ -827,7 +827,7 @@ html {
     box-sizing: border-box;
     content: '';
     position: absolute;
-    top: 0.7em;
+    top: 0.85em;
     left: 0;
     transition: background-color 0.3s ease, border-color 0.3s ease; }
   .enhance .o-checkbox .o-checkbox__input,
@@ -865,7 +865,7 @@ html {
 .o-input + .c-button,
 .o-select + .c-button,
 .o-textarea + .c-button {
-  margin-top: 2.8em; }
+  margin-top: 3.4em; }
 
 /* ===========================================================
 
@@ -927,10 +927,10 @@ html {
     width: 40%; }
   .o-align--left {
     float: left;
-    margin-right: 2.8em; }
+    margin-right: 3.4em; }
   .o-align--right {
     float: right;
-    margin-left: 2.8em; } }
+    margin-left: 3.4em; } }
 
 /* ===========================================================
 
@@ -971,7 +971,7 @@ img {
 
 =========================================================== */
 .o-page-component + .o-page-component {
-  margin-top: 2.8em; }
+  margin-top: 3.4em; }
 
 /* Slider */
 .slick-slider {
@@ -1388,7 +1388,7 @@ img.mfp-img {
   background: #FFFFFF;
   padding: 4rem 2rem 2rem;
   width: auto;
-  margin: 2.8em auto;
+  margin: 3.4em auto;
   max-width: 75rem; }
 
 .mfp-close {
@@ -1726,7 +1726,7 @@ img.mfp-img {
 
 @media only screen and (max-width: 599px) {
   .c-button + .c-button {
-    margin-top: 1.4em; } }
+    margin-top: 1.7em; } }
 
 @media only screen and (min-width: 600px) {
   .c-button {
@@ -1751,7 +1751,7 @@ img.mfp-img {
 .c-quote__src {
   text-align: right;
   font-weight: 700;
-  margin-top: 1.4em; }
+  margin-top: 1.7em; }
 
 .c-quote:before {
   color: #4f1c47;
@@ -1921,7 +1921,7 @@ img.mfp-img {
 =========================================================== */
 .c-caption {
   color: #4f1c47;
-  margin-top: 0.35em; }
+  margin-top: 0.425em; }
 
 /* ===========================================================
 
@@ -2024,7 +2024,7 @@ img.mfp-img {
 
 .c-carousel--images .c-carousel__dots {
   position: absolute;
-  bottom: 1.4em; }
+  bottom: 1.7em; }
 
 @media only screen and (min-width: 1000px) {
   .c-carousel__nav {
@@ -2184,7 +2184,7 @@ img.mfp-img {
 =========================================================== */
 .no-enhance .c-tabs__nav {
   border-left: 0.2rem solid #4f1c47;
-  margin-bottom: 1.4em; }
+  margin-bottom: 1.7em; }
   .no-enhance .c-tabs__nav:before {
     content: "Contents";
     padding: 1rem;
@@ -2198,11 +2198,11 @@ img.mfp-img {
   margin: 0; }
 
 .no-enhance .c-tabs__nav-tab {
-  padding: 0.35em 0.7em;
+  padding: 0.425em 0.85em;
   display: block; }
 
 .no-enhance .c-tabs__content-tab + .c-tabs__content-tab {
-  margin-top: 1.4em; }
+  margin-top: 1.7em; }
 
 .enhance .js-tabs {
   opacity: 0;
@@ -2281,7 +2281,7 @@ img.mfp-img {
   padding-right: 5rem; }
 
 .enhance .c-tabs__nav-item + .c-tabs__nav-item {
-  margin-left: 1.4em; }
+  margin-left: 1.7em; }
 
 .enhance .c-tabs__nav-item .c-tabs__nav-tab {
   color: #FFFFFF;
@@ -2303,7 +2303,7 @@ img.mfp-img {
   padding: 1rem; }
 
 .enhance .c-tabs__content-tab {
-  padding: 2.8em; }
+  padding: 3.4em; }
 
 /* ===========================================================
 
@@ -2313,10 +2313,10 @@ img.mfp-img {
 .c-sitemap {
   list-style: none; }
   .c-sitemap > li > ul {
-    margin-top: 1.4em; }
+    margin-top: 1.7em; }
 
 .c-sitemap__item {
-  line-height: 1.4em;
+  line-height: 1.7em;
   vertical-align: top;
   position: relative;
   list-style: none;
@@ -2328,23 +2328,23 @@ img.mfp-img {
 
 .c-sitemap__list {
   margin-top: 0;
-  margin-bottom: 1.4em;
-  margin-left: 1.4em; }
+  margin-bottom: 1.7em;
+  margin-left: 1.7em; }
 
 .c-sitemap__item {
   position: relative; }
   .c-sitemap__item:before {
     content: "";
     display: inline-block;
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.7em;
+    height: 1.7em;
     position: absolute;
-    top: -0.7em;
+    top: -0.85em;
     border-left: 1px solid #ccc;
     border-bottom: 1px solid #ccc; }
 
 .c-sitemap__link {
-  margin-left: 2.1em; }
+  margin-left: 2.55em; }
 
 /* ===========================================================
 
@@ -2413,16 +2413,16 @@ img.mfp-img {
 
 =========================================================== */
 .u-space-top {
-  margin-top: 1.4em; }
+  margin-top: 1.7em; }
 
 .u-space-top--large {
-  margin-top: 2.8em; }
+  margin-top: 3.4em; }
 
 .u-space-bottom {
-  margin-bottom: 1.4em; }
+  margin-bottom: 1.7em; }
 
 .u-space-bottom--large {
-  margin-bottom: 2.8em; }
+  margin-bottom: 3.4em; }
 
 /* ===========================================================
 
