@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "c33ef10216c3981a")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "d8cd6ba56b495e1e")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -1838,6 +1838,15 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			get { return this.GetPropertyValue<IPublishedContent>("image"); }
 		}
+
+		///<summary>
+		/// Link: Optional: Adding a URL will turn the image into a link
+		///</summary>
+		[ImplementPropertyType("link")]
+		public RJP.MultiUrlPicker.Models.Link Link
+		{
+			get { return this.GetPropertyValue<RJP.MultiUrlPicker.Models.Link>("link"); }
+		}
 	}
 
 	/// <summary>In the media</summary>
@@ -3155,6 +3164,41 @@ namespace Umbraco.Web.PublishedContentModels
 		public IPublishedContent SocialMediaImage
 		{
 			get { return Umbraco.Web.PublishedContentModels.SEO.GetSocialMediaImage(this); }
+		}
+	}
+
+	/// <summary>Button</summary>
+	[PublishedContentModel("button")]
+	public partial class Button : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "button";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Button(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Button, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Button link
+		///</summary>
+		[ImplementPropertyType("buttonLink")]
+		public RJP.MultiUrlPicker.Models.Link ButtonLink
+		{
+			get { return this.GetPropertyValue<RJP.MultiUrlPicker.Models.Link>("buttonLink"); }
 		}
 	}
 

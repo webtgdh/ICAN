@@ -943,6 +943,8 @@ img {
 
 .o-media {
   position: relative; }
+  .o-media > a {
+    display: block; }
   .o-media img {
     width: 100%;
     border-radius: 0.3rem; }

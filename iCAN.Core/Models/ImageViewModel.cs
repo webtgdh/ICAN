@@ -12,6 +12,12 @@ namespace iCAN.Core.Models
 
         public int ImageWidth { get; set; }
 
+        public string Url { get; set; }
+
+        public string Name { get; set; }
+
+        public string Target { get; set; }
+
         public string ModifierClass { get; set; }
 
         public ImageViewModel()

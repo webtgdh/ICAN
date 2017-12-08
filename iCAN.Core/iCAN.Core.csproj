@@ -93,6 +93,7 @@
     <Compile Include="ExtensionMethods\IntExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\StringExtensionMethods.cs" />
     <Compile Include="Models\AuthorViewModel.cs" />
+    <Compile Include="Models\ButtonViewModel.cs" />
     <Compile Include="Models\CardViewModel.cs" />
     <Compile Include="Models\CoverViewModel.cs" />
     <Compile Include="Models\DownloadsViewModel.cs" />

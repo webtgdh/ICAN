@@ -1,0 +1,11 @@
+@using iCAN.Core.Models;
+@inherits UmbracoViewPage<ButtonViewModel>
+@{
+	if (String.IsNullOrWhiteSpace(Model.Url)) {
+		return;
+	}
+}
+
+<a href="@Model.Url"
+	target="@Model.Target"
+	class="c-button c-button--primary @Model.ModifierClass">@Model.Name</a>

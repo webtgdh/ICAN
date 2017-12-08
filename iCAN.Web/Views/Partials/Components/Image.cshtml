@@ -27,12 +27,20 @@
 
     var caption = Model.Image.GetPropertyValue<string>("caption");
     var altText = Model.Image.GetPropertyValue<string>("altText");
+
+	var hasLink = !String.IsNullOrWhiteSpace(Model.Url);
 }
 
 <figure class="o-media @Model.ModifierClass">
-	<div class="@aspectRatioClass">
-    	<img class="o-media__image js-lazyload" src="@imageUrlLow" data-src="@imageUrlHigh" alt="@altText" />
-	</div>
+	@if (hasLink) {
+		<a href="@Model.Url" class="@aspectRatioClass" target="@Model.Target">
+			<img class="o-media__image js-lazyload" src="@imageUrlLow" data-src="@imageUrlHigh" alt="@altText" />
+		</a>
+	} else {
+		<div class="@aspectRatioClass">
+			<img class="o-media__image js-lazyload" src="@imageUrlLow" data-src="@imageUrlHigh" alt="@altText" />
+		</div>
+	}
     @if (!string.IsNullOrEmpty(caption))
     {
         <figcaption class="c-caption">@caption</figcaption>
