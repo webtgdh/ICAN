@@ -35,7 +35,7 @@
 		// Avoid Plugin.prototype conflicts
 		$.extend(Plugin.prototype, {
 			init: function () {
-				this._activeTab		= ( this.getUrlHash() !== "" ? $('#' + this.getUrlHash() ).index() : 0 );
+				this._activeTab		= 0;
 				this.$nav 			= this.element.find('nav');
 				this.$navList		= this.$nav.find('ul');
 				this.$navItems		= this.$navList.find('li');
@@ -73,7 +73,7 @@
 
 					if( !$this.hasClass('is-active') ) {
 						$self.setActiveTab( $this.index() );
-						$self.setActiveHash( $this.find('a').attr('href') );
+						// $self.setActiveHash( $this.find('a').attr('href') );
 					}
 					e.preventDefault();
 				});
@@ -148,7 +148,7 @@
 
 				$leftScroll.removeClass('is-disabled');
 				$rightScroll.removeClass('is-disabled');
-				
+
 				if( $menuBar.scrollLeft <= 0 ) {
 					$leftScroll.addClass('is-disabled');
 				}
@@ -178,7 +178,7 @@
 					this._resizeTimer = setTimeout( $self.animateContentHeight( $activeContentTab ), 250 );
 				});
 			}
-				
+
 		});
 
 		// A really lightweight plugin wrapper around the constructor,

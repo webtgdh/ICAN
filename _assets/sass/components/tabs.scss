@@ -4,6 +4,10 @@
 
 =========================================================== */
 
+.c-tabs {
+	clear: both;
+}
+
 .no-enhance {
 
 	.c-tabs__nav {
@@ -38,7 +42,7 @@
 }
 
 .enhance {
-	
+
 	.js-tabs {
 		opacity: 0;
 		transition: opacity $speed $ease;
@@ -87,7 +91,7 @@
 		position: absolute;
 		top: 0;
 		bottom: 0;
-		transition: color $speed $ease,	
+		transition: color $speed $ease,
 					opacity $speed $ease;
 
 		&.is-disabled {
@@ -104,7 +108,7 @@
 	}
 
 	.c-tabs__nav {
-		
+
 		&.is-start {
 			.c-tabs__page--prev {
 				opacity: .1;
@@ -145,47 +149,58 @@
 
 .enhance {
 
+	.c-tabs__page {
+		display: none;
+	}
+
 	.c-tabs__nav {
-		padding-left: 5rem;
-		padding-right: 5rem;
+		// padding-left: 5rem;
+		// padding-right: 5rem;
+		border-bottom: 1px solid $border-colour;
+
+		&::after {
+			content: "";
+			width: 90%;
+			height: 2rem;
+			z-index: 1;
+			position: absolute;
+			right: 10%;
+			bottom: -2rem;
+			left: 10%;
+			display: block!important;
+			border-radius: 100%;
+			box-shadow: 0 -6px 10px 0 rgba(0,0,0,.05);
+		}
 	}
 
 	.c-tabs__nav-item {
 
 		+ .c-tabs__nav-item {
-			margin-left: $line-height;
+			margin-left: $line-height / 2;
 		}
 
 		.c-tabs__nav-tab {
-			color: $white;
-			background-color: $pri;
+			color: $text-colour;
+			font-weight: $bold;
+			background-color: $light-1;
 			padding: 1.4rem 4rem;
-			border-radius: $border-radius $border-radius 0 0;
+			border-radius: 3rem 3rem 0 0;
 
 			&:hover,
 			&:focus {
-				background-color: darken( $pri, 5% );
+				background-color: $light-2;
 			}
 		}
 
 		&.is-active .c-tabs__nav-tab {
-			color: $pri;
-			background-color: $light-1;
+			color: $white;
+			background-color: $sec;
 		}
 
 	}
 
-	.c-tabs__page,
-	.c-tabs__content {
-		background-color: $light-1;
-	}
-
-	.c-tabs__page {
-		padding: 1rem;
-	}
-
 	.c-tabs__content-tab {
-		padding: $line-height * 2;
+		padding: $line-height 0;
 	}
 
 
