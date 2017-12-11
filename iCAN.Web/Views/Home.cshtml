@@ -16,13 +16,16 @@
 
 	<section class="o-section t-home__about">
 		<div class="o-wrap o-wrap--x-large u-clearfix">
-			<div class="t-home__about__col">
-				<h2>About I CAN</h2>
-				<p>Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+			<div class="t-home__about__col t-home__about__col--first">
+				@Html.Partial("~/Views/Partials/Components/Heading.cshtml", new HeadingViewModel {
+					Headline = "About I CAN",
+					Subtitle = "Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum."
+				})
+				<p><strong>Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</strong></p>
 				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur.</p>
 				<p>Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. <a href="">Read more</a></p>
 			</div>
-			<div class="t-home__about__col">
+			<div class="t-home__about__col t-home__about__col--last">
 				@Html.Partial("~/Views/Partials/Components/ImageMozaic.cshtml", new ImageMozaicViewModel {
 					ImageFirst = Umbraco.TypedMedia(1175),
 					ImageSecond = Umbraco.TypedMedia(1174),

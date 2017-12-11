@@ -336,47 +336,47 @@ h6,
 .u-alpha,
 .u-beta,
 .u-gamma {
-  line-height: 1.1; }
+  line-height: 1; }
 
 .u-tera {
   font-size: 5.8133024077rem;
-  padding-bottom: 2.9066512038rem; }
+  margin-bottom: 1.9377674692rem; }
 
 .u-giga {
   font-size: 4.9474914108rem;
-  padding-bottom: 2.4737457054rem; }
+  margin-bottom: 1.6491638036rem; }
 
 .u-mega {
   font-size: 4.2106309879rem;
-  padding-bottom: 2.1053154939rem; }
+  margin-bottom: 1.4035436626rem; }
 
 h1,
 .u-alpha {
   font-size: 3.5835157344rem;
-  padding-bottom: 1.7917578672rem; }
+  margin-bottom: 1.1945052448rem; }
 
 .u-beta {
   font-size: 3.049800625rem;
-  padding-bottom: 1.5249003125rem; }
+  margin-bottom: 1.0166002083rem; }
 
 h2,
 .u-gamma {
   font-size: 2.595575rem;
-  padding-bottom: 1.2977875rem; }
+  margin-bottom: 0.8651916667rem; }
 
 .u-delta {
   font-size: 2.209rem;
-  padding-bottom: 1.1045rem; }
+  margin-bottom: 0.7363333333rem; }
 
 h3,
 .u-epsilon {
   font-size: 1.88rem;
-  padding-bottom: 0.94rem; }
+  margin-bottom: 0.6266666667rem; }
 
 h4,
 .u-zeta {
   font-size: 1.6rem;
-  padding-bottom: 0.8rem; }
+  margin-bottom: 0.5333333333rem; }
 
 .u-intro {
   font-size: 1.88rem;
@@ -389,35 +389,35 @@ figcaption {
 @media only screen and (min-width: 600px) and (max-width: 799px) {
   .u-tera {
     font-size: 6.879707136rem;
-    padding-bottom: 3.439853568rem; }
+    margin-bottom: 2.293235712rem; }
   .u-giga {
     font-size: 5.73308928rem;
-    padding-bottom: 2.86654464rem; }
+    margin-bottom: 1.91102976rem; }
   .u-mega {
     font-size: 4.7775744rem;
-    padding-bottom: 2.3887872rem; }
+    margin-bottom: 1.5925248rem; }
   h1,
   .u-alpha {
     font-size: 3.981312rem;
-    padding-bottom: 1.990656rem; }
+    margin-bottom: 1.327104rem; }
   .u-beta {
     font-size: 3.31776rem;
-    padding-bottom: 1.65888rem; }
+    margin-bottom: 1.10592rem; }
   h2,
   .u-gamma {
     font-size: 2.7648rem;
-    padding-bottom: 1.3824rem; }
+    margin-bottom: 0.9216rem; }
   .u-delta {
     font-size: 2.304rem;
-    padding-bottom: 1.152rem; }
+    margin-bottom: 0.768rem; }
   h3,
   .u-epsilon {
     font-size: 1.92rem;
-    padding-bottom: 0.96rem; }
+    margin-bottom: 0.64rem; }
   h4,
   .u-zeta {
     font-size: 1.6rem;
-    padding-bottom: 0.8rem; }
+    margin-bottom: 0.5333333333rem; }
   .u-intro {
     font-size: 1.92rem; }
   caption,
@@ -427,35 +427,35 @@ figcaption {
 @media only screen and (min-width: 800px) {
   .u-tera {
     font-size: 9.5367431641rem;
-    padding-bottom: 4.768371582rem; }
+    margin-bottom: 3.178914388rem; }
   .u-giga {
     font-size: 7.6293945312rem;
-    padding-bottom: 3.8146972656rem; }
+    margin-bottom: 2.5431315104rem; }
   .u-mega {
     font-size: 6.103515625rem;
-    padding-bottom: 3.0517578125rem; }
+    margin-bottom: 2.0345052083rem; }
   h1,
   .u-alpha {
     font-size: 4.8828125rem;
-    padding-bottom: 2.44140625rem; }
+    margin-bottom: 1.6276041667rem; }
   .u-beta {
     font-size: 3.90625rem;
-    padding-bottom: 1.953125rem; }
+    margin-bottom: 1.3020833333rem; }
   h2,
   .u-gamma {
     font-size: 3.125rem;
-    padding-bottom: 1.5625rem; }
+    margin-bottom: 1.0416666667rem; }
   .u-delta {
     font-size: 2.5rem;
-    padding-bottom: 1.25rem; }
+    margin-bottom: 0.8333333333rem; }
   h3,
   .u-epsilon {
     font-size: 2rem;
-    padding-bottom: 1rem; }
+    margin-bottom: 0.6666666667rem; }
   h4,
   .u-zeta {
     font-size: 1.6rem;
-    padding-bottom: 0.8rem; }
+    margin-bottom: 0.5333333333rem; }
   .u-intro {
     font-size: 2rem; }
   caption,
@@ -2740,6 +2740,31 @@ img.mfp-img {
   padding: 3.4em; }
 
 /* ===========================================================
+	# Heading
+=========================================================== */
+.c-heading:after {
+  content: "";
+  width: 8rem;
+  height: .4rem;
+  display: block;
+  background-color: #4f1c47;
+  margin: 1.7em 0; }
+
+.c-heading.c-heading--center {
+  text-align: center; }
+  .c-heading.c-heading--center:after {
+    margin-left: auto;
+    margin-right: auto; }
+
+.c-heading__headline,
+.c-heading__subtitle {
+  color: #4f1c47; }
+
+.c-heading__subtitle {
+  font-style: italic;
+  padding-bottom: 0; }
+
+/* ===========================================================
 
 	# Sitemap
 
@@ -2915,32 +2940,47 @@ img.mfp-img {
 /* ===========================================================
 # Home
 =========================================================== */
-@media only screen and (max-width: 799px) {
+@media only screen and (max-width: 999px) {
   .t-home__about__col + .t-home__about__col {
     margin-top: 1.7em; } }
 
-@media only screen and (min-width: 800px) {
-  .t-home__about__col {
+@media only screen and (min-width: 1000px) {
+  .t-home__about__col--first {
     *zoom: 1;
     float: left;
     clear: none;
     text-align: inherit;
-    width: 45%;
+    width: 39.9166666667%;
     margin-left: 0%;
-    margin-right: 10%; }
-    .t-home__about__col:before, .t-home__about__col:after {
+    margin-right: 3%; }
+    .t-home__about__col--first:before, .t-home__about__col--first:after {
       content: '';
       display: table; }
-    .t-home__about__col:after {
+    .t-home__about__col--first:after {
       clear: both; }
-    .t-home__about__col:last-child {
+    .t-home__about__col--first:last-child {
       margin-right: 0%; }
-    .t-home__about__col .c-image-mozaic {
-      width: calc(100% + 4rem);
-      width: 47vw;
-      max-width: 94rem;
-      margin-top: -12rem;
-      z-index: 1; }
+  .t-home__about__col--last {
+    *zoom: 1;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 48.5%;
+    margin-left: 8.5833333333%;
+    margin-right: 3%; }
+    .t-home__about__col--last:before, .t-home__about__col--last:after {
+      content: '';
+      display: table; }
+    .t-home__about__col--last:after {
+      clear: both; }
+    .t-home__about__col--last:last-child {
+      margin-right: 0%; }
+  .t-home__about__col .c-image-mozaic {
+    width: calc(100% + 4rem);
+    width: 49vw;
+    max-width: 94rem;
+    margin-top: -12rem;
+    z-index: 1; }
   .t-home__about__col__quote {
     padding-left: 5%; } }
 

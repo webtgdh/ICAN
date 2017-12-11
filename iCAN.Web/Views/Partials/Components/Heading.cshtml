@@ -1,0 +1,27 @@
+@using iCAN.Core.Models;
+@inherits UmbracoViewPage<HeadingViewModel>
+@{
+    if (string.IsNullOrWhiteSpace(Model.Headline))
+    {
+        return;
+    }
+}
+
+<header class="c-heading @Model.ModifierClass">
+	@switch(Model.Level) {
+		case "h1":
+			<h1 class="c-heading__headline u-alpha" itemprop="headline">@Model.Headline</h1>
+			break;
+		case "h3":
+			<h3 class="c-heading__headline u-alpha" itemprop="headline">@Model.Headline</h3>
+			break;
+		default:
+			<h2 class="c-heading__headline u-alpha" itemprop="headline">@Model.Headline</h2>
+			break;
+	}
+	@if (!String.IsNullOrWhiteSpace(Model.Subtitle)) {
+		<div class="c-heading__subtitle u-epsilon">
+			<p>@Model.Subtitle</p>
+		</div>
+	}
+</header>

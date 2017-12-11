@@ -2,7 +2,7 @@
 # Home
 =========================================================== */
 
-@include respond-max($mq-medium) {
+@include respond-max($mq-large) {
 
 	.t-home__about__col {
 
@@ -14,14 +14,21 @@
 
 }
 
-@include respond-min($mq-medium) {
+@include respond-min($mq-large) {
+
+	.t-home__about__col--first {
+		@include column(5/12);
+	}
+
+	.t-home__about__col--last {
+		@include column(6/12, $offset: 1/12);
+	}
 
 	.t-home__about__col {
-		@include column(1/2, $gutter: 10);
 
 		.c-image-mozaic {
 			width: calc(100% + 4rem);
-			width: 47vw;
+			width: 49vw;
 			max-width: 94rem;
 			margin-top: -12rem;
 			z-index: 1;

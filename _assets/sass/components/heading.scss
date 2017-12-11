@@ -1,0 +1,34 @@
+/* ===========================================================
+	# Heading
+=========================================================== */
+
+.c-heading {
+
+	&:after {
+		content: "";
+		width: 8rem;
+		height: .4rem;
+		display: block;
+		background-color: $pri;
+		margin: $line-height 0;
+	}
+
+	&.c-heading--center {
+		text-align: center;
+
+		&:after {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}
+
+.c-heading__headline,
+.c-heading__subtitle {
+	color: $pri;
+}
+
+.c-heading__subtitle {
+	font-style: italic;
+	padding-bottom: 0;
+}

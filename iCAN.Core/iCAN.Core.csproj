@@ -99,6 +99,7 @@
     <Compile Include="Models\DownloadsViewModel.cs" />
     <Compile Include="Models\EmbedViewModel.cs" />
     <Compile Include="Models\GalleryViewModel.cs" />
+    <Compile Include="Models\HeadingViewModel.cs" />
     <Compile Include="Models\ImageMozaicViewModel.cs" />
     <Compile Include="Models\ImageViewModel.cs" />
     <Compile Include="Models\Link.cs" />
