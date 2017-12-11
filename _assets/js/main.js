@@ -53,7 +53,7 @@
 //		$window.ToggleClass.init();
 //		$('select').selectric();
 //		scrollTo($('a[href^="#"]:not(".js-no-scroll")'));
-//		$('.js-tabs').tabs();
+		$('.js-tabs').tabs();
 
 		$window.Carousel.init( $('.js-carousel') );
 //		$window.Modal.init( $('.js-modal') );

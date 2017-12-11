@@ -23,6 +23,7 @@ $green:						#4caf50;
 $dark-1:					#222222;
 
 $light-1:					#f7f5f2;
+$light-2:					darken($light-1, 5);
 
 $purple-1:					#3a113e;
 $purple-2:					#4f1c47;
@@ -65,7 +66,7 @@ $type-scale-large:			1.25;
 $heading-colour:			$purple-2;
 $text-colour:				$black;
 $background-colour:			$white;
-$border-colour:				#ccc;
+$border-colour:				$light-1;
 $link-colour:				$orange-1;
 $link-colour-hover:			$sec;
 $form-placeholder-colour:	#ccc;
@@ -81,7 +82,7 @@ $padding-small:				4rem;
 $padding-medium:			6rem;
 $padding-large:				10rem;
 
-$border-width: 				.2rem;
+$border-width: 				.1rem;
 $border-radius: 			.3rem;
 $speed: 					.3s;
 $ease:						ease;

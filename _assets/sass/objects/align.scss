@@ -9,22 +9,17 @@
 	clear: both;
 }
 
+
 @include respond-min( $mq-medium ) {
 
 	.o-align--default {
-
-		&.o-media {
-			margin-left: -3rem;
-			margin-right: -3rem;
-		}
+		margin-left: -3rem;
+		margin-right: -3rem;
 	}
 
 	.o-align--left,
 	.o-align--right {
-
-		&.o-media {
-			width: 45%;
-		}
+		width: 45%;
 	}
 
 	.o-align--left {
@@ -44,21 +39,13 @@
 @include respond-min( $mq-large ) {
 
 	.o-align--default {
-
-		&.o-media {
-			margin-left: -15%;
-			margin-right: -15%;
-		}
-
+		margin-left: -15%;
+		margin-right: -15%;
 	}
 
 	.o-align--left,
 	.o-align--right {
-
-		&.o-media {
-			width: 55%;
-		}
-
+		width: 55%;
 	}
 
 	.o-align--left {
