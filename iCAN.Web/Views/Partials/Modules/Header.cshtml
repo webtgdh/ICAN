@@ -6,16 +6,18 @@
 }
 
 <header id="header" class="c-header" role="banner">
-    <a href="/" class="c-header__logo-link">
-        <img src="/assets/img/logo.png" alt="@siteName" class="c-header__logo-image">
-    </a>
+	<div class="o-wrap o-wrap--x-large">
+		<a href="/" class="c-header__logo-link">
+			<img src="/assets/img/logo.png" alt="@siteName" class="c-header__logo-image">
+		</a>
 
-    <button class="c-header__toggle-menu-button js-toggle" id="toggle-menu" aria-haspopup="true">
-        <span class="u-hide-text">Menu</span>
-    </button>
+		<button class="c-header__toggle-menu-button js-toggle" id="toggle-menu" aria-haspopup="true">
+			<span class="u-hide-text">Menu</span>
+		</button>
 
-    @Html.Partial("~/Views/Partials/Components/MainNavigation.cshtml", new PageListingViewModel {
-        Listing = Model.Site().Children.Where(x => x.IsVisible() && x.TemplateId > 0),
-        CurrentModel = Model
-    })
+		@Html.Partial("~/Views/Partials/Components/MainNavigation.cshtml", new PageListingViewModel {
+			Listing = Model.Site().Children.Where(x => x.IsVisible() && x.TemplateId > 0),
+			CurrentModel = Model
+		})
+	</div>
 </header>

@@ -9,15 +9,16 @@
 	.c-nav__list {
 		list-style: none;
 	}
-	
+
 	.c-nav__item {
 		margin: 0;
 	}
 
 	.c-nav__link {
-		color: $text-colour;
+		color: $purple-2;
 		padding: 1rem;
 		display: block;
+		font-weight: $bold;
 		transition: color $speed $ease,
 					background $speed $ease;
 
@@ -27,7 +28,7 @@
 		}
 
 		&.is-active {
-			color: $pri;
+			color: $orange-1;
 		}
 	}
 
@@ -86,7 +87,7 @@
 }
 
 @include respond-max( $mq-large ) {
-	
+
 	.enhance {
 
 		.c-header__nav-wrap {
@@ -141,8 +142,33 @@
 			padding: 1rem;
 			transition: color $speed $ease;
 
+			&:after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: .2rem;
+				opacity: 0;
+				background-color: $purple-2;
+				transition: opacity $speed $ease,
+							transform $speed $ease;
+			}
+
 			&.is-active {
-				color: $pri;
+
+				&:after {
+					opacity: 1;
+					transform: translateY(-.5rem);
+				}
+
+			}
+
+			&:hover {
+
+				&:after {
+					opacity: 1;
+					transform: translateY(-.5rem);
+				}
+
 			}
 		}
 
@@ -172,7 +198,6 @@
 			.c-nav__link {
 				margin: 0;
 				padding-top: 1rem;
-				
 
 				&:hover,
 				&:focus {
@@ -195,7 +220,7 @@
 		}
 
 		.c-nav__item--parent:hover {
-			
+
 			.c-nav__list--sub {
 				opacity: 1;
 				visibility: visible;

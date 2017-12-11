@@ -1,9 +1,13 @@
+@using iCAN;
 @using iCAN.Core.Models;
+@using RJP.MultiUrlPicker.Models;
 @inherits UmbracoViewPage<PageListingViewModel>
 @{
     if( Model.Listing == null ) {
         return;
     }
+
+	var headerCta = TGDH.Settings<Link>("headerCta");
 }
 
 <nav id="mainNavigation" class="c-nav c-nav--main js-nav" role="navigation" aria-labelledby="toggle-menu">
@@ -19,6 +23,17 @@
                 @Traverse(item)
             </li>
         }
+		@if (headerCta != null) {
+			<li class="c-nav__item nav__item--parent">
+				@Html.Partial("Components/Button", new ButtonViewModel
+				{
+					Url = headerCta.Url,
+					Name = headerCta.Name,
+					Target = headerCta.Target,
+					ModifierClass = "c-button--small c-header__cta"
+				})
+			</li>
+		}
     </ul>
 </nav>
 

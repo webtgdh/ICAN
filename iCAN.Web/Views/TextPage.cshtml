@@ -5,7 +5,9 @@
 }
 
 <div class="o-page__inner u-clearfix">
+	@*
 	@Html.CachedPartial("~/Views/Partials/Components/Breadcrumb.cshtml", Model, 3600, true)
+	*@
 	<main class="o-section" role="main">
 		<h1 class="o-wrap o-wrap--x-large">@headline</h1>
 		@Html.Partial("Modules/PageComponents")

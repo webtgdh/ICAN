@@ -29,8 +29,8 @@ $purple-2:					#4f1c47;
 
 $orange-1:					#ff9933;
 
-$pri: 						$purple-2;
-$sec: 						$orange-1;
+$pri: 						$orange-1;
+$sec: 						$purple-2;
 
 $facebook: 					#3b5998;
 $twitter: 					#55acee;
@@ -70,7 +70,7 @@ $link-colour:				$orange-1;
 $link-colour-hover:			$sec;
 $form-placeholder-colour:	#ccc;
 $placeholder-colour:		$light-1;
-$highlight-colour:			lighten( $pri, 50 );
+$highlight-colour:			lighten( $pri, 30 );
 
 $error:						$red;
 $success:					$green;

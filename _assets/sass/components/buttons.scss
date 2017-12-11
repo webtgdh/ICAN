@@ -37,6 +37,11 @@
 	@include respond-min($mq-small) {
 		display: inline-block;
 	}
+
+	&.c-button--small {
+		padding-top: 0.7rem;
+		padding-bottom: 0.7rem;
+	}
 }
 
 .c-button--primary {
