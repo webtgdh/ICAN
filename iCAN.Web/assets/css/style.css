@@ -585,7 +585,8 @@ html {
 
 .o-page {
   background: #FFFFFF;
-  min-height: 100%; }
+  min-height: 100%;
+  overflow-x: hidden; }
 
 .o-page__inner {
   width: 100%; }
@@ -2579,6 +2580,29 @@ img.mfp-img {
   background-color: #4f1c47; }
 
 /* ===========================================================
+
+	# Image mozaic
+
+=========================================================== */
+.c-image-mozaic {
+  position: relative; }
+
+.c-image-mozaic__image-wrap--first {
+  width: 50%;
+  z-index: 1;
+  float: left;
+  position: absolute;
+  bottom: 10%; }
+
+.c-image-mozaic__image-wrap--second {
+  width: 55%;
+  margin-left: 45%;
+  float: right; }
+
+.c-image-mozaic__image {
+  height: 100%; }
+
+/* ===========================================================
 	# Contact details
 =========================================================== */
 .c-contact-details__list {
@@ -2891,7 +2915,7 @@ img.mfp-img {
 /* ===========================================================
 # Home
 =========================================================== */
-@media only screen and (min-width: 800px) {
+@media only screen and (max-width: 799px) {
   .t-home__about__col + .t-home__about__col {
     margin-top: 1.7em; } }
 
@@ -2910,6 +2934,14 @@ img.mfp-img {
     .t-home__about__col:after {
       clear: both; }
     .t-home__about__col:last-child {
-      margin-right: 0%; } }
+      margin-right: 0%; }
+    .t-home__about__col .c-image-mozaic {
+      width: calc(100% + 4rem);
+      width: 47vw;
+      max-width: 94rem;
+      margin-top: -12rem;
+      z-index: 1; }
+  .t-home__about__col__quote {
+    padding-left: 5%; } }
 
 /*# sourceMappingURL=style.css.map */

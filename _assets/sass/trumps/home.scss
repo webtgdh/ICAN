@@ -2,7 +2,7 @@
 # Home
 =========================================================== */
 
-@include respond-min($mq-medium) {
+@include respond-max($mq-medium) {
 
 	.t-home__about__col {
 
@@ -18,6 +18,19 @@
 
 	.t-home__about__col {
 		@include column(1/2, $gutter: 10);
+
+		.c-image-mozaic {
+			width: calc(100% + 4rem);
+			width: 47vw;
+			max-width: 94rem;
+			margin-top: -12rem;
+			z-index: 1;
+
+		}
+	}
+
+	.t-home__about__col__quote {
+		padding-left: 5%;
 	}
 
 }

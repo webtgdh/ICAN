@@ -11,6 +11,7 @@ html {
 .o-page {
 	background: $background-colour;
 	min-height: 100%;
+	overflow-x: hidden;
 }
 
 .o-page__inner {

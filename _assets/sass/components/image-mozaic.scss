@@ -1,0 +1,27 @@
+/* ===========================================================
+
+	# Image mozaic
+
+=========================================================== */
+
+.c-image-mozaic {
+	position: relative;
+}
+
+.c-image-mozaic__image-wrap--first {
+	width: 50%;
+	z-index: 1;
+	float: left;
+	position: absolute;
+	bottom: 10%;
+}
+
+.c-image-mozaic__image-wrap--second {
+	width: 55%;
+	margin-left: 45%;
+	float: right;
+}
+
+.c-image-mozaic__image {
+	height: 100%;
+}

@@ -1,0 +1,23 @@
+@using iCAN.Core.Models;
+@inherits UmbracoViewPage<ImageMozaicViewModel>
+@{
+	if (Model.ImageFirst == null || Model.ImageSecond == null) {
+		return;
+	}
+
+	var imageFirstSrc = Url.GetCropUrl(Model.ImageFirst, cropAlias: "3:2", width: 500, htmlEncode: false);
+	var imageFirstAlt = Model.ImageFirst.GetPropertyValue<string>("altText", Model.ImageFirst.Name);
+
+	var imageSecondSrc = Url.GetCropUrl(Model.ImageSecond, cropAlias: "1:1", width: 500, htmlEncode: false);
+	var imageSecondAlt = Model.ImageFirst.GetPropertyValue<string>("altText", Model.ImageSecond.Name);
+
+}
+
+<div class="c-image-mozaic u-clearfix">
+	<div class="c-image-mozaic__image-wrap c-image-mozaic__image-wrap--first o-aspect--3-2">
+		<img src="@imageFirstSrc" alt="@imageFirstAlt" class="c-image-mozaic__image">
+	</div>
+	<div class="c-image-mozaic__image-wrap c-image-mozaic__image-wrap--second o-aspect--1-1">
+		<img src="@imageSecondSrc" alt="@imageSecondAlt" class="c-image-mozaic__image">
+	</div>
+</div>
