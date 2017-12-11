@@ -9,11 +9,20 @@ namespace iCAN.Core.Models
 
         public string Headline { get; set; }
 
-        public IHtmlString Copy { get; set; }
+        public string Copy { get; set; }
 
-        public string Cta { get; set; }
+        public string Url { get; set; }
+
+        public string Target { get; set; }
+
+        public string CtaName { get; set; }
 
         public string ModifierClass { get; set; }
+
+        public CoverViewModel()
+        {
+            CtaName = "Read more";
+        }
 
     }
 }

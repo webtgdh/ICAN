@@ -46,10 +46,11 @@
 		'components/buttons',
 		'components/quote',
 		'components/cover',
+		'components/card',
 		'components/footer',
 		'components/caption',
 //		'components/accordion',
-//		'components/carousel',
+		'components/carousel',
 //		'components/link-list',
 		'components/carousel',
 		'components/breadcrumb',
@@ -58,12 +59,17 @@
 //		'components/tile',
 //		'components/pagination',
 		'components/alert',
+		'components/contact-details',
 		'components/tabs',
 		'components/sitemap';
 
+// @import 'modules/latest-news';
+
 @import 'utility/overrides',
 		'utility/hide',
+		'utility/icons',
 		'utility/spacers',
 		'utility/colours';
 
-@import 'trumps/free-content';
+@import 'trumps/free-content',
+		'trumps/home';

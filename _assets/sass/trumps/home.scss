@@ -1,0 +1,23 @@
+/* ===========================================================
+# Home
+=========================================================== */
+
+@include respond-min($mq-medium) {
+
+	.t-home__about__col {
+
+		& + & {
+			margin-top: $line-height;
+		}
+
+	}
+
+}
+
+@include respond-min($mq-medium) {
+
+	.t-home__about__col {
+		@include column(1/2, $gutter: 10);
+	}
+
+}

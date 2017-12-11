@@ -1,0 +1,35 @@
+@using iCAN;
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+	var headline = TGDH.Settings<string>("contactHeadline");
+	var address = TGDH.Settings<IHtmlString>("address");
+	var email = TGDH.Settings<string>("mainEmailAddress");
+	var phoneNumber = TGDH.Settings<string>("mainPhoneNumber");
+
+	var hasAddress = !String.IsNullOrWhiteSpace(address.ToString());
+	var hasEmail = !String.IsNullOrWhiteSpace(email);
+	var hasPhone = !String.IsNullOrWhiteSpace(phoneNumber);
+}
+
+<article class="c-contact-details">
+	@if(!String.IsNullOrWhiteSpace(headline)) {
+		<h3 class="c-contact-details__headline u-alpha">@headline</h3>
+	}
+	@if (hasAddress || hasEmail || hasPhone) {
+		<ul class="c-contact-details__list">
+			<li class="c-contact-details__address">
+				@address
+			</li>
+			@if (hasEmail) {
+				<li class="c-contact-details__email">
+					<a href="mailto:@email">@email</a>
+				</li>
+			}
+			@if (hasPhone) {
+				<li class="c-contact-details__phone">
+					<span>@phoneNumber</span>
+				</li>
+			}
+		</ul>
+	}
+</article>

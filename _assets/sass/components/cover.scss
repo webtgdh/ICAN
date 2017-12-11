@@ -8,7 +8,7 @@
 	position: relative;
 	overflow: hidden;
 	background-color: $placeholder-colour;
-/*
+
 	&::after {
 		content: "";
 		width: 100%;
@@ -21,7 +21,6 @@
 		opacity: 0.67;
 		background-image: linear-gradient(to right top, #000000, rgba(0,0,0, 0) 56%);
 	}
-	 */
 }
 
 .c-cover__inner {
@@ -34,6 +33,10 @@
 
 .c-cover__headline {
 	color: $white;
+}
+.c-cover__copy {
+	color: $white;
+	font-weight: $bold;
 }
 
 .csstransforms {
@@ -125,7 +128,7 @@
 	}
 
 	.c-cover__copy {
-		max-width: 52rem;
+		max-width: 60rem;
 	}
 
 }
@@ -139,15 +142,3 @@
 }
 
 
-.flexbox {
-
-	.c-cover__content {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.c-cover__subtitle {
-		order: -1;
-	}
-
-}

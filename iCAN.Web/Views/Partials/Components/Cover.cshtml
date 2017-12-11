@@ -6,6 +6,7 @@
         return;
     }
 
+	var hasLink = !String.IsNullOrWhiteSpace(Model.Url);
 }
 <section class="c-cover @Model.ModifierClass">
 	@RenderImage(Model.Image)
@@ -14,12 +15,14 @@
 			@if (!String.IsNullOrWhiteSpace(Model.Headline)) {
 				<h1 class="c-cover__headline u-giga">@Model.Headline</h1>
 			}
-			@if(Model.Copy != null) {
-				<div class="c-cover__copy">
-					@Model.Copy
+			@if(!String.IsNullOrWhiteSpace(Model.Copy)) {
+				<div class="c-cover__copy u-epsilon">
+					@Html.Raw(Model.Copy)
 				</div>
 			}
-			@RenderCTA(Model.Cta)
+			@if (hasLink) {
+				<a href="@Model.Url" class="c-cover__cta c-button c-button--secondary u-space-top" target="@Model.Target">@Model.CtaName</a>
+			}
 		</div>
 	</div>
 </section>

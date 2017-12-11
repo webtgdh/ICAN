@@ -1,0 +1,94 @@
+/* ===========================================================
+
+	# Card
+
+=========================================================== */
+
+.c-card {
+	position: relative;
+	background-color: $white;
+}
+
+.c-card__headline {
+	transition: color $speed $ease;
+}
+
+.c-card__link {
+	color: $text-colour;
+	display: block;
+	box-shadow: $box-shadow-1;
+
+	&:hover,
+	&:focus {
+		color: inherit;
+
+		.c-card__headline {
+			color: $pri;
+		}
+
+	}
+}
+
+.c-card__category {
+	margin-bottom: .7rem;
+}
+
+.c-card__subtitle {
+	letter-spacing: 2px;
+	font-size: 1.4rem;
+	margin-bottom: .7rem;
+}
+
+.c-card__content {
+	padding: 3rem;
+}
+
+.c-card__cta {
+	margin-top: $line-height;
+}
+
+.flexbox {
+
+	.c-card {
+		display: flex;
+	}
+
+	.c-card__link {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.c-card__content {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+	}
+
+	.c-card__category {
+		display: flex;
+		order: -1;
+	}
+
+	.c-card__copy {
+		flex-grow: 1;
+	}
+
+	.c-card__subtitle {
+		order: -1;
+	}
+
+	.c-card__cta {
+		align-self: start;
+	}
+
+}
+
+.no-flexbox {
+
+	.c-card__subtitle {
+		display: inline-block;
+		margin-right: 2.4rem;
+	}
+
+}

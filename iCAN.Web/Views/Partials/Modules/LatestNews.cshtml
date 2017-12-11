@@ -1,0 +1,35 @@
+@using iCAN;
+@using iCAN.Core.Data;
+@using iCAN.Core.Models;
+@using iCAN.Core.Utility;
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+	var selection = News.AllOrderedArticles(Umbraco);
+
+	if (!selection.Any()) {
+		return;
+	}
+}
+
+<section class="o-section u-background--light u-clearfix">
+	<div class="o-wrap o-wrap--x-large">
+		<h2 class="o-section__headline u-beta">News</h2>
+		<div class="c-carousel c-carousel--cards">
+			<div class="c-carousel__inner js-carousel u-clearfix" data-items="3" data-nav="true" >
+				@foreach (var item in selection) {
+					var isInTheMedia = item.DocumentTypeAlias == "inTheMedia";
+					@Html.Partial("~/Views/Partials/Components/Card.cshtml", new CardViewModel {
+						Image = item.GetPropertyValue<IPublishedContent>("featuredImage"),
+						Headline = item.GetPropertyValue<string>("headline", item.Name),
+						Category = ContentTypeHelper.GetContentTypeLabelFromPage(item),
+						Label = item.GetPropertyValue<DateTime>("releaseDate").ToString("dd/MM"),
+						Copy = item.GetPropertyValue<string>("pageDescription"),
+						Url = isInTheMedia ? item.GetPropertyValue<string>("source") : item.Url,
+						Target = isInTheMedia ? "_blank" : "",
+						ModifierClass = "c-carousel__item"
+					})
+				}
+			</div>
+		</div>
+	</div>
+</section>

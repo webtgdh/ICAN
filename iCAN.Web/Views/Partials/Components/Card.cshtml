@@ -12,18 +12,28 @@
     var imageUrl = Url.GetCropUrl(Model.Image, cropAlias: "16:9", width: 400, htmlEncode: false);
     var altText = Model.Image.GetPropertyValue("altText", Model.Headline);
 
-    var urlTarget = !String.IsNullOrWhiteSpace(Model.UrlTarget) ? "target=" + Model.UrlTarget  : "";
 }
 
 <article class="c-card @Model.ModifierClass">
-    <a href="@Model.Url" class="c-card__link" @urlTarget>
-        <div class="c-card__image-wrap">
+    <a href="@Model.Url" class="c-card__link" target="@Model.Target">
+        <div class="c-card__image-wrap o-aspect--16-9">
             <img src="@imageUrl" alt="@altText" class="c-card__image">
         </div>
         <div class="c-card__content">
-            @if(!String.IsNullOrWhiteSpace(Model.Headline)) {
+            @if (!String.IsNullOrWhiteSpace(Model.Headline)) {
                 <h2 class="c-card__headline">@Model.Headline</h2>
             }
+			@if (!String.IsNullOrWhiteSpace(Model.Category)) {
+				<div class="c-card__category u-small">@Model.Category</div>
+			}
+			@if (!String.IsNullOrWhiteSpace(Model.Copy)) {
+				<div class="c-card__copy">
+					<p>@Html.Raw(Model.Copy)</p>
+				</div>
+			}
+			@if (!String.IsNullOrWhiteSpace(Model.Url)) {
+				<div class="c-card__cta c-button c-button--secondary">@Model.CtaName</div>
+			}
         </div>
     </a>
 </article>

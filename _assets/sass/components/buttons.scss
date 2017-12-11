@@ -5,11 +5,11 @@
 =========================================================== */
 
 .c-button {
-	border-radius: $border-radius;
+	border-radius: 3rem;
 	display: block;
 	line-height: 1;
 	text-align: center;
-	padding: 1.5rem 2rem;
+	padding: 1.2rem 2rem;
 	transition: background $speed $ease,
 				box-shadow $speed $ease,
 				color $speed $ease;
@@ -32,6 +32,10 @@
 		&:focus {
 			background: $border-colour;
 		}
+	}
+
+	@include respond-min($mq-small) {
+		display: inline-block;
 	}
 }
 

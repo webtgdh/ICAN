@@ -7,15 +7,30 @@
 }
 
 <footer id="footer" class="c-footer u-spacer" role="contentinfo">
-    @Html.Partial("~/Views/Partials/Components/FooterNavigation.cshtml")
-    @Html.Partial("Components/SocialChannels", new SocialChannelsViewModel {
-        SocialChannels = TGDH.Settings<IEnumerable<IPublishedContent>>("socialChannels")
-    })
+    <div class="c-footer__inner o-section o-wrap o-wrap--x-large u-clearfix">
+		<div class="c-footer__col c-footer__col--first">
+			@Html.CachedPartial("Components/PrimaryContactDetails", Model, 3600)
 
-    @if (!string.IsNullOrWhiteSpace(copyright))
-    {
-        <p class="c-footer__copyright">
-            @Html.Raw(copyright.Replace("\n", "<br/>"))
-        </p>
-    }
+			@Html.Partial("Components/SocialChannels", new SocialChannelsViewModel {
+				SocialChannels = TGDH.Settings<IEnumerable<IPublishedContent>>("socialChannels"),
+				ModifierClass = "c-footer__social"
+			})
+		</div>
+		<div class="c-footer__col c-footer__col--last">
+			<h2 class="u-alpha">Twitter</h2>
+		</div>
+	</div>
+
+	<div class="c-footer__sub u-clearfix">
+		<div class="o-wrap o-wrap--x-large">
+			@if (!string.IsNullOrWhiteSpace(copyright))
+			{
+				<p class="c-footer__copyright">
+					@Html.Raw(copyright.Replace("\n", "<br/>"))
+				</p>
+			}
+			@Html.CachedPartial("~/Views/Partials/Components/FooterNavigation.cshtml", Model, 3600)
+			<div class="c-footer__tgdh">Creatd by <a href="http://tgdh.co.uk" target="_blank">TGDH</a></div>
+		</div>
+	</div>
 </footer>

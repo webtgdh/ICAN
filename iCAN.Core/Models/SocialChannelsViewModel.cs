@@ -10,6 +10,8 @@ namespace iCAN.Core.Models
 
         public int IconSize { get; set; }
 
+        public string ModifierClass { get; set; }
+
         public SocialChannelsViewModel()
         {
             IconSize = 32;

@@ -42,6 +42,10 @@ $youtube: 					#cd201f;
 $vimeo: 					#1ab7ea;
 $flcikr: 					#0063dc;
 
+// utility
+
+$box-shadow-1:				0 0 30px rgba($black,0.1);
+
 /* ===========================================================
 
 	# Base values
@@ -61,7 +65,7 @@ $heading-colour:			$purple-2;
 $text-colour:				$black;
 $background-colour:			$white;
 $border-colour:				#ccc;
-$link-colour:				$pri;
+$link-colour:				$orange-1;
 $link-colour-hover:			$sec;
 $form-placeholder-colour:	#ccc;
 $placeholder-colour:		$light-1;
@@ -89,7 +93,6 @@ $wrap-small:				75rem;
 $wrap-medium:				92rem;
 $wrap-large:				108rem;
 $wrap-x-large:				140rem;
-
 
 /* ===========================================================
 

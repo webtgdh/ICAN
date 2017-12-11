@@ -7,9 +7,30 @@
 
 <main class="o-page__inner u-clearfix" role="main">
 
-	@Html.Partial("Components/Cover", new CoverViewModel {
+	@Html.Partial("~/Views/Partials/Components/Cover.cshtml", new CoverViewModel {
         Image = TGDH.Settings<IPublishedContent>("defaultFeaturedImage"),
-		Headline = "Example headline"
+		Headline = "Example headline",
+		Copy = "<a href='#'>Our vision</a> is a world where all children have the communication skills they need to fulfil their potential. No child should be left out or left behind because of a difficulty speaking or understanding.",
+		Url = "#"
     })
+
+	<section class="o-section t-home__about">
+		<div class="o-wrap o-wrap--x-large u-clearfix">
+			<div class="t-home__about__col">
+				<h2>About I CAN</h2>
+				<p>Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur.</p>
+				<p>Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. <a href="">Read more</a></p>
+			</div>
+			<div class="t-home__about__col">
+				@Html.Partial("~/Views/Partials/Components/Quote.cshtml", new QuoteViewModel {
+					Quote = Html.Raw("Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras justo odio ac facilisis in."),
+					Source = "Authors name"
+				})
+			</div>
+		</div>
+	</section>
+
+	@Html.CachedPartial("~/Views/Partials/Modules/LatestNews.cshtml", Model, 3600)
 
 </main>

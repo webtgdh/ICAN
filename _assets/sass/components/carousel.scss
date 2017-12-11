@@ -171,3 +171,78 @@
 	}
 
 }
+
+// cards
+
+.c-carousel--cards {
+
+	.slick-list {
+		overflow: visible;
+	}
+
+}
+
+.flexbox {
+
+	.c-carousel--cards {
+		.slick-track {
+			display: flex;
+		}
+
+		.slick-slide {
+			height: auto;
+			display: flex;
+			padding: 0 1.5rem;
+
+			& > div {
+				display: flex;
+			}
+		}
+
+		.c-carousel__item {
+			display: flex !important;
+		}
+	}
+
+}
+
+	@include respond-min( $mq-medium ) {
+
+		.no-enhance {
+
+			.c-carousel--cards {
+				@include clearfix();
+
+				.c-card {
+					@include column(1/3, $cycle: 3);
+				}
+
+			}
+
+		}
+
+	}
+
+
+	@include respond-min( $mq-xx-large + 60px ) {
+
+		.c-carouse--large,
+		.c-carousel--cards {
+
+			.c-carousel--prev,
+			.c-carousel--next {
+				padding: 2.6rem 2.7rem;
+				box-shadow: 0 0 60px rgba(68, 68, 68, 0.5);
+			}
+
+			.c-carousel--prev {
+				left: -6rem;
+			}
+
+			.c-carousel--next {
+				right: -6rem;
+			}
+
+		}
+
+	}

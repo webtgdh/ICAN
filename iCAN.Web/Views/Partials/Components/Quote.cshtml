@@ -3,6 +3,9 @@
 @{
     var alignment = !string.IsNullOrWhiteSpace(Model.Alignment) ? Model.Alignment.ToLower() : "default";
     var alignmentClass = "o-align--" + alignment;
+
+	var hasSource = !string.IsNullOrWhiteSpace(Model.Source);
+	var hasTitle = !string.IsNullOrWhiteSpace(Model.Title);
 }
 
 @if (!string.IsNullOrEmpty(Model.Quote.ToString()))
@@ -12,9 +15,18 @@
             @Model.Quote
         </div>
 
-        @if (!string.IsNullOrWhiteSpace(Model.Source))
+        @if (hasSource || hasTitle)
         {
-            <footer class="c-quote__src u-small">@Model.Source</footer>
+            <footer class="c-quote__src">
+				@if (hasSource && hasTitle) {
+					<strong>@Model.Source,</strong>
+				} else {
+					<strong>@Model.Source</strong>
+				}
+				@if (hasTitle) {
+					@:Model.Title
+				}
+			</footer>
         }
     </blockquote>
 }
