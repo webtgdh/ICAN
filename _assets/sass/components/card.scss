@@ -18,12 +18,30 @@
 	display: block;
 	box-shadow: $box-shadow-1;
 
+	&:after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		z-index: -1;
+		box-shadow: $box-shadow-2;
+		transition: opacity $speed $ease;
+	}
+
 	&:hover,
 	&:focus {
 		color: inherit;
 
 		.c-card__headline {
 			color: $pri;
+		}
+
+		&:after {
+			opacity: 1;
 		}
 
 	}

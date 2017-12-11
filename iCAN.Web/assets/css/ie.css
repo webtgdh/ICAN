@@ -665,8 +665,8 @@ html {
 
 @media only screen and (min-width: 800px) {
   .o-section {
-    padding-bottom: 8rem;
-    padding-top: 8rem; } }
+    padding-bottom: 10rem;
+    padding-top: 10rem; } }
 
 /* ===========================================================
 
@@ -1885,10 +1885,24 @@ img.mfp-img {
   color: #000000;
   display: block;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); }
+  .c-card__link:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.3s ease; }
   .c-card__link:hover, .c-card__link:focus {
     color: inherit; }
     .c-card__link:hover .c-card__headline, .c-card__link:focus .c-card__headline {
       color: #4f1c47; }
+    .c-card__link:hover:after, .c-card__link:focus:after {
+      opacity: 1; }
 
 .c-card__category {
   margin-bottom: .7rem; }
@@ -2158,8 +2172,13 @@ img.mfp-img {
   .c-carousel__nav {
     font-size: 4.8rem; } }
 
-.c-carousel--cards .slick-list {
-  overflow: visible; }
+.c-carousel--cards {
+  width: calc(100% + 3rem);
+  -webkit-transform: translateX(-1.5rem);
+      -ms-transform: translateX(-1.5rem);
+          transform: translateX(-1.5rem); }
+  .c-carousel--cards .slick-list {
+    overflow: visible; }
 
 .flexbox .c-carousel--cards .slick-track {
   display: -webkit-box;
@@ -2332,8 +2351,13 @@ img.mfp-img {
   .c-carousel__nav {
     font-size: 4.8rem; } }
 
-.c-carousel--cards .slick-list {
-  overflow: visible; }
+.c-carousel--cards {
+  width: calc(100% + 3rem);
+  -webkit-transform: translateX(-1.5rem);
+      -ms-transform: translateX(-1.5rem);
+          transform: translateX(-1.5rem); }
+  .c-carousel--cards .slick-list {
+    overflow: visible; }
 
 .flexbox .c-carousel--cards .slick-track {
   display: -webkit-box;
@@ -2580,6 +2604,36 @@ img.mfp-img {
   background-color: #4f1c47; }
 
 /* ===========================================================
+	# Footer nav
+=========================================================== */
+.c-nav--footer .c-nav__list {
+  list-style: none; }
+
+.c-nav--footer .c-nav__item {
+  margin: 0; }
+
+.c-nav--footer .c-nav__link {
+  padding: 1rem 0;
+  display: block;
+  font-weight: 900;
+  transition: color 0.3s ease, background 0.3s ease; }
+
+@media only screen and (min-width: 600px) {
+  .c-nav--footer .c-nav__item {
+    display: inline; }
+    .c-nav--footer .c-nav__item + .c-nav__item:before {
+      content: "";
+      width: .1rem;
+      height: 1.4rem;
+      background-color: #FFFFFF;
+      position: relative;
+      display: inline-block;
+      vertical-align: middle; }
+  .c-nav--footer .c-nav__link {
+    display: inline-block;
+    padding: 1rem; } }
+
+/* ===========================================================
 
 	# Image mozaic
 
@@ -2761,6 +2815,7 @@ img.mfp-img {
   color: #4f1c47; }
 
 .c-heading__subtitle {
+  max-width: 44rem;
   font-style: italic;
   padding-bottom: 0; }
 
@@ -2935,7 +2990,7 @@ img.mfp-img {
 
 @media only screen and (min-width: 800px) {
   .s-free-content .o-table {
-    margin: 4rem 0; } }
+    margin: 5rem 0; } }
 
 /* ===========================================================
 # Home
@@ -2979,7 +3034,7 @@ img.mfp-img {
     width: calc(100% + 4rem);
     width: 49vw;
     max-width: 94rem;
-    margin-top: -12rem;
+    margin-top: -14rem;
     z-index: 1; }
   .t-home__about__col__quote {
     padding-left: 5%; } }

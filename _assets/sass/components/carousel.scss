@@ -175,6 +175,8 @@
 // cards
 
 .c-carousel--cards {
+	width: calc(100% + 3rem);
+	transform: translateX(-1.5rem);
 
 	.slick-list {
 		overflow: visible;

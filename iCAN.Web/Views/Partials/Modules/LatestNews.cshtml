@@ -13,7 +13,11 @@
 
 <section class="o-section u-background--light u-clearfix">
 	<div class="o-wrap o-wrap--x-large">
-		<h2 class="o-section__headline u-beta">News</h2>
+		@Html.Partial("~/Views/Partials/Components/Heading.cshtml", new HeadingViewModel {
+			Headline = "News",
+			Subtitle = "Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.",
+			ModifierClass = "u-space-bottom--large"
+		})
 		<div class="c-carousel c-carousel--cards">
 			<div class="c-carousel__inner js-carousel u-clearfix" data-items="3" data-nav="true" >
 				@foreach (var item in selection) {
