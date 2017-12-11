@@ -65,3 +65,37 @@
     position: absolute;
     width: 1px;
 }
+
+@mixin arrow-right($color: $dark-1) {
+	width: 0;
+	height: 0;
+	display: block;
+	border-style: solid;
+	border-width: 3.5px 0 3.5px 5px;
+	border-color: transparent transparent transparent $color;
+}
+
+@mixin arrow-left($color: $dark-1) {
+	width: 0;
+	height: 0;
+	display: block;
+	border-style: solid;
+	border-width: 3.5px 5px 3.5px 0;
+	border-color: transparent $color transparent transparent;
+}
+
+@mixin arrow-up($color: $dark-1) {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 3.5px 5px 3.5px;
+	border-color: transparent transparent $color transparent;
+}
+
+@mixin arrow-down($color: $dark-1) {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 5px 3.5px 0 3.5px;
+border-color: $color transparent transparent transparent;
+}

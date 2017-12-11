@@ -80,9 +80,18 @@
 		float: left;
 	}
 
-	.c-nav--main {
-		float: right;
+
+	.c-header {
+
+		.c-nav--main {
+			float: right;
+		}
+
+		.c-header__cta.c-header__cta {
+			margin-left: 2rem;
+		}
 	}
+
 
 }
 

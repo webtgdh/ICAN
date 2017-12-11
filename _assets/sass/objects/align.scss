@@ -9,22 +9,64 @@
 	clear: both;
 }
 
-
 @include respond-min( $mq-medium ) {
+
+	.o-align--default {
+
+		&.o-media {
+			margin-left: -3rem;
+			margin-right: -3rem;
+		}
+	}
 
 	.o-align--left,
 	.o-align--right {
-		width: 40%;
+
+		&.o-media {
+			width: 45%;
+		}
 	}
 
 	.o-align--left {
 		float: left;
-		margin-right: $line-height * 2;
+		margin-left: -3rem;
+		margin-right: $line-height;
 	}
 
 	.o-align--right {
 		float: right;
-		margin-left: $line-height * 2;
+		margin-right: -3rem;
+		margin-left: $line-height;
+	}
+
+}
+
+@include respond-min( $mq-large ) {
+
+	.o-align--default {
+
+		&.o-media {
+			margin-left: -15%;
+			margin-right: -15%;
+		}
+
+	}
+
+	.o-align--left,
+	.o-align--right {
+
+		&.o-media {
+			width: 55%;
+		}
+
+	}
+
+	.o-align--left {
+		margin-left: -15%;
+	}
+
+	.o-align--right {
+		margin-right: -15%;
 	}
 
 }

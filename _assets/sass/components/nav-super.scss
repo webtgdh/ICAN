@@ -5,6 +5,7 @@
 =========================================================== */
 
 .c-nav--super {
+	background-color: $sec;
 
 	.c-nav__list {
 		list-style: none;
@@ -16,10 +17,10 @@
 
 	.c-nav__link {
 		color: $white;
+		transition: background-color $speed $ease;
 
-		i {
-			font-size: 1.6rem;
-			vertical-align: text-bottom;
+		&:hover {
+			background-color: $purple-1;
 		}
 	}
 
@@ -60,7 +61,7 @@
 }
 
 @include respond-max( $mq-small ) {
-	
+
 	.enhance {
 
 		.c-nav--super:before {
@@ -153,6 +154,7 @@
 @include respond-min( $mq-large ) {
 
 	.c-nav--super {
+		text-align: right;
 
 		.c-nav__item {
 			display: inline;

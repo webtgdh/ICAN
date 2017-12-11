@@ -10,6 +10,7 @@
 	line-height: 1;
 	text-align: center;
 	padding: 1.2rem 2rem;
+	font-weight: $bold;
 	transition: background $speed $ease,
 				box-shadow $speed $ease,
 				color $speed $ease;
@@ -41,6 +42,11 @@
 	&.c-button--small {
 		padding-top: 0.7rem;
 		padding-bottom: 0.7rem;
+	}
+
+	&.c-button--large {
+		padding: 2.2rem 4rem;
+		min-width: 16rem;
 	}
 }
 

@@ -24,13 +24,13 @@
             </li>
         }
 		@if (headerCta != null) {
-			<li class="c-nav__item nav__item--parent">
+			<li class="c-nav__item nav__item--parent c-header__cta">
 				@Html.Partial("Components/Button", new ButtonViewModel
 				{
 					Url = headerCta.Url,
 					Name = headerCta.Name,
 					Target = headerCta.Target,
-					ModifierClass = "c-button--small c-header__cta"
+					ModifierClass = "c-button--small"
 				})
 			</li>
 		}

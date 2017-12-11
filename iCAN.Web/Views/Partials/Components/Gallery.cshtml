@@ -33,8 +33,8 @@
 
 }
 
-<figure class="c-carousel @aspectRatioClass @Model.ModifierClass">
-    <div class="c-carousel__inner js-carousel">
+<figure class="c-carousel @alignmentClass @Model.ModifierClass">
+    <div class="c-carousel__inner js-carousel js-modal" data-nav="true" data-loop="true" data-modal-type="gallery">
 	        @foreach (var media in Model.Images)
 	        {
 	            if (media != null)

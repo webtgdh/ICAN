@@ -9,7 +9,7 @@
         return;
     }
 
-    const string wrapSize = "small";
+    const string wrapSize = "medium";
     var pageComponentClass = "o-page-component";
 
     foreach (var item in pageComponents)
@@ -127,7 +127,7 @@
 						Url = link.Url,
 						Name = link.Name,
 						Target = link.Target,
-						ModifierClass = pageComponentClass
+						ModifierClass = pageComponentClass + " c-button--large"
 					})
 				}
 
