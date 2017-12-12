@@ -1670,7 +1670,7 @@ img.mfp-img {
   .c-nav--main {
     position: relative;
     z-index: 10;
-    margin-top: 1rem; }
+    margin-top: 1.4rem; }
     .c-nav--main .c-nav__item {
       display: inline;
       position: relative; }
@@ -3059,7 +3059,8 @@ img.mfp-img {
   float: right; }
 
 .c-image-mozaic__image {
-  height: 100%; }
+  height: 100%;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); }
 
 /* ===========================================================
 	# Contact details
