@@ -21,8 +21,14 @@
 }
 
 .c-sitemap__link {
+	color: $sec;
 	text-decoration: none;
 	display: inline-block;
+
+	&:hover,
+	&:focus {
+		color: $pri;
+	}
 }
 
 .c-sitemap__list {
@@ -48,4 +54,12 @@
 
 .c-sitemap__link {
 	margin-left: $line-height * 1.5;
+}
+
+.c-sitemap__item--level-2 {
+
+	& > .c-sitemap__link {
+		font-weight: $bold;
+	}
+
 }

@@ -4,8 +4,11 @@
     var headline = Model.GetPropertyValue<string>("headline", Model.Name);
 }
 
-<main class="o-page__inner u-clearfix" role="main">
-	<h1>@headline</h1>
-
-    @Html.Partial("~/Views/Partials/Components/Sitemap.cshtml")
-</main>
+<div class="o-page__inner u-clearfix">
+	<main class="o-section o-wrap o-wrap--medium" role="main">
+		<h1>@headline</h1>
+		<div class="u-space-top">
+			@Html.Partial("~/Views/Partials/Components/Sitemap.cshtml")
+		</div>
+	</main>
+</div>

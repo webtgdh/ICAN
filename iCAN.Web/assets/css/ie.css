@@ -1601,7 +1601,8 @@ img.mfp-img {
   .c-header .c-nav--main {
     float: right; }
   .c-header .c-header__cta.c-header__cta {
-    margin-left: 2rem; } }
+    margin-left: 2rem;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); } }
 
 /* ===========================================================
 
@@ -1668,7 +1669,8 @@ img.mfp-img {
 @media only screen and (min-width: 1000px) {
   .c-nav--main {
     position: relative;
-    z-index: 10; }
+    z-index: 10;
+    margin-top: 1rem; }
     .c-nav--main .c-nav__item {
       display: inline;
       position: relative; }
@@ -1688,28 +1690,28 @@ img.mfp-img {
         transition: opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease; }
       .c-nav--main .c-nav__link.is-active:after {
         opacity: 1;
-        -webkit-transform: translateY(-0.5rem);
-            -ms-transform: translateY(-0.5rem);
-                transform: translateY(-0.5rem); }
+        -webkit-transform: translateY(-0.4rem);
+            -ms-transform: translateY(-0.4rem);
+                transform: translateY(-0.4rem); }
       .c-nav--main .c-nav__link:hover:after {
         opacity: 1;
-        -webkit-transform: translateY(-0.5rem);
-            -ms-transform: translateY(-0.5rem);
-                transform: translateY(-0.5rem); }
+        -webkit-transform: translateY(-0.4rem);
+            -ms-transform: translateY(-0.4rem);
+                transform: translateY(-0.4rem); }
     .c-nav--main .c-nav__list--parent {
       position: relative; }
     .c-nav--main .c-nav__list--sub {
       min-width: 20rem;
       color: #FFFFFF;
-      background-color: #ff9933;
+      background-color: #4f1c47;
       position: absolute;
       left: 0;
       opacity: 0;
       visibility: hidden;
       margin-top: 0;
-      -webkit-transform: translateY(-0.3rem);
-          -ms-transform: translateY(-0.3rem);
-              transform: translateY(-0.3rem);
+      -webkit-transform: translate(1rem, -0.3rem);
+          -ms-transform: translate(1rem, -0.3rem);
+              transform: translate(1rem, -0.3rem);
       transition: opacity 0.3s ease, visibility 0.3s ease, -webkit-transform 0.3s ease;
       transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
       transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease; }
@@ -1717,22 +1719,25 @@ img.mfp-img {
       .c-nav--main .c-nav__list--sub .c-nav__link {
         display: block; }
       .c-nav--main .c-nav__list--sub .c-nav__link {
+        color: #FFFFFF;
         margin: 0;
-        padding-top: 1rem; }
+        padding-top: 1rem;
+        font-size: 1.4rem; }
+        .c-nav--main .c-nav__list--sub .c-nav__link:after {
+          display: none; }
         .c-nav--main .c-nav__list--sub .c-nav__link:hover, .c-nav--main .c-nav__list--sub .c-nav__link:focus {
-          color: #FFFFFF;
-          background-color: #e67300; }
+          color: #ff9933;
+          background-color: #3a113e; }
         .c-nav--main .c-nav__list--sub .c-nav__link.is-active {
-          color: #FFFFFF;
-          background-color: #4f1c47; }
+          color: #ff9933; }
           .c-nav--main .c-nav__list--sub .c-nav__link.is-active:hover, .c-nav--main .c-nav__list--sub .c-nav__link.is-active:focus {
-            background-color: #4f1c47; }
+            color: #ff9933; }
     .c-nav--main .c-nav__item--parent:hover .c-nav__list--sub {
       opacity: 1;
       visibility: visible;
-      -webkit-transform: translateY(0);
-          -ms-transform: translateY(0);
-              transform: translateY(0); } }
+      -webkit-transform: translate(1rem, -1.4rem);
+          -ms-transform: translate(1rem, -1.4rem);
+              transform: translate(1rem, -1.4rem); } }
 
 /* ===========================================================
 
@@ -3194,8 +3199,11 @@ img.mfp-img {
   margin: 0; }
 
 .c-sitemap__link {
+  color: #4f1c47;
   text-decoration: none;
   display: inline-block; }
+  .c-sitemap__link:hover, .c-sitemap__link:focus {
+    color: #ff9933; }
 
 .c-sitemap__list {
   margin-top: 0;
@@ -3216,6 +3224,9 @@ img.mfp-img {
 
 .c-sitemap__link {
   margin-left: 2.55em; }
+
+.c-sitemap__item--level-2 > .c-sitemap__link {
+  font-weight: 700; }
 
 /* ===========================================================
 

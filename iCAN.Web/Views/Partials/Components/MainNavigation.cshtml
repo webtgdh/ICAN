@@ -39,7 +39,7 @@
 
 @helper Traverse(IPublishedContent node)
 {
-    const int maxLevelForNav = 1;
+    const int maxLevelForNav = 3;
 
     var items = node.Children
         .Where(DocumentTypeIsNotIgnored)
