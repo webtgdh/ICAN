@@ -17,6 +17,7 @@
 
 	.c-nav__link {
 		color: $white;
+		font-weight: $bold;
 		transition: background-color $speed $ease;
 
 		&:hover {

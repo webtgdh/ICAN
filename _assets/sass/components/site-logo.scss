@@ -5,6 +5,15 @@
 =========================================================== */
 
 .c-site-logo__bubble {
+	transition: fill $speed $ease;
+}
+
+.c-site-logo__name,
+.c-site-logo__strapline {
+	transition: opacity $speed $ease;
+}
+
+.c-site-logo__bubble {
 	fill: $purple-2;
 }
 

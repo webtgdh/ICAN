@@ -1,0 +1,95 @@
+/* ===========================================================
+
+# Header - compact
+
+=========================================================== */
+
+.enhance {
+
+	.is-fixed {
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+	}
+
+	.c-header {
+		transition: padding $speed $ease;
+		// transition-delay: .3s;
+		will-change: padding;
+
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			background-color: rgba($sec, 0.98);
+			transition: opacity $speed $ease;
+			transition-delay: $speed;
+			opacity: 0;
+		}
+	}
+
+}
+
+@include respond-min( $mq-medium )  {
+
+	.enhance {
+
+		.c-nav--main,
+		.c-header__logo-link {
+			will-change: margin;
+			transition: margin $speed $ease;
+		}
+
+		.c-header--compact {
+
+			position: fixed;
+			left: 0;
+			right: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+
+			&:before {
+				opacity: 1;
+			}
+
+			.c-nav--super {
+				background-color: transparent;
+			}
+
+			.c-nav--main {
+				margin-top: 0;
+			}
+
+			.c-nav__link {
+				color: $white;
+
+				&:after {
+					background-color: $white;
+				}
+			}
+
+			.c-header__logo-link {
+				margin-bottom: -5.4rem;
+				margin-top: -3rem;
+			}
+
+			.c-site-logo__name,
+			.c-site-logo__strapline {
+				opacity: 0;
+			}
+
+			.c-site-logo__bubble {
+				fill: $white;
+			}
+
+		}
+
+	}
+
+}

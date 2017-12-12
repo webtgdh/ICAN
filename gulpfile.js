@@ -25,6 +25,7 @@ var headScripts = [
 var mainScripts = [
 	paths.assetsFolder + '/_components/slick-carousel/slick/slick.js',
 	paths.assetsFolder + '/_components/magnific-popup/dist/jquery.magnific-popup.js',
+	paths.assetsFolder + '/_components/onMediaQuery/js/onmediaquery.js',
     paths.assetsFolder + '/js/components/*.js',
     paths.assetsFolder + '/js/main.js'
 ];
