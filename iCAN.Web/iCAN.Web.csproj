@@ -65,6 +65,9 @@
     <Reference Include="controls, Version=1.0.6528.26353, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.7.6\lib\net45\controls.dll</HintPath>
     </Reference>
+    <Reference Include="Dawoe.OEmbedPickerPropertyEditor, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dawoe.OEmbedPickerPropertyEditor.3.0.0\lib\net45\Dawoe.OEmbedPickerPropertyEditor.dll</HintPath>
+    </Reference>
     <Reference Include="Examine, Version=0.1.88.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Examine.0.1.88\lib\net45\Examine.dll</HintPath>
     </Reference>
