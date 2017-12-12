@@ -1,27 +1,59 @@
 /* ===========================================================
-
 	# Pagination
-
 =========================================================== */
 
 .c-pagination {
 	margin-top: $line-height;
+	text-align: center;
 }
 
-.c-pagination__link {
-	padding: 1.7rem;
-	color: $text-colour;
+.c-pagination__item {
+	list-style: none;
+	margin: 0;
 	display: inline-block;
+	vertical-align: middle;
 
 	&.is-active {
 		font-weight: $bold;
+
+		.c-pagination__link {
+			color: $text-colour;
+		}
 	}
 }
 
-@include respond-min( $mq-medium ) {
+.c-pagination__link {
+	padding: 1.5rem;
+	color: $light-1;
+	display: inline-block;
+	font-weight: 900;
+	font-size: 1.8rem;
+	border-radius: 50%;
+}
 
-	.c-pagination {
-		text-align: right;
+.c-pagination__link--prev {
+	margin-right: 2rem;
+
+	.c-pagination__link-icon {
+		@include arrow-left();
 	}
+}
 
+.c-pagination__link--next {
+	margin-left: 2rem;
+
+	.c-pagination__link-icon {
+		@include arrow-right();
+	}
+}
+
+.c-pagination__link--prev,
+.c-pagination__link--next {
+	padding: 2.6rem 2.7rem;
+	margin-bottom: -0.7rem;
+	box-shadow: 0 0 60px rgba(#444,0.3);
+
+	&.is-disabled {
+		opacity: 0.2;
+	}
 }

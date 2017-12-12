@@ -27,18 +27,24 @@
             *@
             <li class="c-pagination__item c-pagination__item--prev">
                 <a href="@Model.CurrentModel.Url?page=@(Model.Paging.CurrentIndex - 1)@queryString@Model.HashLink" class="c-pagination__link" rel="prev">
+					@*
                     <svg class="u-icon u-icon--24">
                         <use xlink:href="/assets/icons/icons.svg#arrow-left"></use>
                     </svg>
+					*@
+					<span class="c-pagination__link-icon"></span>
                     <span class="u-visually-hidden">Go to previous page</span>
                 </a>
             </li>
         } else {
             <li class="c-pagination__item">
                 <a class="c-pagination__link c-pagination__link--prev is-disabled">
+					@*
                     <svg class="u-icon u-icon--24">
                         <use xlink:href="/assets/icons/icons.svg#arrow-left"></use>
                     </svg>
+					*@
+					<span class="c-pagination__link-icon"></span>
                 </a>
             </li>
         }
@@ -57,9 +63,12 @@
             <li class="c-pagination__item">
                 <a href="@Model.CurrentModel.Url?page=@(Model.Paging.CurrentIndex + 1)@queryString" class="c-pagination__link c-pagination__link--next" rel="next">
                     <span class="u-visually-hidden">Go to next page</span>
+					@*
                     <svg class="u-icon u-icon--24">
                         <use xlink:href="/assets/icons/icons.svg#arrow-right"></use>
                     </svg>
+					*@
+					<span class="c-pagination__link-icon"></span>
                 </a>
             </li>
             @*
@@ -70,9 +79,12 @@
         } else {
             <li class="c-pagination__item">
                 <a class="c-pagination__link c-pagination__link--next is-disabled">
+					@*
                     <svg class="u-icon u-icon--24">
                         <use xlink:href="/assets/icons/icons.svg#arrow-right"></use>
                     </svg>
+					*@
+					<span class="c-pagination__link-icon"></span>
                 </a>
             </li>
         }
