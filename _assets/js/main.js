@@ -56,7 +56,7 @@
 		$('.js-tabs').tabs();
 
 		$window.Carousel.init( $('.js-carousel') );
-//		$window.Modal.init( $('.js-modal') );
+		$window.Modal.init( $('.js-modal') );
 //		$window.Accordion.init();
 //		$window.GMaps.init();
 //		$window.ValidateForms.init( $('.js-form') );

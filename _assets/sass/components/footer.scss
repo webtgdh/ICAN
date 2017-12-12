@@ -21,6 +21,10 @@
 		max-width: 8.5rem;
 		opacity: 0.4;
 	}
+
+	a {
+		font-weight: $bold;
+	}
 }
 
 .c-footer__sub {
@@ -35,10 +39,6 @@
 
 .c-footer__micro {
 	font-size: 1.2rem;
-
-	a {
-		font-weight: 900;
-	}
 }
 
 .c-footer__tgdh {
@@ -46,7 +46,6 @@
 
 	a {
 		color: $white;
-		font-weight: 900;
 	}
 }
 

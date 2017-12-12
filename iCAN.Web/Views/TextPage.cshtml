@@ -1,7 +1,7 @@
-﻿@inherits UmbracoViewPage<IPublishedContent>
+﻿@using iCAN.Core.Models;
+@inherits UmbracoViewPage<IPublishedContent>
 @{
     Layout = "Master.cshtml";
-    var headline = Model.GetPropertyValue<string>("headline", Model.Name);
 }
 
 <div class="o-page__inner u-clearfix">
@@ -9,7 +9,10 @@
 	@Html.CachedPartial("~/Views/Partials/Components/Breadcrumb.cshtml", Model, 3600, true)
 	*@
 	<main class="o-section" role="main">
-		<h1 class="o-wrap o-wrap--x-large">@headline</h1>
+		@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
+			Headline = Model.GetPropertyValue<string>("headline", Model.Name),
+			Subtitle = "Sub heading. Pellentesque ornare sem lacinia quam venenatis."
+		})
 		@Html.Partial("Modules/PageComponents")
 	</main>
 </div>
