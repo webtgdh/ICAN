@@ -9,11 +9,12 @@
 	@Html.Partial("~/Views/Partials/Components/SuperNavigation.cshtml")
 	<div class="o-wrap o-wrap--x-large">
 		<a href="/" class="c-header__logo-link">
-			<img src="/assets/img/logo.png" alt="@siteName" class="c-header__logo-image">
+			@Html.Partial("~/Views/Partials/Components/SiteLogo.cshtml")
 		</a>
 
 		<button class="c-header__toggle-menu-button js-toggle" id="toggle-menu" aria-haspopup="true">
-			<span class="u-hide-text">Menu</span>
+			<span class="c-icon--list" aria-hidden="hidden"></span>
+			<span class="u-visually-hidden">Menu</span>
 		</button>
 
 		@Html.Partial("~/Views/Partials/Components/MainNavigation.cshtml", new PageListingViewModel {

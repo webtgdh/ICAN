@@ -1003,6 +1003,10 @@ img {
 .o-page-component + .o-page-component {
   margin-top: 3.4em; }
 
+.o-page-component--image,
+.o-page-component--gallery {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); }
+
 /* Slider */
 .slick-slider {
   position: relative;
@@ -1560,8 +1564,8 @@ img.mfp-img {
 .c-header__logo-link {
   display: block;
   float: left;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem; }
+  margin-top: 1rem;
+  margin-bottom: 1rem; }
 
 .c-header__logo-image {
   width: 9.3rem; }
@@ -1590,7 +1594,8 @@ img.mfp-img {
 
 @media only screen and (min-width: 1000px) {
   .c-header__logo-image {
-    width: 15rem; }
+    width: 10.5rem;
+    height: 12.3rem; }
   .c-header__inner {
     float: left; }
   .c-header .c-nav--main {
@@ -1791,6 +1796,27 @@ img.mfp-img {
 @media only screen and (min-width: 600px) {
   .c-button {
     display: inline-block; } }
+
+/* ===========================================================
+
+	# Site logo
+
+=========================================================== */
+.c-site-logo__bubble {
+  fill: #4f1c47; }
+
+.c-site-logo__name {
+  fill: #ff9933; }
+
+.c-site-logo__strapline {
+  fill: #4f1c47; }
+
+.c-site-logo--invert .c-site-logo__name {
+  opacity: 0; }
+
+.c-site-logo--invert .c-site-logo__bubble,
+.c-site-logo--invert .c-site-logo__strapline {
+  fill: #FFFFFF; }
 
 /* ===========================================================
 
@@ -2312,11 +2338,6 @@ img.mfp-img {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex; }
-  .flexbox .c-carousel--cards .slick-slide > div {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
 
 .flexbox .c-carousel--cards .c-carousel__item {
   display: -webkit-box !important;
@@ -2362,6 +2383,36 @@ img.mfp-img {
   .c-carouse--large .c-carousel--next,
   .c-carousel--cards .c-carousel--next {
     right: -6rem; } }
+
+/* ===========================================================
+	# Link list
+=========================================================== */
+.c-link-list {
+  list-style: none; }
+
+.c-link-list__item {
+  width: calc(100% + 2.8rem);
+  -webkit-transform: translateX(-1.4rem);
+      -ms-transform: translateX(-1.4rem);
+          transform: translateX(-1.4rem);
+  margin: 0; }
+  .c-link-list__item.is-active .c-link-list__link {
+    color: #ff9933; }
+
+.c-link-list__link {
+  display: block;
+  color: #4f1c47;
+  padding: 1.4rem;
+  font-size: 1.8rem;
+  transition: background-color 0.3s ease; }
+  .c-link-list__link:hover {
+    background-color: #f7f5f2; }
+
+.c-link-list__name {
+  font-weight: 900; }
+
+.c-link-list__meta {
+  color: #000000; }
 
 /* ===========================================================
 
@@ -2552,11 +2603,6 @@ img.mfp-img {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex; }
-  .flexbox .c-carousel--cards .slick-slide > div {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
 
 .flexbox .c-carousel--cards .c-carousel__item {
   display: -webkit-box !important;
@@ -2782,6 +2828,54 @@ img.mfp-img {
 
 .c-alert--info {
   background-color: #ff9933; }
+
+/* ===========================================================
+	# Enhanced icons
+	https://sarasoueidan.com/blog/navicon-transformicons/
+=========================================================== */
+.enhance .c-icon--list {
+  display: inline-block;
+  width: 3.2rem;
+  height: .2rem;
+  background: #FFFFFF;
+  transition: 0.3s;
+  position: relative;
+  vertical-align: middle;
+  margin-top: -.3rem;
+  /*create the upper and lower lines as pseudo-elements of the middle line*/ }
+  .enhance .c-icon--list:before, .enhance .c-icon--list:after {
+    display: inline-block;
+    width: 3.2rem;
+    height: .2rem;
+    background: #FFFFFF;
+    transition: 0.3s;
+    content: "";
+    position: absolute;
+    left: 0;
+    -webkit-transform-origin: 0.2285714286rem center;
+        -ms-transform-origin: 0.2285714286rem center;
+            transform-origin: 0.2285714286rem center; }
+  .enhance .c-icon--list:before {
+    top: .9rem; }
+  .enhance .c-icon--list:after {
+    top: -.9rem; }
+
+.enhance.nav-main-open .c-icon--list {
+  /* hide the middle line */
+  background: transparent;
+  /* overlay the lines by setting both their top values to 0 */ }
+  .enhance.nav-main-open .c-icon--list:before, .enhance.nav-main-open .c-icon--list:after {
+    -webkit-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    top: 0;
+    width: 3.2rem; }
+  .enhance.nav-main-open .c-icon--list:before {
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+            transform: rotate3d(0, 0, 1, 45deg); }
+  .enhance.nav-main-open .c-icon--list:after {
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+            transform: rotate3d(0, 0, 1, -45deg); }
 
 /* ===========================================================
 
@@ -3188,7 +3282,8 @@ img.mfp-img {
 # Icons
 =========================================================== */
 .u-icon {
-  fill: #4f1c47; }
+  fill: #4f1c47;
+  vertical-align: middle; }
 
 .u-icon--white {
   fill: #FFFFFF; }

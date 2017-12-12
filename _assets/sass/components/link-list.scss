@@ -1,37 +1,41 @@
 /* ===========================================================
-
 	# Link list
-
 =========================================================== */
 
 .c-link-list {
 	list-style: none;
-	margin: 0;
 }
 
 .c-link-list__item {
+	width: calc(100% + 2.8rem);
+	transform: translateX(-1.4rem);
 	margin: 0;
 
-	& + .c-link-list__item {
-		margin-top: .2rem;
+	&.is-active {
+
+		.c-link-list__link {
+			color: $pri;
+		}
+
 	}
 }
 
 .c-link-list__link {
 	display: block;
-	padding: 1.5rem 2rem;
-	border-radius: $border-radius;
-	background-color: $light-1;
-	transition: color $speed $ease,
-				background $speed $ease;
+	color: $heading-colour;
+	padding: 1.4rem;
+	font-size: 1.8rem;
+	transition: background-color $speed $ease;
 
-	&:hover,
-	&:focus {
-		background-color: $light-2;
+	&:hover {
+		background-color: $light-1;
 	}
 }
 
+.c-link-list__name {
+	font-weight: 900;
+}
+
 .c-link-list__meta {
-	color: $border-colour;
-	float: right;
+	color: $text-colour;
 }

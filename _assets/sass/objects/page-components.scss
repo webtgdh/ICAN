@@ -7,3 +7,8 @@
 .o-page-component + .o-page-component {
 	margin-top: $line-height * 2;
 }
+
+.o-page-component--image,
+.o-page-component--gallery {
+	box-shadow: $box-shadow-1;
+}

@@ -7,6 +7,6 @@
     "picturefill": "~3.0.1",
     "lazysizes": "~2.0.1",
     "onMediaQuery": "https://github.com/JoshBarr/on-media-query.git#^0.2.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "1.7.1"
   }
 }

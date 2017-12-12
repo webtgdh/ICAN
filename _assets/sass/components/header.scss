@@ -14,8 +14,8 @@
 .c-header__logo-link {
 	display: block;
 	float: left;
-	margin-top: 1.5rem;
-	margin-bottom: 1.5rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 .c-header__logo-image {
@@ -73,7 +73,8 @@
 @include respond-min( $mq-large ) {
 
 	.c-header__logo-image {
-		width: 15rem;
+		width: 10.5rem;
+		height: 12.3rem;
 	}
 
 	.c-header__inner {

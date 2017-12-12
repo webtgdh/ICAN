@@ -1,0 +1,30 @@
+/* ===========================================================
+
+	# Site logo
+
+=========================================================== */
+
+.c-site-logo__bubble {
+	fill: $purple-2;
+}
+
+.c-site-logo__name {
+	fill: $orange-1;
+}
+
+.c-site-logo__strapline {
+	fill: $purple-2;
+}
+
+.c-site-logo--invert {
+
+	.c-site-logo__name {
+		opacity: 0;
+	}
+
+	.c-site-logo__bubble,
+	.c-site-logo__strapline {
+		fill: $white;
+	}
+
+}

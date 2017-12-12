@@ -34,7 +34,7 @@
                     Images = item.GetPropertyValue<IEnumerable<IPublishedContent>>("images"),
                     Alignment = alignment,
                     AspectRatio = aspectRatio,
-                    ModifierClass = pageComponentClass
+                    ModifierClass = pageComponentClass + "o-page-component--gallery"
                 };
 
                 @Html.Partial("Components/Gallery", gallery)
@@ -46,7 +46,7 @@
                     Image = item.GetPropertyValue<IPublishedContent>("image"),
                     Alignment = alignment,
                     AspectRatio = aspectRatio,
-                    ModifierClass = pageComponentClass
+                    ModifierClass = pageComponentClass + "o-page-component--image"
                 };
 
 				if (imageLink != null) {
