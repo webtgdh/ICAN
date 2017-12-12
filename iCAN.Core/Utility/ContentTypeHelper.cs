@@ -34,6 +34,26 @@ namespace iCAN.Core.Utility
             return contentLabel;
         }
 
+        public static string GetNewsTypeLabelFromPage(string docType)
+        {
+            var category = string.Empty;
+
+            switch (docType)
+            {
+                case "inTheMedia":
+                    category = "In the media";
+                    break;
+                case "pressRelease":
+                    category = "Press release";
+                    break;
+                case "generalNews":
+                    category = "General news";
+                    break;
+            }
+
+            return category;
+        }
+
         public static string GetGatewayLabelFromPage(IPublishedContent page)
         {
             var gateway = page.AncestorOrSelf("gatewayPage");

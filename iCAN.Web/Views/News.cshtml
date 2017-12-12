@@ -1,6 +1,6 @@
-﻿@using TGDH.Core.Data;
-@using TGDH.Core.Utility;
-@using TGDH.Core.Models;
+﻿@using iCAN.Core.Data;
+@using iCAN.Core.Utility;
+@using iCAN.Core.Models;
 @inherits UmbracoViewPage<IPublishedContent>
 @{
     Layout = "Master.cshtml";
@@ -26,15 +26,17 @@
             if (item.DocumentTypeAlias == "inTheMedia") {
                 @Html.Partial("Components/Card", new CardViewModel {
                     Headline = item.GetPropertyValue<string>("headline", item.Name),
+					Category = ContentTypeHelper.GetNewsTypeLabelFromPage(item.DocumentTypeAlias),
                     Url = item.GetPropertyValue<string>("source", "#"),
                     Image = item.GetPropertyValue<IPublishedContent>("featuredImage"),
-                    UrlTarget = "_blank",
+                    Target = "_blank",
                     ModifierClass = "is-external"
                 })
             } else {
                 @Html.Partial("Components/Card", new CardViewModel {
                     Headline = item.GetPropertyValue<string>("headline", item.Name),
                     Url = item.Url,
+					Category = ContentTypeHelper.GetNewsTypeLabelFromPage(item.DocumentTypeAlias),
                     Image = item.GetPropertyValue<IPublishedContent>("featuredImage")
                 })
             }
