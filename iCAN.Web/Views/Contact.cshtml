@@ -1,8 +1,11 @@
-﻿@using iCAN.Forms.Models
+﻿@using Terratype
+@using iCAN.Forms.Models
 @using iCAN.Core.Models
 @inherits UmbracoViewPage<IPublishedContent>
 @{
     Layout = "Master.cshtml";
+	var map = Model.GetPropertyValue<Terratype.Models.Model>("mapLocation");
+	var contacts = Model.GetPropertyValue<IEnumerable<IPublishedContent>>("individualContactDetails");
 }
 
 <main class="o-page__inner u-clearfix" role="main">
@@ -14,6 +17,9 @@
 				Level = "h1"
 			})
 		</div>
+
+		<div id="mapCanvas" class="c-map js-map u-space-bottom--large" data-location="@map.Position"></div>
+
 		<div class="o-wrap o-wrap--large s-contact__cols u-clearfix">
 			<div class="s-contact__cols__col--first">
 				@Html.Partial("~/Views/Partials/Components/PrimaryContactDetails.cshtml")
