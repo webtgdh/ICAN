@@ -30,22 +30,22 @@ else
         <fieldset class="o-form__fieldset">
             <legend class="o-legend u-hide-text">Contact form</legend>
              <div class="o-form__field o-form__field--compact is-required">
-                @Html.TextBoxFor(x => x.SenderName, new {required = "required", @class = "o-input"})
-                @Html.LabelFor(x => x.SenderName, new {@class = "o-label"})
+                @Html.LabelFor(x => x.SenderName, new {@class = "o-label u-visually-hidden"})
+                @Html.TextBoxFor(x => x.SenderName, new {required = "required", @class = "o-input" , @placeholder="Name"})
                 @Html.ValidationMessageFor(x => x.SenderName)
             </div>
             <div class="o-form__field o-form__field--compact is-required">
-                @Html.TextBoxFor(x => x.Email, new { required = "required", @class = "o-input" })
-                @Html.LabelFor(x => x.Email, new { @class = "o-label" })
+                @Html.LabelFor(x => x.Email, new { @class = "o-label u-visually-hidden" })
+                @Html.TextBoxFor(x => x.Email, new { required = "required", @class = "o-input", @placeholder="Email address" })
                 @Html.ValidationMessageFor(x => x.Email)
             </div>
             <div class="o-form__field o-form__field--compact is-required">
-                @Html.TextAreaFor(x => x.Message, new { required = (string)null, @class = "o-input", rows = 6 })
-                @Html.LabelFor(x => x.Message, new { @class = "o-label" })
+                @Html.LabelFor(x => x.Message, new { @class = "o-label u-visually-hidden" })
+                @Html.TextAreaFor(x => x.Message, new { required = (string)null, @class = "o-input", rows = 6, @placeholder="Message" })
                 @Html.ValidationMessageFor(x => x.Message)
             </div>
             <div class="o-form__field o-form__field--submit">
-                <button type="submit" class="c-button c-button--primary">Send form</button>
+                <button type="submit" class="c-button c-button--primary c-button--large">Send</button>
             </div>
         </fieldset>
     }

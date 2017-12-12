@@ -47,6 +47,8 @@ $flcikr: 					#0063dc;
 
 $box-shadow-1:				0 0 30px rgba($black,0.1);
 $box-shadow-2:				0 0 60px rgba(0, 0, 0, 0.15);
+$box-shadow-3:				0 0 10px 2px rgba($black,0.1);;
+$box-shadow-focus:			0 0 10px 2px rgba($sec,0.3);
 
 /* ===========================================================
 
@@ -70,7 +72,7 @@ $border-colour:				$light-1;
 $link-colour:				$orange-1;
 $link-colour-hover:			$sec;
 $form-placeholder-colour:	#ccc;
-$placeholder-colour:		$light-1;
+$placeholder-colour:		$light-2;
 $highlight-colour:			lighten( $pri, 30 );
 
 $error:						$red;

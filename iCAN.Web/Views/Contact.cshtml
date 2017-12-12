@@ -1,14 +1,31 @@
 ﻿@using iCAN.Forms.Models
+@using iCAN.Core.Models
 @inherits UmbracoViewPage<IPublishedContent>
 @{
     Layout = "Master.cshtml";
-	var headline = Model.GetPropertyValue<string>("headline", Model.Name);
 }
 
 <main class="o-page__inner u-clearfix" role="main">
-	<h1>@headline</h1>
+	<div class="o-section">
+		<div class="o-wrap o-wrap--x-large">
+			@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
+				Headline = Model.GetPropertyValue<string>("headline", Model.Name),
+				Subtitle = Model.GetPropertyValue<string>("subheadline"),
+				Level = "h1"
+			})
+		</div>
+		<div class="o-wrap o-wrap--large s-contact__cols u-clearfix">
+			<div class="s-contact__cols__col--first">
+				@Html.Partial("~/Views/Partials/Components/PrimaryContactDetails.cshtml")
+			</div>
+			<div class="s-contact__cols__col--last">
+				@Html.Partial("~/Views/Partials/Forms/ContactFormView.cshtml", new ContactForm {
+					PageName = Model.Name
+				})
+			</div>
+		</div>
+	</div>
 
-	@Html.Partial("~/Views/Partials/Forms/ContactFormView.cshtml", new ContactForm {
-		PageName = Model.Name
-	})
+
+
 </main>

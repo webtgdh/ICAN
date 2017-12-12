@@ -1,0 +1,36 @@
+/* ===========================================================
+	# Contact
+=========================================================== */
+
+.s-contact {
+
+	.c-contact-details__email {
+		font-weight: $bold;
+	}
+}
+
+@include respond-max( $mq-small ) {
+
+	.s-contact__cols__col--first + .s-contact__cols__col--last {
+		margin-top: $line-height;
+	}
+
+}
+
+@include respond-min( $mq-small ) {
+
+	.s-contact__cols__col--first {
+		font-size: 1.8rem;
+		@include column(4/9);
+
+		.c-contact-details__headline {
+			font-size: 3.125rem;
+			padding-bottom: 1.5625rem;
+		}
+	}
+
+	.s-contact__cols__col--last {
+		@include column(5/9);
+	}
+
+}
