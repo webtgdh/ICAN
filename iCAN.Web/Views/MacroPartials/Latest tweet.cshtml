@@ -1,0 +1,43 @@
+﻿@using Skybrud.Social.Twitter
+@using Skybrud.Social.Twitter.Objects
+@using Skybrud.Social.Umbraco.Twitter.PropertyEditors.OAuth
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    var homePage = Model.AncestorOrSelf(1);
+    var settings = homePage.Descendants("globalSettings").First();
+
+    var twitter = settings.GetPropertyValue("twitterAccount") as TwitterOAuthData;
+
+     if (twitter != null && twitter.IsValid) {
+
+        var service = twitter.GetService();
+
+        if(service != null)
+        {
+            var response = service.Statuses.GetUserTimeline(twitter.Id, 1);
+
+            if(response != null)
+            {
+                foreach ( TwitterStatusMessage user in response.Body ) {
+                    var twitterHandler = user.User.ScreenName;
+                    var profileUrl = "http://twitter.com/" + twitterHandler;
+                    var tweetDate = user.CreatedAt.ToString("MMM dd");
+
+                    <div class="c-card c-card--twitter u-spacer">
+                        <div class="o-wrap o-wrap--large c-card--twitter__inner">
+                            <div class="c-card--twitter__content">
+                                <span class="c-card__twitter__title">
+                                    <i class="ico-twitter"></i>
+                                    <a class="c-card__twitter__title-text" href="@profileUrl" target="_blank">
+                                        &#64;<strong>@twitterHandler</strong>
+                                    </a>
+                                </span>
+                                <p class="c-card--twitter__text js-linkify-tweet">@Html.Raw(user.Text)</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        }
+    }
+}
