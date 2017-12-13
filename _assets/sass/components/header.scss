@@ -14,12 +14,13 @@
 .c-header__logo-link {
 	display: block;
 	float: left;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+	margin-top: .5rem;
+	margin-bottom: .5rem;
 }
 
 .c-header__logo-image {
-	width: 9.3rem;
+	width: 5.4rem;
+	height: 4.7rem;
 }
 
 .c-header__toggle-menu-button {
@@ -30,22 +31,16 @@
 
 	.enhance {
 
-		.c-header__toggle-menu-button {
-			color: $pri;
-			font-size: 2.4rem;
-			display: block;
-			float: right;
-			padding: .9rem 1.3rem .8rem;
-			transition: color $speed $ease,
-						background $speed ease;
+		.c-header {
+			background-color: $sec;
 
-			i {
-				vertical-align: middle;
+			.c-site-logo__bubble {
+				fill: $white;
 			}
 
-			&:hover,
-			&:focus {
-				color: $sec;
+			.c-site-logo__strapline,
+			.c-site-logo__name {
+				display: none;
 			}
 		}
 
@@ -53,24 +48,39 @@
 			position: relative;
 		}
 
-		&.nav-main-open {
-
-			.c-header__toggle-menu-button {
-				color: $white;
-
-				&:hover,
-				&:focus {
-					color: $pri;
-				}
-			}
-
+		.c-header__nav-wrap {
+			background-color: $sec;
+			height: 100vh;
+			overflow: scroll;
+			-webkit-overflow-scrolling: touch;
 		}
 
+		.c-header__toggle-menu-button {
+			display: block;
+			margin-left: auto;
+			padding: 1.5rem 1.3rem;
+		}
+
+	}
+
+	.c-header__cta {
+
+		.c-button.c-button {
+			display: block;
+			margin: 1rem 2rem;
+			padding-top: 1.4rem;
+			padding-bottom: 1.4rem;
+		}
 	}
 
 }
 
 @include respond-min( $mq-large ) {
+
+	.c-header__logo-link {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
 
 	.c-header__logo-image {
 		width: 10.5rem;
@@ -90,10 +100,13 @@
 
 		.c-header__cta.c-header__cta {
 			margin-left: 2rem;
-			box-shadow: $box-shadow-1;
+
+			.c-button {
+				box-shadow: $box-shadow-1;
+			}
+
 		}
 	}
-
 
 }
 

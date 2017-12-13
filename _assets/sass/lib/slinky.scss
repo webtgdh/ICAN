@@ -1,0 +1,121 @@
+@include respond-max( $mq-large ) {
+
+		.enhance {
+
+			.c-nav--main {
+				overflow: hidden;
+				transform: translateZ(0);
+				transition: all 300ms ease;
+				-webkit-transform: translateZ(0);
+				-webkit-transition: all 300ms ease;
+
+				& > ul {
+					left: 0;
+					position: relative;
+					transform: translateZ(0);
+					transition: all 300ms ease;
+					-webkit-transform: translateZ(0);
+					-webkit-transition: all 300ms ease;
+				}
+
+				ul,
+				li {
+					list-style: none;
+					margin: 0;
+				}
+
+				ul {
+					width: 100%;
+				}
+
+				li ul {
+					display: none;
+					left: 100%;
+					position: absolute;
+					top: 0;
+				}
+
+				.header {
+					position: relative;
+				}
+
+				h2 ~ a.back {
+					left: 0;
+					position: absolute;
+					top: 0;
+					font-weight: $bold;
+				}
+
+				h2 {
+					font-size: inherit;
+					margin: 0;
+					text-align: center;
+				}
+
+			}
+
+		}
+
+		/* Default theme */
+
+		.enhance {
+
+			.c-nav--main {
+
+				.header {
+					background-color: $dark-1;
+				}
+
+				.back {
+					color: $white;
+					padding: 1.5rem 1rem;
+					font-size: 1.2rem;
+					text-transform: uppercase;
+					transition: color $speed $ease,
+								background $speed $ease;
+
+					&:hover,
+					&:focus {
+						color: $white;
+						background-color: $black;
+					}
+				}
+
+				.c-nav__link {
+
+					&:hover,
+					&:focus {
+						color: $white;
+						background-color: $black;
+					}
+
+				}
+
+			}
+
+			.c-nav--main h2 {
+				color: #FFF;
+				padding: 1.5rem 1rem;
+				line-height: $line-height;
+			}
+
+			.c-nav--main a.next:after,
+			.c-nav--main a.back:before {
+				font-family: 'Zapf Dingbats';
+			}
+
+			.c-nav--main a.next:after {
+				content: '\276f';
+				margin-left: 1em;
+				float: right;
+			}
+
+			.c-nav--main a.back:before {
+				content: '\276e';
+				margin-right: 1em;
+				float: left;
+			}
+
+		}
+
+	}

@@ -1,0 +1,38 @@
+/* ===========================================================
+  # Hero
+=========================================================== */
+
+@include respond-min($mq-large) {
+
+	.t-has-hero {
+
+		body {
+			padding-top: 0 !important;
+		}
+
+		.c-header {
+			background: transparent linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent);
+
+			.c-nav--main {
+
+				.c-nav__link {
+					color: $white;
+				}
+
+			}
+
+			.c-site-logo__name {
+				display: none;
+			}
+
+			.c-site-logo__bubble,
+			.c-site-logo__strapline {
+				fill: $white;
+			}
+
+		}
+
+	}
+
+
+}

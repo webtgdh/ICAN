@@ -6,6 +6,7 @@ var StickyHeader = (function ($) {
 	var $headerGroup;
 	var $logo;
 
+	var hasHero = false;
 	var headerHeight = $header.outerHeight();
 	var headerGroupHeight;
 	var logoHeight;
@@ -91,10 +92,19 @@ var StickyHeader = (function ($) {
 		});
 	};
 
-	var _init = function( isCompact ) {
+	var _hasHero = function() {
+		if ($('html').hasClass('.js-has-hero')) {
+			hasHero = true;
+		}
+		if (!hasHero) {
+			_setElOffsets();
+		}
+	};
 
+	var _init = function( isCompact ) {
 		$header.addClass('is-fixed');
-		_setElOffsets();
+
+		_hasHero();
 
 		if( isCompact ) {
 			$headerGroup = $header.find('.js-header-group');

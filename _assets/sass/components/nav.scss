@@ -88,6 +88,18 @@
 
 @include respond-max( $mq-large ) {
 
+	.c-nav__link {
+
+		&:hover {
+			background-color: $purple-1;
+		}
+
+	}
+
+	.c-nav__list--sub {
+		display: none;
+	}
+
 	.enhance {
 
 		.c-header__nav-wrap {
@@ -96,7 +108,7 @@
 			left: 0;
 			visibility: hidden;
 			opacity: 0;
-			background-color: $pri;
+			background-color: $sec;
 			transform: translateY(-1rem);
 			transition: opacity $speed $ease,
 						visibility $speed $ease,

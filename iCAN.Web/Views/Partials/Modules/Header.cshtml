@@ -6,20 +6,27 @@
 }
 
 <header id="header" class="c-header js-header" role="banner">
-	@Html.Partial("~/Views/Partials/Components/SuperNavigation.cshtml")
+	<div class="u-hide--small u-hide--medium u-hide--large">
+		@Html.Partial("~/Views/Partials/Components/SuperNavigation.cshtml")
+	</div>
 	<div class="o-wrap o-wrap--x-large">
 		<a href="/" class="c-header__logo-link">
 			@Html.Partial("~/Views/Partials/Components/SiteLogo.cshtml")
 		</a>
 
-		<button class="c-header__toggle-menu-button js-toggle" id="toggle-menu" aria-haspopup="true">
+		<button class="c-header__toggle-menu-button js-toggle" id="toggle-menu" aria-haspopup="true" data-toggle="nav-main">
 			<span class="c-icon--list" aria-hidden="hidden"></span>
 			<span class="u-visually-hidden">Menu</span>
 		</button>
 
-		@Html.Partial("~/Views/Partials/Components/MainNavigation.cshtml", new PageListingViewModel {
-			Listing = Model.Site().Children.Where(x => x.IsVisible() && x.TemplateId > 0),
-			CurrentModel = Model
-		})
+		<div class="c-header__nav-wrap">
+			@Html.Partial("~/Views/Partials/Components/MainNavigation.cshtml", new PageListingViewModel {
+				Listing = Model.Site().Children.Where(x => x.IsVisible() && x.TemplateId > 0),
+				CurrentModel = Model
+			})
+			<div class="u-hide--x-large u-hide--xx-large">
+				@Html.Partial("~/Views/Partials/Components/SuperNavigation.cshtml")
+			</div>
+		</div>
 	</div>
 </header>

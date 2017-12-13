@@ -15,9 +15,10 @@
         @foreach (var item in Model.Listing)
         {
             var activeStateClass = item.IsAncestorOrSelf(Model.CurrentModel) ? "is-active" : null;
+			var gatewayClass = item.DocumentTypeAlias == "gatewayPage" ? "is-gateway" : "";
 
             <li class="c-nav__item c-nav__item--parent">
-                <a href="@item.Url" class="c-nav__link @activeStateClass">
+                <a href="@item.Url" class="c-nav__link @activeStateClass @gatewayClass">
                     @item.Name
                 </a>
                 @Traverse(item)

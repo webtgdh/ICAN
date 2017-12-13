@@ -52,7 +52,7 @@
 		call_for_each_context: false,
 		match: function() {
 			//console.log('small');
-			$window.MobileNavigation.init( $('.js-nav') );
+			// $window.MobileNavigation.init( $('.js-nav') );
 			$window.StickyHeader.init(false);
 		},
 		unmatch: function() {
