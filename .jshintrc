@@ -12,6 +12,7 @@
         "jQuery": false,
         "require": false,
         "google": false,
-        "MQ": false
+        "MQ": false,
+        "svg4everybody": false
     }
 }

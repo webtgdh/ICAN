@@ -23,6 +23,7 @@ var headScripts = [
 ];
 
 var mainScripts = [
+	paths.assetsFolder + '/_components/svg4everybody/dist/svg4everybody.js',
 	paths.assetsFolder + '/_components/slick-carousel/slick/slick.js',
 	paths.assetsFolder + '/_components/magnific-popup/dist/jquery.magnific-popup.js',
 	paths.assetsFolder + '/_components/onMediaQuery/js/onmediaquery.js',

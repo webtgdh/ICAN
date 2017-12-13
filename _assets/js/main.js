@@ -95,6 +95,7 @@
 		responsiveTables();
 
 		MQ.init(breakpoints);
+		svg4everybody();
 	}
 
 })(jQuery);

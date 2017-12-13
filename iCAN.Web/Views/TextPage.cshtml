@@ -11,9 +11,9 @@
 	<main class="o-section" role="main">
 		@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
 			Headline = Model.GetPropertyValue<string>("headline", Model.Name),
-			Subtitle = "Sub heading. Pellentesque ornare sem lacinia quam venenatis."
+			Subtitle = Model.GetPropertyValue<string>("subheadline"),
 		})
-		@Html.Partial("Modules/PageComponents")
+		@Html.CachedPartial("Modules/PageComponents", Model, 3600, true)
 	</main>
 </div>
 

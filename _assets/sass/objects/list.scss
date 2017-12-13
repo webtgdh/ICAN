@@ -1,0 +1,22 @@
+
+/* ===========================================================
+	# List
+=========================================================== */
+
+.o-list--minimal {
+	list-style: none;
+
+	li {
+		margin: .5rem 0;
+		word-wrap: break-word;
+	}
+}
+
+.o-list--inline {
+	list-style: none;
+
+	li {
+		display: inline-block;
+		margin: 1rem;
+	}
+}
