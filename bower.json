@@ -10,6 +10,7 @@
     "slick-carousel": "1.7.1",
     "slinky": "jquery-slinky#^3.0.0",
     "magnific-popup": "^1.1.0",
-    "svg4everybody": "https://github.com/jonathantneal/svg4everybody.git#^2.1.9"
+    "svg4everybody": "https://github.com/jonathantneal/svg4everybody.git#^2.1.9",
+    "jquery-selectric": "https://github.com/lcdsantos/jQuery-Selectric.git#^1.13.0"
   }
 }

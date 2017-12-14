@@ -86,6 +86,9 @@
 //		$('select').selectric();
 		scrollTo($('a[href^="#"]:not(".js-no-scroll")'));
 		$('.js-tabs').tabs();
+		$('select').selectric({
+			disableOnMobile: true
+		});
 
 		$window.Carousel.init( $('.js-carousel') );
 		$window.Modal.init( $('.js-modal') );

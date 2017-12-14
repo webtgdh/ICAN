@@ -14,8 +14,8 @@
 <section class="o-section u-background--light u-clearfix">
 	<div class="o-wrap o-wrap--x-large">
 		@Html.Partial("~/Views/Partials/Components/Heading.cshtml", new HeadingViewModel {
-			Headline = "News",
-			Subtitle = "Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.",
+			Headline = Model.GetPropertyValue<string>("newsHeadline"),
+			Subtitle = Model.GetPropertyValue<string>("newsSubHeadline"),
 			ModifierClass = "u-space-bottom--large"
 		})
 		<div class="c-carousel c-carousel--cards">

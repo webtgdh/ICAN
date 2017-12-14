@@ -7,4 +7,6 @@ public class Link
 
         public bool IsActive { get; set; }
 
+        public string ModifierClass { get; set; }
+
  }

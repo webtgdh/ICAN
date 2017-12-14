@@ -60,11 +60,11 @@
 
 				@if (categoryLinks != null) {
 					<h2>Categories</h2>
-					@Html.Partial("Components/LinkList", new LinkListViewModel(categoryLinks))
+					@Html.Partial("~/Views/Partials/Components/LinkList.cshtml", new LinkListViewModel(categoryLinks))
 				}
 				@if (dateLinks != null) {
-					<h2>Archive</h2>
-					@Html.Partial("Components/LinkList", new LinkListViewModel(dateLinks))
+					<h2>Archives</h2>
+					@Html.Partial("~/Views/Partials/Components/LinkListSelect.cshtml", new LinkListViewModel(dateLinks))
 				}
 			</aside>
 		</div>

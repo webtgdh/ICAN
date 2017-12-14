@@ -33,30 +33,31 @@
 		<div class="o-wrap o-wrap--x-large u-clearfix">
 			<div class="t-home__about__col t-home__about__col--first">
 				@Html.Partial("~/Views/Partials/Components/Heading.cshtml", new HeadingViewModel {
-					Headline = "About I CAN",
-					Subtitle = "Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum."
+					Headline = Model.GetPropertyValue<string>("aboutHeadline"),
+					Subtitle = Model.GetPropertyValue<string>("aboutSubHeadline"),
 				})
-				<p><strong>Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</strong></p>
-				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur.</p>
-				<p>Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. <a href="">Read more</a></p>
+				@Html.Raw(Model.GetPropertyValue<string>("aboutDescription"))
 			</div>
 			<div class="t-home__about__col t-home__about__col--last">
-				@Html.Partial("~/Views/Partials/Components/ImageMozaic.cshtml", new ImageMozaicViewModel {
-					ImageFirst = Umbraco.TypedMedia(1175),
-					ImageSecond = Umbraco.TypedMedia(1174),
-					ModifierClass="t-home__about__col__images"
-				})
+				@{
+					var aboutImages = Model.GetPropertyValue<IEnumerable<IPublishedContent>>("AboutImages");
+					if (aboutImages != null && aboutImages.Count() > 1) {
+						@Html.Partial("~/Views/Partials/Components/ImageMozaic.cshtml", new ImageMozaicViewModel {
+							ImageFirst = aboutImages.FirstOrDefault(),
+							ImageSecond = aboutImages.Skip(1).FirstOrDefault(),
+							ModifierClass="t-home__about__col__images"
+						})
+					}
+				}
 
 				@Html.Partial("~/Views/Partials/Components/Quote.cshtml", new QuoteViewModel {
-					Quote = Html.Raw("Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras justo odio ac facilisis in."),
-					Source = "Authors name",
-					Title = "Title",
+					Quote = Html.Raw(Model.GetPropertyValue<string>("aboutQuote")),
+					Source = Model.GetPropertyValue<string>("aboutQuoteSource"),
+					Title = Model.GetPropertyValue<string>("aboutQuoteTitle"),
 					ModifierClass="t-home__about__col__quote"
 				})
 			</div>
 		</div>
 	</section>
-
 	@Html.CachedPartial("~/Views/Partials/Modules/LatestNews.cshtml", Model, 3600)
-
 </main>
