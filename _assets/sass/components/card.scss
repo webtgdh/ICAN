@@ -47,8 +47,20 @@
 	}
 }
 
-.c-card__category {
+.c-card__label {
 	margin-bottom: .7rem;
+}
+
+.c-card__category {
+	color: $white;
+	background-color: $purple-2;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 1.2rem;
+	line-height: 1;
+	padding: 0.4rem;
 }
 
 .c-card__subtitle {
@@ -59,6 +71,10 @@
 
 .c-card__content {
 	padding: 3rem;
+}
+
+.c-card__copy {
+	margin-top: $line-height;
 }
 
 .c-card__cta {
@@ -77,13 +93,17 @@
 		flex-direction: column;
 	}
 
+	.c-card__headline {
+		margin-bottom: 0;
+	}
+
 	.c-card__content {
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
 	}
 
-	.c-card__category {
+	.c-card__label {
 		display: flex;
 		order: -1;
 	}

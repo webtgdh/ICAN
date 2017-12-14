@@ -21,10 +21,13 @@
         </div>
         <div class="c-card__content">
             @if (!String.IsNullOrWhiteSpace(Model.Headline)) {
-                <h2 class="c-card__headline">@Model.Headline</h2>
+                <h2 class="c-card__headline u-delta">@Model.Headline</h2>
             }
 			@if (!String.IsNullOrWhiteSpace(Model.Category)) {
 				<div class="c-card__category u-small">@Model.Category</div>
+			}
+			@if (!String.IsNullOrWhiteSpace(Model.Label)) {
+				<div class="c-card__label u-small">@Model.Label</div>
 			}
 			@if (!String.IsNullOrWhiteSpace(Model.Copy)) {
 				<div class="c-card__copy">

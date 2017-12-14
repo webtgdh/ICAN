@@ -17,53 +17,56 @@
     var selection = filteredArticles.Skip(paging.Skip).Take(paging.Take).ToList();
 }
 
-<main class="o-page__inner u-clearfix" role="main">
-	<h1>@headline</h1>
+<div class="o-page__inner">
+	<div class="o-section o-page__content--has-sidebar o-wrap o-wrap--x-large">
+		@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
+			Headline = headline,
+			Subtitle = Model.GetPropertyValue<string>("subheadline"),
+		})
+		<div class="u-clearfix">
+			<main class="o-page__content__main u-clearfix" role="main">
+				@if (selection.Any()) {
+					<div class="c-listing-card u-clearfix">
+						@foreach (var item in selection) {
+							var isInTheMedia = item.DocumentTypeAlias == "inTheMedia";
 
-	@if (selection.Any()) {
+							@Html.Partial("Components/Card", new CardViewModel {
+								Image = item.GetPropertyValue<IPublishedContent>("featuredImage"),
+								Headline = item.GetPropertyValue<string>("headline", item.Name),
+								Category = ContentTypeHelper.GetNewsTypeLabelFromPage(item.DocumentTypeAlias),
+								Label = item.GetPropertyValue<DateTime>("releaseDate").ToString("dd / MM / yyyy"),
+								Copy = item.GetPropertyValue<string>("pageDescription"),
+								Url = isInTheMedia ? item.GetPropertyValue<string>("source") : item.Url,
+								Target = isInTheMedia ? "_blank" : "",
+								ModifierClass = "c-listing-card__item"
+							})
+						}
+					</div>
 
-        foreach (var item in selection) {
-            if (item.DocumentTypeAlias == "inTheMedia") {
-                @Html.Partial("Components/Card", new CardViewModel {
-                    Headline = item.GetPropertyValue<string>("headline", item.Name),
-					Category = ContentTypeHelper.GetNewsTypeLabelFromPage(item.DocumentTypeAlias),
-                    Url = item.GetPropertyValue<string>("source", "#"),
-                    Image = item.GetPropertyValue<IPublishedContent>("featuredImage"),
-                    Target = "_blank",
-                    ModifierClass = "is-external"
-                })
-            } else {
-                @Html.Partial("Components/Card", new CardViewModel {
-                    Headline = item.GetPropertyValue<string>("headline", item.Name),
-                    Url = item.Url,
-					Category = ContentTypeHelper.GetNewsTypeLabelFromPage(item.DocumentTypeAlias),
-                    Image = item.GetPropertyValue<IPublishedContent>("featuredImage")
-                })
-            }
-        }
+					@Html.Partial("Components/Pagination", new PaginationViewModel {
+						Paging = paging,
+						CurrentModel = Model
+					})
+				} else {
+					@Model.GetPropertyValue("noResultsMessage")
+				}
+			</main>
+			<aside class="o-page__content__sidebar">
+				@{
+					var pageUrl = Model.Url;
+					var dateLinks = Filters.GetDatesFromSelection(allArticles, pageUrl, qMonth, qYear);
+					var categoryLinks = News.GetCategoryLinks(allArticles, pageUrl, qCat);
+				}
 
-        @Html.Partial("Components/Pagination", new PaginationViewModel {
-            Paging = paging,
-            CurrentModel = Model
-        })
-    } else {
-        @Model.GetPropertyValue("noResultsMessage")
-    }
-
-</main>
-<aside>
-    @{
-        var pageUrl = Model.Url;
-        var dateLinks = Filters.GetDatesFromSelection(allArticles, pageUrl, qMonth, qYear);
-        var categoryLinks = News.GetCategoryLinks(allArticles, pageUrl, qCat);
-    }
-
-    @if (categoryLinks != null) {
-        <h2>Categories</h2>
-        @Html.Partial("Components/LinkList", new LinkListViewModel(categoryLinks))
-    }
-    @if (dateLinks != null) {
-        <h2>Archive</h2>
-        @Html.Partial("Components/LinkList", new LinkListViewModel(dateLinks))
-    }
-</aside>
+				@if (categoryLinks != null) {
+					<h2>Categories</h2>
+					@Html.Partial("Components/LinkList", new LinkListViewModel(categoryLinks))
+				}
+				@if (dateLinks != null) {
+					<h2>Archive</h2>
+					@Html.Partial("Components/LinkList", new LinkListViewModel(dateLinks))
+				}
+			</aside>
+		</div>
+	</div>
+</div>

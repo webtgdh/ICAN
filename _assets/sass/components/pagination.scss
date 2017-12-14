@@ -35,7 +35,7 @@
 	margin-right: 2rem;
 
 	.c-pagination__link-icon {
-		@include arrow-left();
+		@include arrow-left($white);
 	}
 }
 
@@ -43,17 +43,18 @@
 	margin-left: 2rem;
 
 	.c-pagination__link-icon {
-		@include arrow-right();
+		@include arrow-right($white);
 	}
 }
 
 .c-pagination__link--prev,
 .c-pagination__link--next {
-	padding: 2.6rem 2.7rem;
+	padding: 1.9rem 2rem;
 	margin-bottom: -0.7rem;
+	background-color: $sec;
 	box-shadow: 0 0 60px rgba(#444,0.3);
 
 	&.is-disabled {
-		opacity: 0.2;
+		opacity: 0.3;
 	}
 }

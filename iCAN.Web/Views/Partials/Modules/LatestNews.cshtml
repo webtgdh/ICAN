@@ -26,7 +26,7 @@
 						Image = item.GetPropertyValue<IPublishedContent>("featuredImage"),
 						Headline = item.GetPropertyValue<string>("headline", item.Name),
 						Category = ContentTypeHelper.GetNewsTypeLabelFromPage(item.DocumentTypeAlias),
-						Label = item.GetPropertyValue<DateTime>("releaseDate").ToString("dd/MM"),
+						Label = item.GetPropertyValue<DateTime>("releaseDate").ToString("dd / MM / YYYY"),
 						Copy = item.GetPropertyValue<string>("pageDescription"),
 						Url = isInTheMedia ? item.GetPropertyValue<string>("source") : item.Url,
 						Target = isInTheMedia ? "_blank" : "",

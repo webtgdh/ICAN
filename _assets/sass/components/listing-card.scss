@@ -1,0 +1,61 @@
+/* ===========================================================
+
+	# Listing - card
+
+=========================================================== */
+
+@include respond-max( $mq-small) {
+	.c-listing-card {
+
+		.c-listing-card__item {
+			@include column(1/2, $cycle: 2);
+
+			& + & {
+				margin-top: $line-height * 2;
+			}
+		}
+
+	}
+
+}
+
+@include respond-min( $mq-small) {
+
+	.c-listing-card__item {
+		margin-bottom: $line-height;
+	}
+
+	.flexwrap {
+
+		.c-listing-card {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+	}
+
+}
+
+@include respond-min-max( $mq-small, $mq-large ) {
+
+	.c-listing-card {
+
+		.c-listing-card__item {
+			@include column(1/2, $cycle: 2);
+		}
+
+	}
+
+}
+
+@include respond-min( $mq-large ) {
+
+	.c-listing-card {
+
+		.c-listing-card__item {
+			@include column(1/3, $cycle: 3);
+		}
+
+	}
+
+}

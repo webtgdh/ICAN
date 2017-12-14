@@ -30,3 +30,20 @@ html {
 	}
 
 }
+
+
+@include respond-min( $mq-medium ) {
+
+	.o-page__content--has-sidebar {
+
+		.o-page__content__main {
+			@include column(9/12);
+		}
+
+		.o-page__content__sidebar {
+			@include column(3/12);
+		}
+
+	}
+
+}
