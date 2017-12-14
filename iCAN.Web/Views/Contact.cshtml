@@ -6,58 +6,58 @@
 	var contacts = Model.GetPropertyValue<IEnumerable<IPublishedContent>>("additionalContacts");
 }
 
-<main id="main" class="o-page__inner u-clearfix" role="main">
-	<div class="o-wrap o-wrap--x-large">
-		@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
-			Headline = Model.GetPropertyValue<string>("headline", Model.Name),
-			Subtitle = Model.GetPropertyValue<string>("subheadline"),
-			Level = "h1"
-		})
-	</div>
+<div class="o-page__inner u-clearfix">
+	<main id="main" class="o-page__content" role="main">
+			<div class="o-wrap o-wrap--x-large">
+				@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
+					Headline = Model.GetPropertyValue<string>("headline", Model.Name),
+					Subtitle = Model.GetPropertyValue<string>("subheadline"),
+					Level = "h1"
+				})
+			</div>
 
-	<div id="mapCanvas" class="c-map js-map"></div>
+			<div id="mapCanvas" class="c-map js-map"></div>
 
-	<div class="o-wrap o-wrap--large s-contact__cols u-clearfix o-section">
-		<div class="s-contact__cols__col--first">
-			@Html.Partial("~/Views/Partials/Components/PrimaryContactDetails.cshtml")
-		</div>
-		<div class="s-contact__cols__col--last">
-			@Html.Partial("~/Views/Partials/Forms/ContactFormView.cshtml", new ContactForm {
-				PageName = Model.Name
-			})
-		</div>
-	</div>
+			<div class="o-wrap o-wrap--large s-contact__cols u-clearfix o-section">
+				<div class="s-contact__cols__col--first">
+					@Html.Partial("~/Views/Partials/Components/PrimaryContactDetails.cshtml")
+				</div>
+				<div class="s-contact__cols__col--last">
+					@Html.Partial("~/Views/Partials/Forms/ContactFormView.cshtml", new ContactForm {
+						PageName = Model.Name
+					})
+				</div>
+			</div>
 
-	<div class="o-section--bottom o-wrap o-wrap--large">
-		@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
-			Headline = Model.GetPropertyValue<string>("additionalContactsHeadline"),
-			Subtitle = Model.GetPropertyValue<string>("additionalContactsSubheadline"),
-			Level = "h2"
-		})
-		@if (contacts != null) {
-			<div class="u-clearfix o-grid--three">
-				@foreach (var item in contacts) {
-					var headline = item.GetPropertyValue<string>("headline");
-					var jobTitle = item.GetPropertyValue<string>("jobTitle");
-					var email = item.GetPropertyValue<string>("emailAddress");
-					var tel = item.GetPropertyValue<string>("phoneNumber");
+			<div class="o-wrap o-wrap--large">
+				@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
+					Headline = Model.GetPropertyValue<string>("additionalContactsHeadline"),
+					Subtitle = Model.GetPropertyValue<string>("additionalContactsSubheadline"),
+					Level = "h2"
+				})
+				@if (contacts != null) {
+					<div class="u-clearfix o-grid--three">
+						@foreach (var item in contacts) {
+							var headline = item.GetPropertyValue<string>("headline");
+							var jobTitle = item.GetPropertyValue<string>("jobTitle");
+							var email = item.GetPropertyValue<string>("emailAddress");
+							var tel = item.GetPropertyValue<string>("phoneNumber");
 
-					<div class="o-grid__item">
-						<div class="u-center-text">
-							@if (!String.IsNullOrWhiteSpace(headline)) {
-								<h3 class="u-gamma">@headline</h3>
-							}
-							<ul class="o-list--minimal">
-								<li>@jobTitle</li>
-								<li><a href="mailto:@email">@email</a></li>
-								<li>@tel</li>
-							</ul>
-						</div>
+							<div class="o-grid__item">
+								<div class="u-center-text">
+									@if (!String.IsNullOrWhiteSpace(headline)) {
+										<h3 class="u-gamma">@headline</h3>
+									}
+									<ul class="o-list--minimal">
+										<li>@jobTitle</li>
+										<li><a href="mailto:@email">@email</a></li>
+										<li>@tel</li>
+									</ul>
+								</div>
+							</div>
+						}
 					</div>
 				}
 			</div>
-		}
-	</div>
-
-
-</main>
+		</main>
+</div>

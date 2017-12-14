@@ -21,6 +21,7 @@
 	<div class="o-page__content o-page__content--has-sidebar o-wrap o-wrap--x-large">
 		@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
 			Headline = headline,
+			Level = "h1",
 			Subtitle = Model.GetPropertyValue<string>("subheadline"),
 		})
 		<div class="u-clearfix">
@@ -29,7 +30,6 @@
 					<div class="c-listing-card u-clearfix">
 						@foreach (var item in selection) {
 							var isInTheMedia = item.DocumentTypeAlias == "inTheMedia";
-
 							@Html.Partial("Components/Card", new CardViewModel {
 								Image = item.GetPropertyValue<IPublishedContent>("featuredImage"),
 								Headline = item.GetPropertyValue<string>("headline", item.Name),

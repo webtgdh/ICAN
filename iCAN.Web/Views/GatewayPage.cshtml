@@ -29,7 +29,11 @@
 	@Html.CachedPartial("~/Views/Partials/Components/Breadcrumb.cshtml", Model, 3600, true)
 	*@
 	<main id="main" class="o-page__content" role="main">
-		<h1>@Model.Name</h1>
+		@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
+			Headline = Model.GetPropertyValue<string>("headline", Model.Name),
+			Level = "h1",
+			Subtitle = Model.GetPropertyValue<string>("subheadline"),
+		})
 		@if (featuredPages.Any()) {
 			<h2>Featured</h2>
 			foreach(var item in featuredPages) {
