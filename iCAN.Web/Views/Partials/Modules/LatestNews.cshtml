@@ -19,7 +19,8 @@
 			ModifierClass = "u-space-bottom--large"
 		})
 		<div class="c-carousel c-carousel--cards">
-			<div class="c-carousel__inner js-carousel u-clearfix" data-items="3" data-nav="true" >
+			<div id="latestNewsNav" class="c-carousel__nav--inline"></div>
+			<div class="c-carousel__inner js-carousel u-clearfix" data-items="3" data-nav="true" data-append-arrows="#latestNewsNav">
 				@foreach (var item in selection) {
 					var isInTheMedia = item.DocumentTypeAlias == "inTheMedia";
 					@Html.Partial("~/Views/Partials/Components/Card.cshtml", new CardViewModel {

@@ -30,3 +30,11 @@
   width: 4.2rem;
   height: 4.2rem;
 }
+
+.u-icon--arrow-left {
+	@include arrow-left();
+}
+
+.u-icon--arrow-right {
+	@include arrow-right();
+}
