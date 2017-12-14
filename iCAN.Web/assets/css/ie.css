@@ -561,7 +561,8 @@ textarea {
 
 textarea {
   overflow: auto;
-  resize: vertical; }
+  resize: vertical;
+  display: block; }
   .is-disabled textarea {
     resize: none; }
 
@@ -860,9 +861,6 @@ html {
     .o-form__field input:focus,
     .o-form__field textarea:focus {
       box-shadow: 0 0 10px 2px rgba(79, 28, 71, 0.3); }
-  .o-form__field .o-validation {
-    position: absolute;
-    right: 0; }
 
 .o-input,
 .o-select select,
