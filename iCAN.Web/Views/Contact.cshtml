@@ -6,7 +6,7 @@
 	var contacts = Model.GetPropertyValue<IEnumerable<IPublishedContent>>("additionalContacts");
 }
 
-<main class="o-page__inner u-clearfix" role="main">
+<main id="main" class="o-page__inner u-clearfix" role="main">
 	<div class="o-wrap o-wrap--x-large">
 		@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
 			Headline = Model.GetPropertyValue<string>("headline", Model.Name),

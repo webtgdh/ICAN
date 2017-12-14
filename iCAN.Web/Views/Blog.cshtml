@@ -19,7 +19,7 @@
     var selection = filteredPosts.Skip(paging.Skip).Take(paging.Take).ToList();
 }
 
-<main class="o-page__inner u-clearfix" role="main">
+<main id="main" class="o-page__inner u-clearfix" role="main">
 	<h1>@headline</h1>
 
 	@if (selection.Any()) {

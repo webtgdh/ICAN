@@ -8,19 +8,20 @@
 	var covers = Model.GetPropertyValue<IEnumerable<IPublishedContent>>("coverCarousel");
 }
 
-<main class="o-page__inner u-clearfix" role="main">
+<main id="main" class="o-page__inner u-clearfix" role="main">
 	@if (covers != null && covers.Any()) {
 		<figure class="c-carousel c-carousel--contain">
     		<div class="c-carousel__inner js-carousel" data-nav="true" data-fade="true" data-dots="true">
 				@foreach (var item in covers) {
-					var link = item.GetPropertyValue<Link>("link");
+					var link = item.GetPropertyValue<Link>("coverLink");
+					var hasLink = link != null;
 					@Html.Partial("~/Views/Partials/Components/Cover.cshtml", new CoverViewModel {
-						Image = item.GetPropertyValue<IPublishedContent>("image"),
-						Headline = item.GetPropertyValue<string>("headline"),
-						Copy = item.GetPropertyValue<string>("description"),
-						Url = link.Url,
-						Target = link.Target,
-						CtaName = link.Name
+						Image = item.GetPropertyValue<IPublishedContent>("coverImage"),
+						Headline = item.GetPropertyValue<string>("coverHeadline"),
+						Copy = item.GetPropertyValue<string>("coverDescription"),
+						Url = hasLink ? coverLink.Url : "",
+						Target = hasLink ? coverLink.Target : "",
+						CtaName = hasLink ? coverLink.Name : "",
 					})
 				}
 			</div>

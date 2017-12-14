@@ -24,7 +24,7 @@
 			Subtitle = Model.GetPropertyValue<string>("subheadline"),
 		})
 		<div class="u-clearfix">
-			<main class="o-page__content__main u-clearfix" role="main">
+			<main id="main" class="o-page__content__main u-clearfix" role="main">
 				@if (selection.Any()) {
 					<div class="c-listing-card u-clearfix">
 						@foreach (var item in selection) {

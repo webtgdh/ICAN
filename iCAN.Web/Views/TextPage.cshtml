@@ -1,14 +1,28 @@
 ﻿@using iCAN.Core.Models;
+@using RJP.MultiUrlPicker.Models;
 @inherits UmbracoViewPage<IPublishedContent>
 @{
     Layout = "Master.cshtml";
 }
 
 <div class="o-page__inner u-clearfix">
+	@{
+		var coverLink = Model.GetPropertyValue<Link>("coverLink");
+		var hasLink = coverLink != null;
+		@Html.Partial("~/Views/Partials/Components/Cover.cshtml", new CoverViewModel {
+			Image = Model.GetPropertyValue<IPublishedContent>("coverImage"),
+			Headline = Model.GetPropertyValue<string>("coverHeadline"),
+			Copy = Model.GetPropertyValue<string>("coverDescription"),
+			Url = hasLink ? coverLink.Url : "",
+			Target = hasLink ? coverLink.Target : "",
+			CtaName = hasLink ? coverLink.Name : "",
+			ModifierClass = "c-cover--small"
+		})
+	}
 	@*
 	@Html.CachedPartial("~/Views/Partials/Components/Breadcrumb.cshtml", Model, 3600, true)
 	*@
-	<main class="o-section" role="main">
+	<main id="main" class="o-section" role="main">
 		@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
 			Headline = Model.GetPropertyValue<string>("headline", Model.Name),
 			Subtitle = Model.GetPropertyValue<string>("subheadline"),

@@ -6,7 +6,7 @@
 
 	var coverCarousel = Model.GetPropertyValue<IEnumerable<IPublishedContent>>("coverCarousel");
 	var hasCarousel = coverCarousel != null && coverCarousel.Any();
-	var hasCover = Model.GetPropertyValue<IPublishedContent>("image") != null;
+	var hasCover = Model.GetPropertyValue<IPublishedContent>("coverImage") != null;
 
 	var hasHero = hasCarousel || hasCover;
 

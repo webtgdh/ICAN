@@ -2901,17 +2901,13 @@ img.mfp-img {
     bottom: 3.4em; } }
 
 @media only screen and (min-width: 1560px) {
-  \
- .c-carousel--cards .c-carousel--prev,
-  \
- .c-carousel--cards .c-carousel--next {
+  .c-carousel--cards .c-carousel--prev,
+  .c-carousel--cards .c-carousel--next {
     padding: 2.6rem 2.7rem;
     box-shadow: 0 0 60px rgba(68, 68, 68, 0.5); }
-  \
- .c-carousel--cards .c-carousel--prev {
+  .c-carousel--cards .c-carousel--prev {
     left: -6rem; }
-  \
- .c-carousel--cards .c-carousel--next {
+  .c-carousel--cards .c-carousel--next {
     right: -6rem; } }
 
 /* ===========================================================
@@ -3251,17 +3247,13 @@ img.mfp-img {
     bottom: 3.4em; } }
 
 @media only screen and (min-width: 1560px) {
-  \
- .c-carousel--cards .c-carousel--prev,
-  \
- .c-carousel--cards .c-carousel--next {
+  .c-carousel--cards .c-carousel--prev,
+  .c-carousel--cards .c-carousel--next {
     padding: 2.6rem 2.7rem;
     box-shadow: 0 0 60px rgba(68, 68, 68, 0.5); }
-  \
- .c-carousel--cards .c-carousel--prev {
+  .c-carousel--cards .c-carousel--prev {
     left: -6rem; }
-  \
- .c-carousel--cards .c-carousel--next {
+  .c-carousel--cards .c-carousel--next {
     right: -6rem; } }
 
 /* ===========================================================
