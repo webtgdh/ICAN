@@ -19,9 +19,9 @@
 						Image = item.GetPropertyValue<IPublishedContent>("coverImage"),
 						Headline = item.GetPropertyValue<string>("coverHeadline"),
 						Copy = item.GetPropertyValue<string>("coverDescription"),
-						Url = hasLink ? coverLink.Url : "",
-						Target = hasLink ? coverLink.Target : "",
-						CtaName = hasLink ? coverLink.Name : "",
+						Url = hasLink ? link.Url : "",
+						Target = hasLink ? link.Target : "",
+						CtaName = hasLink ? link.Name : "",
 					})
 				}
 			</div>
