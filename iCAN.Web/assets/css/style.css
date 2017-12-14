@@ -3091,12 +3091,16 @@ img.mfp-img {
   .c-link-list__item.is-active .c-link-list__link {
     color: #ff9933; }
 
+.c-link-list__icon {
+  margin-top: .5rem;
+  margin-bottom: .5rem; }
+
 .c-link-list__link {
   display: block;
-  color: #4f1c47;
-  padding: 1.4rem;
+  color: #ff9933;
+  padding: .7rem 1.4rem;
   font-size: 1.8rem;
-  transition: background-color 0.3s ease-out; }
+  transition: color 0.3s ease-out, background-color 0.3s ease-out; }
   .c-link-list__link:hover {
     background-color: #f7f5f2; }
 
