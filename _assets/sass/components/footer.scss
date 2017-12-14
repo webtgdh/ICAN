@@ -64,6 +64,14 @@
 	}
 }
 
+@include respond-max( $mq-large ) {
+
+	.c-footer__col + .c-footer__col {
+		margin-top: $line-height;
+	}
+
+}
+
 @include respond-min( $mq-large ) {
 
 	.c-footer__inner {
