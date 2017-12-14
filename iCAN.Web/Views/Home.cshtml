@@ -10,17 +10,21 @@
 
 <main class="o-page__inner u-clearfix" role="main">
 	@if (covers != null && covers.Any()) {
-		foreach (var item in covers) {
-			var link = item.GetPropertyValue<Link>("link");
-			@Html.Partial("~/Views/Partials/Components/Cover.cshtml", new CoverViewModel {
-				Image = item.GetPropertyValue<IPublishedContent>("image"),
-				Headline = item.GetPropertyValue<string>("headline"),
-				Copy = item.GetPropertyValue<string>("description"),
-				Url = link.Url,
-				Target = link.Target,
-				CtaName = link.Name
-			})
-		}
+		<figure class="c-carousel c-carousel--contain">
+    		<div class="c-carousel__inner js-carousel" data-nav="true" data-fade="true" data-dots="true">
+				@foreach (var item in covers) {
+					var link = item.GetPropertyValue<Link>("link");
+					@Html.Partial("~/Views/Partials/Components/Cover.cshtml", new CoverViewModel {
+						Image = item.GetPropertyValue<IPublishedContent>("image"),
+						Headline = item.GetPropertyValue<string>("headline"),
+						Copy = item.GetPropertyValue<string>("description"),
+						Url = link.Url,
+						Target = link.Target,
+						CtaName = link.Name
+					})
+				}
+			</div>
+		</figure>
 	}
 
 	<section class="o-section t-home__about">

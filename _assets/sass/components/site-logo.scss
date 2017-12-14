@@ -37,3 +37,12 @@
 	}
 
 }
+
+
+@include respond-max( $mq-x-large) {
+
+	.c-site-logo__strapline {
+		display: none;
+	}
+
+}
