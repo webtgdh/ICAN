@@ -4445,34 +4445,30 @@ img.mfp-img {
     float: left;
     clear: none;
     text-align: inherit;
-    width: 39.9166666667%;
+    width: 41.6666666667%;
     margin-left: 0%;
-    margin-right: 3%; }
+    margin-right: 0%; }
     .t-home__about__col--first:before, .t-home__about__col--first:after {
       content: '';
       display: table; }
     .t-home__about__col--first:after {
       clear: both; }
-    .t-home__about__col--first:last-child {
-      margin-right: 0%; }
   .t-home__about__col--last {
     *zoom: 1;
     float: left;
     clear: none;
     text-align: inherit;
-    width: 48.5%;
-    margin-left: 8.5833333333%;
-    margin-right: 3%; }
+    width: 50%;
+    margin-left: 8.3333333333%;
+    margin-right: 0%; }
     .t-home__about__col--last:before, .t-home__about__col--last:after {
       content: '';
       display: table; }
     .t-home__about__col--last:after {
       clear: both; }
-    .t-home__about__col--last:last-child {
-      margin-right: 0%; }
   .t-home__about__col .c-image-mozaic {
     width: calc(100% + 4rem);
-    width: 49vw;
+    width: 50vw;
     max-width: 94rem;
     margin-top: -14rem;
     z-index: 1; }

@@ -17,18 +17,18 @@
 @include respond-min($mq-large) {
 
 	.t-home__about__col--first {
-		@include column(5/12);
+		@include span(5/12);
 	}
 
 	.t-home__about__col--last {
-		@include column(6/12, $offset: 1/12);
+		@include span(6/12, $offset: 1/12);
 	}
 
 	.t-home__about__col {
 
 		.c-image-mozaic {
 			width: calc(100% + 4rem);
-			width: 49vw;
+			width: 50vw;
 			max-width: 94rem;
 			margin-top: -14rem;
 			z-index: 1;
