@@ -9,14 +9,13 @@
 	@{
 		var coverLink = Model.GetPropertyValue<Link>("coverLink");
 		var hasLink = coverLink != null;
-		@Html.Partial("~/Views/Partials/Components/Cover.cshtml", new CoverViewModel {
+		@Html.Partial("~/Views/Partials/Components/CoverLetterbox.cshtml", new CoverViewModel {
 			Image = Model.GetPropertyValue<IPublishedContent>("coverImage"),
 			Headline = Model.GetPropertyValue<string>("coverHeadline"),
 			Copy = Model.GetPropertyValue<string>("coverDescription"),
 			Url = hasLink ? coverLink.Url : "",
 			Target = hasLink ? coverLink.Target : "",
-			CtaName = hasLink ? coverLink.Name : "",
-			ModifierClass = "c-cover--small"
+			CtaName = hasLink ? coverLink.Name : ""
 		})
 	}
 	@*

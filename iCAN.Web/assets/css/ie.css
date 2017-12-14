@@ -2447,6 +2447,104 @@ img.mfp-img {
 
 /* ===========================================================
 
+	# Cover - letterbox
+
+=========================================================== */
+.c-cover-letterbox {
+  position: relative;
+  overflow: hidden;
+  background-color: #ede9e2;
+  background-size: cover;
+  background-position: center center; }
+  .c-cover-letterbox::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.67;
+    background-image: linear-gradient(to right top, #000000, transparent 56%); }
+
+.c-cover-letterbox__inner {
+  z-index: 2;
+  position: absolute;
+  top: 30%;
+  right: 0;
+  left: 0; }
+
+.c-cover-letterbox__headline {
+  color: #FFFFFF; }
+
+.c-cover-letterbox__copy {
+  color: #FFFFFF;
+  font-weight: 700; }
+
+.csstransforms .c-cover-letterbox__inner {
+  top: 60%;
+  -webkit-transform: translateY(-40%);
+      -ms-transform: translateY(-40%);
+          transform: translateY(-40%); }
+
+.c-cover-letterbox__image-wrap::before {
+  content: "";
+  width: 100%;
+  height: 28%;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, transparent 100%); }
+
+.c-cover-letterbox__image-wrap::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.15); }
+
+.c-cover-letterbox__image {
+  width: 100%; }
+
+.c-cover-letterbox__wrap,
+.c-cover-letterbox__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
+/* ===========================================================
+	# Cover breakpoints
+=========================================================== */
+.c-cover-letterbox {
+  max-height: 70rem;
+  overflow: hidden; }
+  .c-cover-letterbox:before {
+    content: '';
+    display: block;
+    height: 0;
+    width: 100%;
+    padding-top: 42.8571428571%; }
+
+@media only screen and (max-width: 799px) {
+  .c-cover-letterbox::before {
+    padding-top: 75%; } }
+
+@media only screen and (min-width: 1000px) {
+  .c-cover-letterbox__content {
+    max-width: 1000px; }
+  .c-cover-letterbox__copy {
+    max-width: 60rem; } }
+
+/* ===========================================================
+
 	# Card
 
 =========================================================== */
