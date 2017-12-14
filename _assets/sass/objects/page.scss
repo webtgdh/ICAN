@@ -31,6 +31,11 @@ html {
 
 }
 
+.o-page__content {
+	padding-top: $padding-small;
+	padding-bottom: $padding-small;
+}
+
 
 @include respond-max( $mq-medium ) {
 
@@ -55,6 +60,18 @@ html {
 			@include column(3/12);
 		}
 
+	}
+
+	.c-cover,
+	.c-cover-letterbox {
+		& + .o-page__content {
+			padding-top: $padding-large;
+		}
+	}
+
+	.o-page__content {
+		padding-top: $padding-small;
+		padding-bottom: $padding-large;
 	}
 
 }

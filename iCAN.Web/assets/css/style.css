@@ -621,6 +621,10 @@ html {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto; }
 
+.o-page__content {
+  padding-top: 4rem;
+  padding-bottom: 4rem; }
+
 @media only screen and (max-width: 799px) {
   .o-page__content--has-sidebar .o-page__content__main + .o-page__content__sidebar {
     margin-top: 3.4em; } }
@@ -655,7 +659,13 @@ html {
     .o-page__content--has-sidebar .o-page__content__sidebar:after {
       clear: both; }
     .o-page__content--has-sidebar .o-page__content__sidebar:last-child {
-      margin-right: 0%; } }
+      margin-right: 0%; }
+  .c-cover + .o-page__content,
+  .c-cover-letterbox + .o-page__content {
+    padding-top: 10rem; }
+  .o-page__content {
+    padding-top: 4rem;
+    padding-bottom: 10rem; } }
 
 /* ===========================================================
 
@@ -2202,7 +2212,7 @@ img.mfp-img {
 
 .c-button--skiplink {
   color: #FFFFFF;
-  background-color: #4f1c47;
+  background-color: #ff9933;
   position: fixed;
   left: 100%;
   top: 1rem;

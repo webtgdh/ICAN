@@ -18,6 +18,7 @@
 					@Html.Partial("~/Views/Partials/Components/Cover.cshtml", new CoverViewModel {
 						Image = item.GetPropertyValue<IPublishedContent>("coverImage"),
 						Headline = item.GetPropertyValue<string>("coverHeadline"),
+						HeadingLevel = "h2",
 						Copy = item.GetPropertyValue<string>("coverDescription"),
 						Url = hasLink ? link.Url : "",
 						Target = hasLink ? link.Target : "",

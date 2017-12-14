@@ -9,6 +9,8 @@ namespace iCAN.Core.Models
 
         public string Headline { get; set; }
 
+        public string HeadingLevel { get; set; }
+
         public string Copy { get; set; }
 
         public string Url { get; set; }

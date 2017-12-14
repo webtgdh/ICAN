@@ -3,6 +3,8 @@
 @inherits UmbracoViewPage<IPublishedContent>
 @{
     Layout = "Master.cshtml";
+
+	var coverImage = Model.GetPropertyValue<IPublishedContent>("coverImage");
 }
 
 <div class="o-page__inner u-clearfix">
@@ -10,8 +12,9 @@
 		var coverLink = Model.GetPropertyValue<Link>("coverLink");
 		var hasLink = coverLink != null;
 		@Html.Partial("~/Views/Partials/Components/CoverLetterbox.cshtml", new CoverViewModel {
-			Image = Model.GetPropertyValue<IPublishedContent>("coverImage"),
+			Image = coverImage,
 			Headline = Model.GetPropertyValue<string>("coverHeadline"),
+			HeadingLevel = "h1",
 			Copy = Model.GetPropertyValue<string>("coverDescription"),
 			Url = hasLink ? coverLink.Url : "",
 			Target = hasLink ? coverLink.Target : "",
@@ -21,10 +24,11 @@
 	@*
 	@Html.CachedPartial("~/Views/Partials/Components/Breadcrumb.cshtml", Model, 3600, true)
 	*@
-	<main id="main" class="o-section" role="main">
+	<main id="main" class="o-page__content" role="main">
 		@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
 			Headline = Model.GetPropertyValue<string>("headline", Model.Name),
 			Subtitle = Model.GetPropertyValue<string>("subheadline"),
+			Level = coverImage == null ? "h1" : "h2"
 		})
 		@Html.CachedPartial("Modules/PageComponents", Model, 3600, true)
 	</main>

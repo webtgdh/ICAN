@@ -1,34 +1,55 @@
 ﻿@using iCAN;
 @using iCAN.Core.Models;
+@using RJP.MultiUrlPicker.Models;
 @inherits UmbracoViewPage<IPublishedContent>
 @{
     Layout = "Master.cshtml";
 
     var featuredPages = Model.GetPropertyValue<IEnumerable<IPublishedContent>>("featuredPages");
 	var remainingPages = Model.Children().Where(x => !featuredPages.Contains(x));
+
+	var coverImage = Model.GetPropertyValue<IPublishedContent>("coverImage");
 }
 
-<main id="main" class="o-page__inner u-clearfix" role="main">
-	<h1>@Model.Name</h1>
-    @if (featuredPages.Any()) {
-        <h2>Featured</h2>
-        foreach(var item in featuredPages) {
-            @Html.Partial("Components/Card", new CardViewModel {
-                Headline = item.GetPropertyValue<string>("headline", item.Name),
-                Url = item.Url,
-                Image = item.GetPropertyValue<IPublishedContent>("featuredImage", TGDH.Settings<IPublishedContent>("defaultFeaturedImage"))
-            })
-        }
-    }
+<div class="o-page__inner u-clearfix">
+	@{
+		var coverLink = Model.GetPropertyValue<Link>("coverLink");
+		var hasLink = coverLink != null;
+		@Html.Partial("~/Views/Partials/Components/CoverLetterbox.cshtml", new CoverViewModel {
+			Image = coverImage,
+			Headline = Model.GetPropertyValue<string>("coverHeadline"),
+			HeadingLevel = "h1",
+			Copy = Model.GetPropertyValue<string>("coverDescription"),
+			Url = hasLink ? coverLink.Url : "",
+			Target = hasLink ? coverLink.Target : "",
+			CtaName = hasLink ? coverLink.Name : ""
+		})
+	}
+	@*
+	@Html.CachedPartial("~/Views/Partials/Components/Breadcrumb.cshtml", Model, 3600, true)
+	*@
+	<main id="main" class="o-page__content" role="main">
+		<h1>@Model.Name</h1>
+		@if (featuredPages.Any()) {
+			<h2>Featured</h2>
+			foreach(var item in featuredPages) {
+				@Html.Partial("Components/Card", new CardViewModel {
+					Headline = item.GetPropertyValue<string>("headline", item.Name),
+					Url = item.Url,
+					Image = item.GetPropertyValue<IPublishedContent>("featuredImage", TGDH.Settings<IPublishedContent>("defaultFeaturedImage"))
+				})
+			}
+		}
 
-    @if (remainingPages.Any()) {
-        <h2>Others</h2>
-        <ul>
-            @foreach( var item in remainingPages ) {
-                <li>
-                    <a href="@item.Url">@item.Name</a>
-                </li>
-            }
-        </ul>
-    }
-</main>
+		@if (remainingPages.Any()) {
+			<h2>Others</h2>
+			<ul>
+				@foreach( var item in remainingPages ) {
+					<li>
+						<a href="@item.Url">@item.Name</a>
+					</li>
+				}
+			</ul>
+		}
+	</main>
+</div>
