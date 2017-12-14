@@ -795,6 +795,16 @@ html {
       clear: both; } }
 
 @media only screen and (min-width: 600px) {
+  .flexwrap .o-grid--three {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+    .flexwrap .o-grid--three .o-grid__item {
+      width: calc(31.3333333333% - 1px); }
   .o-grid--three .o-grid__item {
     *zoom: 1;
     float: left;
@@ -4188,7 +4198,9 @@ img.mfp-img {
       margin-right: 0%;
       float: right; }
     .c-listing-card .c-listing-card__item:nth-child(2n + 1) {
-      clear: both; } }
+      clear: both; }
+  .flexwrap .c-listing-card__item {
+    width: calc(48.5% - 1px); } }
 
 @media only screen and (min-width: 1000px) {
   .c-listing-card .c-listing-card__item {
@@ -4208,7 +4220,9 @@ img.mfp-img {
       margin-right: 0%;
       float: right; }
     .c-listing-card .c-listing-card__item:nth-child(3n + 1) {
-      clear: both; } }
+      clear: both; }
+  .flexwrap .c-listing-card__item {
+    width: calc(31.3333333333% - 1px); } }
 
 /* ===========================================================
 	# Heading

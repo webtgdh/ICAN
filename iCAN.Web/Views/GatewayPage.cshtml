@@ -5,10 +5,8 @@
 @{
     Layout = "Master.cshtml";
 
-    var featuredPages = Model.GetPropertyValue<IEnumerable<IPublishedContent>>("featuredPages");
-	var remainingPages = Model.Children().Where(x => !featuredPages.Contains(x));
-
 	var coverImage = Model.GetPropertyValue<IPublishedContent>("coverImage");
+	var selection = Model.Children().Where(x => x.IsVisible());
 }
 
 <div class="o-page__inner u-clearfix">
@@ -29,31 +27,25 @@
 	@Html.CachedPartial("~/Views/Partials/Components/Breadcrumb.cshtml", Model, 3600, true)
 	*@
 	<main id="main" class="o-page__content" role="main">
-		@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
-			Headline = Model.GetPropertyValue<string>("headline", Model.Name),
-			Level = "h1",
-			Subtitle = Model.GetPropertyValue<string>("subheadline"),
-		})
-		@if (featuredPages.Any()) {
-			<h2>Featured</h2>
-			foreach(var item in featuredPages) {
-				@Html.Partial("Components/Card", new CardViewModel {
-					Headline = item.GetPropertyValue<string>("headline", item.Name),
-					Url = item.Url,
-					Image = item.GetPropertyValue<IPublishedContent>("featuredImage", TGDH.Settings<IPublishedContent>("defaultFeaturedImage"))
-				})
+		<div class="o-wrap o-wrap--x-large">
+			@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
+				Headline = Model.GetPropertyValue<string>("headline", Model.Name),
+				Subtitle = Model.GetPropertyValue<string>("subheadline"),
+				Level = "h1",
+			})
+			@if (selection.Any()) {
+				<div class="o-grid--three u-clearfix">
+					@foreach (var item in selection) {
+						@Html.Partial("~/Views/Partials/Components/Card.cshtml", new CardViewModel {
+							Headline = item.GetPropertyValue<string>("headline", item.Name),
+							Url = item.Url,
+							Image = item.GetPropertyValue<IPublishedContent>("featuredImage", TGDH.Settings<IPublishedContent>("defaultFeaturedImage")),
+							Copy = item.GetPropertyValue<string>("pageDescription"),
+							ModifierClass = "o-grid__item"
+						})
+					}
+				</div>
 			}
-		}
-
-		@if (remainingPages.Any()) {
-			<h2>Others</h2>
-			<ul>
-				@foreach( var item in remainingPages ) {
-					<li>
-						<a href="@item.Url">@item.Name</a>
-					</li>
-				}
-			</ul>
-		}
+		</div>
 	</main>
 </div>

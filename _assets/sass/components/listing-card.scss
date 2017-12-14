@@ -45,6 +45,14 @@
 
 	}
 
+	.flexwrap {
+
+		.c-listing-card__item {
+			width: calc(48.5% - 1px);
+		}
+
+	}
+
 }
 
 @include respond-min( $mq-large ) {
@@ -53,6 +61,14 @@
 
 		.c-listing-card__item {
 			@include column(1/3, $cycle: 3);
+		}
+
+	}
+
+	.flexwrap {
+
+		.c-listing-card__item {
+			width: calc(31.3333333333% - 1px);
 		}
 
 	}
