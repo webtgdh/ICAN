@@ -70,7 +70,6 @@ var Carousel = (function ($) {
 				});
 
 			}
-			console.log(settings.appendArrows);
 	    });
 
 	};

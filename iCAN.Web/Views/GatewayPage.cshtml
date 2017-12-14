@@ -34,14 +34,14 @@
 				Level = "h1",
 			})
 			@if (selection.Any()) {
-				<div class="o-grid--three u-clearfix">
+				<div class="c-listing-card u-clearfix">
 					@foreach (var item in selection) {
 						@Html.Partial("~/Views/Partials/Components/Card.cshtml", new CardViewModel {
 							Headline = item.GetPropertyValue<string>("headline", item.Name),
 							Url = item.Url,
 							Image = item.GetPropertyValue<IPublishedContent>("featuredImage", TGDH.Settings<IPublishedContent>("defaultFeaturedImage")),
 							Copy = item.GetPropertyValue<string>("pageDescription"),
-							ModifierClass = "o-grid__item"
+							ModifierClass = "c-listing-card__item"
 						})
 					}
 				</div>
