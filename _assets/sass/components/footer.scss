@@ -24,6 +24,21 @@
 
 	a {
 		font-weight: $bold;
+
+		&:hover,
+		&:focus {
+			color: $white;
+		}
+	}
+
+	.c-social__link {
+		transition: background-color $speed $ease;
+
+		&:hover,
+		&:focus {
+			background-color: $white;
+		}
+
 	}
 }
 

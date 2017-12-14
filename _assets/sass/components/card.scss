@@ -9,10 +9,6 @@
 	background-color: $white;
 }
 
-.c-card__headline {
-	transition: color $speed $ease;
-}
-
 .c-card__link {
 	color: $text-colour;
 	display: block;
@@ -36,12 +32,12 @@
 	&:focus {
 		color: inherit;
 
-		.c-card__headline {
-			color: $pri;
-		}
-
 		&:after {
 			opacity: 1;
+		}
+
+		.c-card__cta {
+			background-color: $sec;
 		}
 
 	}

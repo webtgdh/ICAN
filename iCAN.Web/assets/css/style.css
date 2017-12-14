@@ -2418,7 +2418,7 @@ img.mfp-img {
   background: #ff9933;
   color: #FFFFFF; }
   .c-button--primary:hover, .c-button--primary:focus {
-    background: #000000; }
+    background: #4f1c47; }
 
 .c-button--secondary {
   background: #4f1c47;
@@ -2778,9 +2778,6 @@ img.mfp-img {
   position: relative;
   background-color: #FFFFFF; }
 
-.c-card__headline {
-  transition: color 0.3s ease-out; }
-
 .c-card__link {
   color: #000000;
   display: block;
@@ -2799,10 +2796,10 @@ img.mfp-img {
     transition: opacity 0.3s ease-out; }
   .c-card__link:hover, .c-card__link:focus {
     color: inherit; }
-    .c-card__link:hover .c-card__headline, .c-card__link:focus .c-card__headline {
-      color: #ff9933; }
     .c-card__link:hover:after, .c-card__link:focus:after {
       opacity: 1; }
+    .c-card__link:hover .c-card__cta, .c-card__link:focus .c-card__cta {
+      background-color: #4f1c47; }
 
 .c-card__label {
   margin-bottom: .7rem; }
@@ -2918,6 +2915,12 @@ img.mfp-img {
     opacity: 0.4; }
   .c-footer a {
     font-weight: 700; }
+    .c-footer a:hover, .c-footer a:focus {
+      color: #FFFFFF; }
+  .c-footer .c-social__link {
+    transition: background-color 0.3s ease-out; }
+    .c-footer .c-social__link:hover, .c-footer .c-social__link:focus {
+      background-color: #FFFFFF; }
 
 .c-footer__sub {
   font-size: 1.4rem;
