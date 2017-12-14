@@ -32,6 +32,17 @@ html {
 }
 
 
+@include respond-max( $mq-medium ) {
+
+	.o-page__content--has-sidebar {
+
+		.o-page__content__main + .o-page__content__sidebar {
+			margin-top: $line-height * 2;
+		}
+	}
+
+}
+
 @include respond-min( $mq-medium ) {
 
 	.o-page__content--has-sidebar {

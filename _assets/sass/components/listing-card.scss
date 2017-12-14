@@ -8,10 +8,9 @@
 	.c-listing-card {
 
 		.c-listing-card__item {
-			@include column(1/2, $cycle: 2);
 
-			& + & {
-				margin-top: $line-height * 2;
+			& + .c-listing-card__item {
+				margin-top: $line-height;
 			}
 		}
 

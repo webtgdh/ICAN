@@ -9,11 +9,11 @@
 	var featuredImage = Model.GetPropertyValue<IPublishedContent>("featuredImage");
 }
 
-<main id="main" class="o-page__inner" role="main">
-	<article class="o-section">
-		<header class="o-wrap o-wrap--x-large">
-			<h1 itemprop="headline">@headline</h1>
-			<ul class="c-meta">
+<div class="o-page__inner u-clearfix">
+	<main id="main" class="o-section" role="main">
+		<header class="c-heading-feature">
+			<h1 class="c-heading-feature__headline" itemprop="headline">@headline</h1>
+			<ul class="c-meta c-heading-feature__subtitle">
 				<li class="c-meta__item">
 					<span class="u-visually-hidden">Published on: </span>
 					<time datetime="@releaseDate.ToString("yyyy-MM-dd")">@releaseDate.ToString("%d MMM yyyy")</time>
@@ -21,12 +21,12 @@
 				</li>
 			</ul>
 		</header>
-		<div class="u-intro o-wrap o-wrap--x-large" itemprop="description">
-			<p>@Model.GetPropertyValue("pageDescription")</p>
-		</div>
 		<div class="s-free-content" itemprop="articleBody">
-			@Html.Partial("Modules/PageComponents")
+			@Html.CachedPartial("Modules/PageComponents", Model, 3600, true)
 		</div>
+
+		@Html.Partial("~/Views/Partials/Components/SocialShare.cshtml")
+		@Html.Partial("~/Views/Partials/Components/Comments.cshtml")
 
 		@*
 		* meta data related to the article - an image that will appear in search results
@@ -58,5 +58,5 @@
 				</div>
 			}
 		}
-	</article>
-</main>
+	</main>
+</div>
