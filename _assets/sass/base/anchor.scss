@@ -12,4 +12,8 @@ a {
 	&:focus {
 		color: $link-colour-hover;
 	}
+
+	&:not([class]) {
+		font-weight: $bold;
+	}
 }

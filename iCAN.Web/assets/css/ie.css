@@ -472,6 +472,8 @@ a {
   transition: color 0.3s ease-out; }
   a:hover, a:focus {
     color: #4f1c47; }
+  a:not([class]) {
+    font-weight: 700; }
 
 /* ===========================================================
 
