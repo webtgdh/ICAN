@@ -11,7 +11,7 @@
 <main id="main" class="o-page__inner u-clearfix" role="main">
 	@if (covers != null && covers.Any()) {
 		<figure class="c-carousel c-carousel--contain">
-    		<div class="c-carousel__inner js-carousel" data-nav="true" data-fade="true" data-dots="true">
+    		<div class="c-carousel__inner js-carousel" data-nav="true" data-fade="true" data-dots="true" data-auto-play="true" data-speed="10000">
 				@foreach (var item in covers) {
 					var link = item.GetPropertyValue<Link>("coverLink");
 					var hasLink = link != null;
