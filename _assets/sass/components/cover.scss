@@ -26,7 +26,7 @@
 .c-cover__inner {
 	z-index: 2;
 	position: absolute;
-	top: 30%;
+	bottom: $line-height;
 	right: 0;
 	left: 0;
 }
@@ -37,15 +37,6 @@
 .c-cover__copy {
 	color: $white;
 	font-weight: $bold;
-}
-
-.csstransforms {
-
-	.c-cover__inner {
-		top: 50%;
-		transform: translateY(-50%);
-	}
-
 }
 
 .c-cover__image-wrap {
@@ -129,6 +120,16 @@
 
 	.c-cover__copy {
 		max-width: 60rem;
+	}
+
+	.csstransforms {
+
+		.c-cover__inner {
+			top: 50%;
+			bottom: inherit;
+			transform: translateY(-50%);
+		}
+
 	}
 
 }

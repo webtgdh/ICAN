@@ -2594,7 +2594,7 @@ img.mfp-img {
 .c-cover__inner {
   z-index: 2;
   position: absolute;
-  top: 30%;
+  bottom: 1.7em;
   right: 0;
   left: 0; }
 
@@ -2604,12 +2604,6 @@ img.mfp-img {
 .c-cover__copy {
   color: #FFFFFF;
   font-weight: 700; }
-
-.csstransforms .c-cover__inner {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%); }
 
 .c-cover__image-wrap::before {
   content: "";
@@ -2666,7 +2660,13 @@ img.mfp-img {
   .c-cover__content {
     max-width: 1000px; }
   .c-cover__copy {
-    max-width: 60rem; } }
+    max-width: 60rem; }
+  .csstransforms .c-cover__inner {
+    top: 50%;
+    bottom: inherit;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%); } }
 
 @media only screen and (min-width: 1800px) {
   .c-cover::before {
