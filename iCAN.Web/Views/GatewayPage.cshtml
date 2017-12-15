@@ -7,6 +7,7 @@
 
 	var coverImage = Model.GetPropertyValue<IPublishedContent>("coverImage");
 	var selection = Model.Children().Where(x => x.IsVisible());
+	var hasCover = coverImage != null;
 }
 
 <div class="o-page__inner u-clearfix">
@@ -29,9 +30,9 @@
 	<main id="main" class="o-page__content" role="main">
 		<div class="o-wrap o-wrap--x-large">
 			@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
-				Headline = Model.GetPropertyValue<string>("headline", Model.Name),
+				Headline = hasCover ? Model.GetPropertyValue<string>("headline") : Model.GetPropertyValue<string>("headline", Model.Name),
 				Subtitle = Model.GetPropertyValue<string>("subheadline"),
-				Level = "h1",
+				Level = !hasCover ? "h1" : "h2"
 			})
 			@Html.CachedPartial("Modules/PageComponents", Model, 3600, true)
 			@if (selection.Any()) {

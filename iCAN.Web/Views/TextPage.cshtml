@@ -5,6 +5,7 @@
     Layout = "Master.cshtml";
 
 	var coverImage = Model.GetPropertyValue<IPublishedContent>("coverImage");
+	var hasCover = coverImage != null;
 }
 
 <div class="o-page__inner u-clearfix">
@@ -26,9 +27,9 @@
 	*@
 	<main id="main" class="o-page__content" role="main">
 		@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
-			Headline = Model.GetPropertyValue<string>("headline", Model.Name),
+			Headline = hasCover ? Model.GetPropertyValue<string>("headline") : Model.GetPropertyValue<string>("headline", Model.Name),
 			Subtitle = Model.GetPropertyValue<string>("subheadline"),
-			Level = coverImage == null ? "h1" : "h2"
+			Level = !hasCover ? "h1" : "h2"
 		})
 		@Html.CachedPartial("Modules/PageComponents", Model, 3600, true)
 	</main>

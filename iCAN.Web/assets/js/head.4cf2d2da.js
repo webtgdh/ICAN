@@ -68,6 +68,14 @@ y.addTest("contains",r(String.prototype.contains,"function"));var b="Moz O ms We
 !*/
 y.addTest("flexbox",g("flexBasis","1px",!0)),/*!
 {
+  "name": "CSS Transforms",
+  "property": "csstransforms",
+  "caniuse": "transforms2d",
+  "tags": ["css"]
+}
+!*/
+y.addTest("csstransforms",function(){return-1===navigator.userAgent.indexOf("Android 2.")&&g("transform","scale(1)",!0)}),/*!
+{
   "name": "Flex Line Wrapping",
   "property": "flexwrap",
   "tags": ["css", "flexbox"],
@@ -80,15 +88,7 @@ y.addTest("flexbox",g("flexBasis","1px",!0)),/*!
   ]
 }
 !*/
-y.addTest("flexwrap",g("flexWrap","wrap",!0)),/*!
-{
-  "name": "CSS Transforms",
-  "property": "csstransforms",
-  "caniuse": "transforms2d",
-  "tags": ["css"]
-}
-!*/
-y.addTest("csstransforms",function(){return-1===navigator.userAgent.indexOf("Android 2.")&&g("transform","scale(1)",!0)}),function(){var e,t,n,i,s,a,o;for(var c in A)if(A.hasOwnProperty(c)){if(e=[],t=A[c],t.name&&(e.push(t.name.toLowerCase()),t.options&&t.options.aliases&&t.options.aliases.length))for(n=0;n<t.options.aliases.length;n++)e.push(t.options.aliases[n].toLowerCase());for(i=r(t.fn,"function")?t.fn():t.fn,s=0;s<e.length;s++)a=e[s],o=a.split("."),1===o.length?y[o[0]]=i:(!y[o[0]]||y[o[0]]instanceof Boolean||(y[o[0]]=new Boolean(y[o[0]])),y[o[0]][o[1]]=i),z.push((i?"":"no-")+o.join("-"))}}(),function(e){var t=w.className,n=y._config.classPrefix||"";if(C&&(t=t.baseVal),y._config.enableJSClass){var r=new RegExp("(^|\\s)"+n+"no-js(\\s|$)");t=t.replace(r,"$1"+n+"js$2")}y._config.enableClasses&&(t+=" "+n+e.join(" "+n),C?w.className.baseVal=t:w.className=t)}(z),delete v.addTest,delete v.addAsyncTest;for(var L=0;L<y._q.length;L++)y._q[L]();e.Modernizr=y}(window,document);var IsModern=function(){var e=window,t=function(){return"querySelector"in document&&"localStorage"in e&&"addEventListener"in e};return t()&&function(){var e;t&&(e=document.querySelector("html"),Modernizr.classlist&&e.classList.contains("no-enhance")&&(e.classList.remove("no-enhance"),e.classList.add("enhance")))}(),{isModern:t}}();/*! picturefill - v3.0.2 - 2016-02-12
+y.addTest("flexwrap",g("flexWrap","wrap",!0)),function(){var e,t,n,i,s,a,o;for(var c in A)if(A.hasOwnProperty(c)){if(e=[],t=A[c],t.name&&(e.push(t.name.toLowerCase()),t.options&&t.options.aliases&&t.options.aliases.length))for(n=0;n<t.options.aliases.length;n++)e.push(t.options.aliases[n].toLowerCase());for(i=r(t.fn,"function")?t.fn():t.fn,s=0;s<e.length;s++)a=e[s],o=a.split("."),1===o.length?y[o[0]]=i:(!y[o[0]]||y[o[0]]instanceof Boolean||(y[o[0]]=new Boolean(y[o[0]])),y[o[0]][o[1]]=i),z.push((i?"":"no-")+o.join("-"))}}(),function(e){var t=w.className,n=y._config.classPrefix||"";if(C&&(t=t.baseVal),y._config.enableJSClass){var r=new RegExp("(^|\\s)"+n+"no-js(\\s|$)");t=t.replace(r,"$1"+n+"js$2")}y._config.enableClasses&&(t+=" "+n+e.join(" "+n),C?w.className.baseVal=t:w.className=t)}(z),delete v.addTest,delete v.addAsyncTest;for(var L=0;L<y._q.length;L++)y._q[L]();e.Modernizr=y}(window,document);var IsModern=function(){var e=window,t=function(){return"querySelector"in document&&"localStorage"in e&&"addEventListener"in e};return t()&&function(){var e;t&&(e=document.querySelector("html"),Modernizr.classlist&&e.classList.contains("no-enhance")&&(e.classList.remove("no-enhance"),e.classList.add("enhance")))}(),{isModern:t}}();/*! picturefill - v3.0.2 - 2016-02-12
  * https://scottjehl.github.io/picturefill/
  * Copyright (c) 2016 https://github.com/scottjehl/picturefill/blob/master/Authors.txt; Licensed MIT
  */
