@@ -67,9 +67,11 @@
 					<h2>Archives</h2>
 					@Html.Partial("~/Views/Partials/Components/LinkListSelect.cshtml", new LinkListViewModel(dateLinks))
 				}
-				<div class="u-space-top--large">
-					@Html.CachedPartial("~/Views/Partials/Components/NewsletterSignup.cshtml", Model, 3600, true)
-				</div>
+				@if (!Model.GetPropertyValue<bool>("hideNewsletterContent")) {
+					<div class="u-space-top--large">
+						@Html.CachedPartial("~/Views/Partials/Components/NewsletterSignup.cshtml", Model, 3600, true)
+					</div>
+				}
 			</aside>
 		</div>
 	</div>
