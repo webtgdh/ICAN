@@ -1,0 +1,27 @@
+@using iCAN;
+@using RJP.MultiUrlPicker.Models;
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+	var newsletterLink = TGDH.Settings<Link>("newsletterLink");
+	var hasNewsletterLink = newsletterLink != null;
+
+	if (!hasNewsletterLink) {
+		return;
+	}
+
+	var headline = TGDH.Settings<string>("newsletterHeadline");
+	var description = TGDH.Settings<string>("newsletterDescription");
+}
+
+@if (!String.IsNullOrWhiteSpace(headline)) {
+	<h2>@headline</h2>
+}
+@if (!String.IsNullOrWhiteSpace(description)) {
+	@Html.Raw(description)
+}
+<a href="@newsletterLink.Url" class="c-button c-button--primary c-button--block u-space-top" target="@newsletterLink.Target">
+	@newsletterLink.Name
+	<svg class="u-icon u-icon--16 u-icon--white">
+		<use xlink:href="/assets/icons/icons.svg#message"></use>
+	</svg>
+</a>
