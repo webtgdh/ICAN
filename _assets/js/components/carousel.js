@@ -15,14 +15,16 @@ var Carousel = (function ($) {
 		  breakpoint: 800,
 		  settings: {
 			slidesToShow: 2,
-			slidesToScroll: 2
+			slidesToScroll: 2,
+			dots: true
 		  }
 		},
 		{
 		  breakpoint: 480,
 		  settings: {
 			slidesToShow: 1,
-			slidesToScroll: 1
+			slidesToScroll: 1,
+			dots: true
 		  }
 		}
 	  ];
@@ -66,7 +68,12 @@ var Carousel = (function ($) {
                 	nextArrow: "<button class='c-carousel--next'><span class='u-visually-hidden'>Go to next image</span><div class='ico-arrow-right'></div></button>",
 					fade: settings.fade,
 					cssEase: 'cubic-bezier(0.785, 0.135, 0.15, 0.86)',
-					responsive: settings.items > 1 ? responsiveOptions :[]
+					responsive: settings.items > 1 ? responsiveOptions :[{
+						breakpoint: 800,
+						settings: {
+						  dots: true
+						}
+					}]
 				});
 
 			}

@@ -161,10 +161,23 @@
 
 }
 
+@include respond-max( $mq-large ) {
+
+	.enhance {
+
+		.c-carousel--prev,
+		.c-carousel--next {
+			display: none !important;
+		}
+
+	}
+
+}
+
 /* dots */
 
 .c-carousel__dots {
-	position: relative;
+	position: absolute;
 	list-style: none;
 	display: block;
 	text-align: center;
@@ -190,7 +203,7 @@
 		&.slick-active {
 
 			button:before {
-				background-color: $pri;
+				background-color: $sec;
 			}
 
 		}
@@ -198,7 +211,7 @@
 	}
 
 	button {
-		border: .1rem solid $pri;
+		border: .1rem solid $sec;
 		background: transparent;
 		display: block;
 		height: 1.5rem;
@@ -219,7 +232,7 @@
 
 	.slick-active {
 		button {
-			background-color: $pri;
+			background-color: $sec;
 		}
 	}
 
