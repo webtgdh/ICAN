@@ -19,7 +19,7 @@
 
 .sc-control {
     overflow: hidden;
-    margin-left: 240px;
+    margin-left: 180px;
 }
 .sc-control textarea {
     width:56.5%;
@@ -160,7 +160,7 @@ div.actionColumn  {
 
 .snippetContainer {
     display: block;
-    margin-left: 240px;
+    margin-left: 180px;
     font-family: arial,sans-serif;
     font-size: 13px;
     max-width: 530px;
