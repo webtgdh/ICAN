@@ -3796,6 +3796,35 @@ img.mfp-img {
     padding: 2rem; } }
 
 /* ===========================================================
+	# Tweet
+=========================================================== */
+.c-tweet__header {
+  margin-bottom: 0.85em; }
+
+.c-tweet__image-wrap {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1rem; }
+
+.c-tweet__link:hover {
+  color: #FFFFFF; }
+  .c-tweet__link:hover .c-tweet__username {
+    color: inherit; }
+
+.c-tweet__username {
+  color: #ff9933;
+  font-weight: 700;
+  transition: color 0.3s ease-out; }
+
+.c-tweet__handle {
+  color: #FFFFFF;
+  font-weight: 500; }
+
+/* ===========================================================
 	# Pagination
 =========================================================== */
 .c-pagination {

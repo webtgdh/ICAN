@@ -99,6 +99,13 @@
 
 		MQ.init(breakpoints);
 		svg4everybody();
+
+		$('.js-linkify-tweet').tweetLinkify({
+			hyperlinkTarget: 'blank',
+			mentionTarget: 'blank',
+			hashtagTarget: 'blank'
+		});
+
 	}
 
 })(jQuery);

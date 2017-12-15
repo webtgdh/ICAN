@@ -1,0 +1,39 @@
+/* ===========================================================
+	# Tweet
+=========================================================== */
+
+.c-tweet__header {
+	margin-bottom: $line-height / 2;
+}
+
+.c-tweet__image-wrap {
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 1rem;
+}
+
+.c-tweet__link {
+
+	&:hover {
+		color: $white;
+
+		.c-tweet__username {
+			color: inherit;
+		}
+	}
+}
+
+.c-tweet__username {
+	color: $pri;
+	font-weight: $bold;
+	transition: color $speed $ease;
+}
+
+.c-tweet__handle {
+	color: $white;
+	font-weight: 500;
+}

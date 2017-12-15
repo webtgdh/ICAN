@@ -1,0 +1,44 @@
+@using iCAN;
+@using Skybrud.Social.Twitter
+@using Skybrud.Social.Twitter.Objects
+@using Skybrud.Social.Umbraco.Twitter.PropertyEditors.OAuth
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+	var homePage = Model.Site();
+    var settings = homePage.Descendants("globalSettings").First();
+
+    var twitter = settings.GetPropertyValue("twitterAccount") as TwitterOAuthData;
+
+	if (twitter != null && twitter.IsValid) {
+
+		var service = twitter.GetService();
+
+		if(service != null)
+		{
+			var response = service.Statuses.GetUserTimeline(twitter.Id, 1);
+
+			if(response != null)
+			{
+				foreach ( TwitterStatusMessage user in response.Body ) {
+					var username = user.User.Name;
+					var twitterHandler = user.User.ScreenName;
+					var profileImageUrl = user.User.ProfileImageUrl;
+					var profileUrl = "http://twitter.com/" + twitterHandler;
+					var tweetDate = user.CreatedAt.ToString("MMM dd");
+
+					<article class="c-tweet">
+						<div class="c-tweet__header">
+							<div class="c-tweet__image-wrap o-aspect--1-1">
+								<img src="@profileImageUrl" alt="@username" class="c-tweet__image">
+							</div>
+							<a class="c-tweet__link" href="@profileUrl" target="_blank">
+								<span class="c-tweet__username">@username</span> <span class="c-tweet__handle">&#64;@twitterHandler</span>
+							</a>
+						</div>
+						<p class="c-tweet__copy js-linkify-tweet">@Html.Raw(user.Text)</p>
+					</article>
+				}
+			}
+		}
+	}
+}

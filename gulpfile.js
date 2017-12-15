@@ -26,6 +26,7 @@ var mainScripts = [
 	paths.assetsFolder + '/_components/svg4everybody/dist/svg4everybody.js',
 	paths.assetsFolder + '/_components/jquery-selectric/public/jquery.selectric.js',
 	paths.assetsFolder + '/_components/slick-carousel/slick/slick.js',
+	paths.assetsFolder + '/_components/jquery.tweet-linkify/jquery.tweet-linkify.js',
 	paths.assetsFolder + '/_components/magnific-popup/dist/jquery.magnific-popup.js',
 	paths.assetsFolder + '/_components/onMediaQuery/js/onmediaquery.js',
     paths.assetsFolder + '/js/components/*.js',

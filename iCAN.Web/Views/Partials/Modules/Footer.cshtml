@@ -1,4 +1,4 @@
-@using iCAN;
+﻿@using iCAN;
 @using iCAN.Core.Models;
 @inherits UmbracoViewPage<IPublishedContent>
 @{
@@ -18,6 +18,10 @@
 		</div>
 		<div class="c-footer__col c-footer__col--last">
 			<h2 class="u-alpha">Twitter</h2>
+			@*
+			@Umbraco.RenderMacro("LatestTweet")
+			*@
+			@Html.Partial("~/Views/Partials/Components/LatestTweet.cshtml")
 		</div>
 	</div>
 
