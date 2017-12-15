@@ -16,7 +16,9 @@
 				})
 			</div>
 
-			<div id="mapCanvas" class="c-map js-map"></div>
+			@Html.CachedPartial("Modules/PageComponents", Model, 3600, true)
+
+			<div id="mapCanvas" class="c-map js-map u-space-top--large"></div>
 
 			<div class="o-wrap o-wrap--large s-contact__cols u-clearfix o-section">
 				<div class="s-contact__cols__col--first">

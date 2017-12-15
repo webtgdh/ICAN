@@ -24,7 +24,8 @@
 			Level = "h1",
 			Subtitle = Model.GetPropertyValue<string>("subheadline"),
 		})
-		<div class="u-clearfix">
+		@Html.CachedPartial("Modules/PageComponents", Model, 3600, true)
+		<div class="u-clearfix u-space-top--large">
 			<main id="main" class="o-page__content__main u-clearfix" role="main">
 				@if (selection.Any()) {
 					<div class="c-listing-card u-clearfix">

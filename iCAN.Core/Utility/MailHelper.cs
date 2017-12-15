@@ -153,8 +153,8 @@ namespace iCAN.Core.Utility
                 ? formFolder.GetPropertyValue<string>("fromAddress")
                 : "noreply@" + HttpContext.Current.Request.Url.Host;
             var senderName = formFolder.GetPropertyValue<string>("senderName");
-            var emailSubject = formFolder.HasValue("notificationTitle")
-                ? formFolder.GetPropertyValue<string>("notificationTitle")
+            var emailSubject = formFolder.HasValue("notificationHeadline")
+                ? formFolder.GetPropertyValue<string>("notificationHeadline")
                 : "Your form has been received";
 
             var mailMessage = new MailMessage

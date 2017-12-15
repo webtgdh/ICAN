@@ -11,7 +11,7 @@ namespace iCAN.Forms.Controllers
     public class ContactFormController : SurfaceController
     {
         private readonly MailHelper _mailHelper = new MailHelper();
-        private const int FormFolderId = 1174;
+        private const int FormFolderId = 1150;
        
         public ActionResult RenderContactForm()
         {

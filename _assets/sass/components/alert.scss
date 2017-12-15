@@ -6,6 +6,7 @@
 
 .c-alert {
 	color: $white;
+	font-weight: $bold;
 	padding: 1rem 2rem;
 	border-radius: $border-radius;
 	transition: opacity $speed $ease,
@@ -34,4 +35,15 @@
 
 .c-alert--info {
 	background-color: $pri;
+}
+
+.c-alert--fixed {
+	width: 100%;
+	position: fixed;
+	top: $line-height;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 12;
 }

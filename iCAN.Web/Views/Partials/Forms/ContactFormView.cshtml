@@ -13,7 +13,7 @@
         var folder = Umbraco.TypedContent(folderId);
         var message = folder.GetPropertyValue<string>("submitMessage");
 
-        @message
+		<div class="c-alert c-alert--success c-alert--fixed o-wrap--medium">@message</div>
     }
 }
 else

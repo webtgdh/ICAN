@@ -3296,7 +3296,7 @@ img.mfp-img {
   color: #4f1c47; }
 
 .c-heading-feature__subtitle {
-  max-width: 44rem;
+  max-width: 82rem;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 0;
@@ -3886,6 +3886,7 @@ img.mfp-img {
 =========================================================== */
 .c-alert {
   color: #FFFFFF;
+  font-weight: 700;
   padding: 1rem 2rem;
   border-radius: 0.3rem;
   transition: opacity 0.3s ease-out, color 0.3s ease-out, background 0.3s ease-out, visibility 0.3s ease-out; }
@@ -3906,6 +3907,16 @@ img.mfp-img {
 
 .c-alert--info {
   background-color: #ff9933; }
+
+.c-alert--fixed {
+  width: 100%;
+  position: fixed;
+  top: 1.7em;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 12; }
 
 /* ===========================================================
 	# Enhanced icons

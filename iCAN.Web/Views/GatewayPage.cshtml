@@ -33,8 +33,9 @@
 				Subtitle = Model.GetPropertyValue<string>("subheadline"),
 				Level = "h1",
 			})
+			@Html.CachedPartial("Modules/PageComponents", Model, 3600, true)
 			@if (selection.Any()) {
-				<div class="c-listing-card u-clearfix">
+				<div class="c-listing-card u-clearfix u-space-top--large">
 					@foreach (var item in selection) {
 						@Html.Partial("~/Views/Partials/Components/Card.cshtml", new CardViewModel {
 							Headline = item.GetPropertyValue<string>("headline", item.Name),
