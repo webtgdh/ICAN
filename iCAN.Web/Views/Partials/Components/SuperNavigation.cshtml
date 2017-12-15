@@ -4,7 +4,14 @@
 @{
 	var links = TGDH.Settings<IEnumerable<Link>>("superNavigation");
 
-	if (links == null || links.Count() == 0) {
+	var shopLink = TGDH.Settings<Link>("shopLink");
+	var newsletterLink = TGDH.Settings<Link>("newsletterLink");
+
+	var hasLinks = links != null && links.Count() > 0;
+	var hasShopLink = shopLink != null;
+	var hasNewsletterLink = newsletterLink != null;
+
+	if (!hasLinks && !hasShopLink && !hasNewsletterLink) {
 		return;
 	}
 
@@ -12,13 +19,35 @@
 
 <nav id="mainNavigation" class="c-nav c-nav--super js-nav" role="navigation" aria-labelledby="toggle-menu">
     <ul class="c-nav__list o-wrap o-wrap--x-large">
-        @foreach (var item in links)
-        {
-            <li class="c-nav__item c-nav__item--parent">
-                <a href="@item.Url" class="c-nav__link" target="@item.Target">
-                    @item.Name
-                </a>
-            </li>
+		@if (hasLinks) {
+			foreach (var item in links)
+			{
+				<li class="c-nav__item c-nav__item--parent">
+					<a href="@item.Url" class="c-nav__link" target="@item.Target">
+						@item.Name
+					</a>
+				</li>
+			}
+		}
+		@if (hasShopLink) {
+			<li class="c-nav__item c-nav__item--parent">
+				<a href="@shopLink.Url" class="c-nav__link" target="@shopLink.Target">
+					@shopLink.Name
+					<svg class="c-nav__link__icon u-icon u-icon--16 u-icon--white">
+						<use xlink:href="/assets/icons/icons.svg#cart"></use>
+					</svg>
+				</a>
+			</li>
+		}
+		@if (hasNewsletterLink) {
+			<li class="c-nav__item c-nav__item--parent">
+				<a href="@newsletterLink.Url" class="c-nav__link" target="@newsletterLink.Target">
+					@newsletterLink.Name
+					<svg class="c-nav__link__icon u-icon u-icon--16 u-icon--white">
+						<use xlink:href="/assets/icons/icons.svg#message"></use>
+					</svg>
+				</a>
+			</li>
 		}
     </ul>
 </nav>
