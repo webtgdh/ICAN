@@ -1,9 +1,43 @@
-﻿@inherits UmbracoViewPage<IPublishedContent>
+﻿@using iCAN.Core.Models;
+@using RJP.MultiUrlPicker.Models;
+@inherits UmbracoViewPage<IPublishedContent>
 @{
     Layout = "Master.cshtml";
     var headline = Model.GetPropertyValue<string>("headline", Model.Name);
+	var coverImage = Model.GetPropertyValue<IPublishedContent>("coverImage");
 }
 
-<main id="main" class="o-page__inner u-clearfix" role="main">
-	<h1>@headline</h1>
-</main>
+<div class="o-page__inner u-clearfix">
+	@{
+		var coverLink = Model.GetPropertyValue<Link>("coverLink");
+		var hasLink = coverLink != null;
+		@Html.Partial("~/Views/Partials/Components/CoverLetterbox.cshtml", new CoverViewModel {
+			Image = coverImage,
+			Headline = Model.GetPropertyValue<string>("coverHeadline"),
+			HeadingLevel = "h1",
+			Copy = Model.GetPropertyValue<string>("coverDescription"),
+			Url = hasLink ? coverLink.Url : "",
+			Target = hasLink ? coverLink.Target : "",
+			CtaName = hasLink ? coverLink.Name : ""
+		})
+	}
+	@*
+	@Html.CachedPartial("~/Views/Partials/Components/Breadcrumb.cshtml", Model, 3600, true)
+	*@
+	<main id="main" class="o-page__content" role="main">
+		<div class="o-wrap o-wrap--medium">
+			@Html.Partial("~/Views/Partials/Components/HeadingFeature.cshtml", new HeadingViewModel {
+				Headline = Model.GetPropertyValue<string>("headline", Model.Name),
+				Subtitle = Model.GetPropertyValue<string>("subheadline"),
+				Level = coverImage == null ? "h1" : "h2"
+			})
+		</div>
+		@Html.CachedPartial("Modules/PageComponents", Model, 3600, true)
+		<div class="o-wrap o-wrap--medium">
+			<div class="u-space-top">
+				@Html.Partial("~/Views/Partials/Components/Sitemap.cshtml")
+			</div>
+		</div>
+
+	</main>
+</div>

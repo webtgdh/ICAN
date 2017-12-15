@@ -19,6 +19,7 @@
 
 			if(response != null)
 			{
+				<h2 class="u-alpha">Twitter</h2>
 				foreach ( TwitterStatusMessage user in response.Body ) {
 					var username = user.User.Name;
 					var twitterHandler = user.User.ScreenName;
