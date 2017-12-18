@@ -33,7 +33,9 @@
 				Level = !hasCover ? "h1" : "h2"
 			})
 		</div>
-		@Html.CachedPartial("Modules/PageComponents", Model, 3600, true)
+		<div class="s-free-content u-clearfix">
+			@Html.CachedPartial("Modules/PageComponents", Model, 3600, true)
+		</div>
 		<div class="o-wrap o-wrap--medium">
 			<div class="u-space-top">
 				@Html.Partial("~/Views/Partials/Components/Sitemap.cshtml")

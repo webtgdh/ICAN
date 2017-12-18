@@ -34,7 +34,9 @@
 				Subtitle = Model.GetPropertyValue<string>("subheadline"),
 				Level = !hasCover ? "h1" : "h2"
 			})
-			@Html.CachedPartial("Modules/PageComponents", Model, 3600, true)
+			<div class="s-free-content u-clearfix">
+				@Html.CachedPartial("Modules/PageComponents", Model, 3600, true)
+			</div>
 			@if (selection.Any()) {
 				<div class="c-listing-card u-clearfix u-space-top--large">
 					@foreach (var item in selection) {
