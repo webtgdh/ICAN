@@ -59,7 +59,20 @@ label[for] {
 	}
 }
 
+.no-placeholder {
 
+	label.u-visually-hidden {
+		width: inherit;
+		height: inherit;
+		position: inherit;
+		padding: inherit;
+		margin: inherit;
+		overflow: inherit;
+		clip: unset;
+		border: inherit;
+	}
+
+}
 
 //= PLACEHOLDER ==============================================
 
