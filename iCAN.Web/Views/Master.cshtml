@@ -9,8 +9,14 @@
 	var hasCover = Model.GetPropertyValue<IPublishedContent>("coverImage") != null;
 
 	var hasHero = hasCarousel || hasCover;
-
 	var modifierClass = hasHero ? "t-has-hero js-has-hero" : "";
+@*
+	var secureUrl = "https://" +  Request.Url.Host.ToString() + Request.RawUrl.ToString();
+    if(!HttpContext.Current.Request.IsLocal && !Request.IsSecureConnection)
+    {
+        Response.Redirect(secureUrl);
+    }
+	*@
 }
 
 <!doctype html>
@@ -23,8 +29,7 @@
 		<link rel="stylesheet" href="/assets/css/style.ce70f9a6.css">
         <script src="/assets/js/head.4cf2d2da.js"></script>
 		<link rel="stylesheet" href="https://use.typekit.net/mmc8vjo.css">
-		<link rel="shortcut icon" href="/img/favicons/favicon-96x96.png" type="image/png">
-		<link rel="manifest" href="/manifest.json" />
+		<link rel="shortcut icon" href="/assets/img/favicon.png" type="image/png">
     </head>
     <body class="o-page">
 		<a href="#main" class="c-button c-button--skiplink">Skip to main content</a>
