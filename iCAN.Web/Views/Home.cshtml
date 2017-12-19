@@ -35,6 +35,7 @@
 				@Html.Partial("~/Views/Partials/Components/Heading.cshtml", new HeadingViewModel {
 					Headline = Model.GetPropertyValue<string>("aboutHeadline"),
 					Subtitle = Model.GetPropertyValue<string>("aboutSubHeadline"),
+					Level = "h1"
 				})
 				@Html.Raw(Model.GetPropertyValue<string>("aboutDescription"))
 			</div>
