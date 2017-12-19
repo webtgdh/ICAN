@@ -26,6 +26,7 @@
 						var hasLink = link != null;
 						@Html.Partial("~/Views/Partials/Components/LogoViewModel.cshtml", new LogoViewModel {
 							Logo = item.GetPropertyValue<IPublishedContent>("logo"),
+							ImageWidth = 170,
 							Url = hasLink ? link.Url : "",
 							Target = hasLink ? link.Target : "",
 							CtaName = hasLink ? link.Name : ""

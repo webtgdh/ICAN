@@ -13,7 +13,7 @@
     var allArticles = News.AllOrderedArticles(Umbraco).ToList().Where(x => x.IsVisible()).ToList();
     var filteredArticles = News.FilterSelection(allArticles, qCat, qMonth, qYear).ToList();
 
-    var paging = new Paging(filteredArticles.Count(), 5);
+    var paging = new Paging(filteredArticles.Count(), 6);
     var selection = filteredArticles.Skip(paging.Skip).Take(paging.Take).ToList();
 }
 
@@ -45,7 +45,6 @@
 							})
 						}
 					</div>
-
 					@Html.Partial("Components/Pagination", new PaginationViewModel {
 						Paging = paging,
 						CurrentModel = Model
