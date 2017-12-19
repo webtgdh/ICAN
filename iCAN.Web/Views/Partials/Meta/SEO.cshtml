@@ -10,6 +10,11 @@
     var imageUrl = GetPageSocialImage(Model, siteUrl);
     var twitterHandle = TGDH.Settings<string>("twitterHandle");
     var pageUrl = siteUrl + Model.Url;
+
+	var socialDescription = "";
+	if (String.IsNullOrWhiteSpace(description)) {
+		socialDescription = TGDH.Settings<string>("defaultSocialDescription");
+	}
 }
 
 <title>@title</title>
@@ -23,7 +28,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="@pageUrl">
 <meta property="og:image" content="@imageUrl">
-<meta property="og:description" content="@description.Truncate(200)">
+<meta property="og:description" content="@socialDescription.Truncate(200)">
 <meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="@websiteName">
 
@@ -32,7 +37,7 @@
 <meta name="twitter:creator" content="@twitterHandle">
 <meta name="twitter:url" content="@pageUrl">
 <meta name="twitter:title" content="@title">
-<meta name="twitter:description" content="@description.Truncate(140)">
+<meta name="twitter:description" content="@socialDescription.Truncate(140)">
 <meta name="twitter:image" content="@imageUrl">
 
 @functions {
@@ -40,8 +45,8 @@
     private string GetPageSocialImage(IPublishedContent model, string siteUrl)
     {
         var imageUrl = string.Empty;
-        var image = Model.GetPropertyValue<IPublishedContent>("socialMediaImage", 
-                Model.GetPropertyValue<IPublishedContent>("featuredImage", 
+        var image = Model.GetPropertyValue<IPublishedContent>("socialMediaImage",
+                Model.GetPropertyValue<IPublishedContent>("featuredImage",
                     TGDH.Settings<IPublishedContent>("defaultSocialMediaImage"
             )));
 
