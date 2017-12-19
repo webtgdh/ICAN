@@ -42,6 +42,10 @@
 	}
 }
 
+.c-footer__logos {
+	margin-top: $line-height;
+}
+
 .c-footer__sub {
 	font-size: 1.4rem;
 	background-color: $purple-1;
@@ -68,6 +72,16 @@
 
 	.c-footer__col + .c-footer__col {
 		margin-top: $line-height;
+	}
+
+	.flexwrap {
+
+		.c-footer__logos {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
 	}
 
 }

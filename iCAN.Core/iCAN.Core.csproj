@@ -105,6 +105,7 @@
     <Compile Include="Models\Link.cs" />
     <Compile Include="Models\LinkListViewModel.cs" />
     <Compile Include="Models\LinkPickerModel.cs" />
+    <Compile Include="Models\LogoViewModel.cs" />
     <Compile Include="Models\PageListingViewModel.cs" />
     <Compile Include="Models\PaginationViewModel.cs" />
     <Compile Include="Models\QuoteViewModel.cs" />

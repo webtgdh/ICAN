@@ -1,0 +1,26 @@
+@using iCAN.Core.Models
+@inherits UmbracoViewPage<LogoViewModel>
+@{
+    if (Model.Logo == null)
+    {
+        return;
+    }
+
+    var imageUrl = Url.GetCropUrl(Model.Logo, width: Model.ImageWidth, quality: 100, upScale: false, htmlEncode: false).ToString();
+
+    var altText = Model.Logo.GetPropertyValue<string>("altText");
+	if( String.IsNullOrEmpty(altText) ) {
+		altText = Model.CtaName;
+	}
+}
+
+<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="c-logo @Model.ModifierClass">
+    @if (!String.IsNullOrWhiteSpace(Model.Url))
+	{
+	    <a href="@Model.Url" class="c-logo__link" target="@Model.Target" title="@Model.CtaName">
+			<img src="@imageUrl" itemprop="thumbnail" alt="@altText" class="c-logo__image" />
+	    </a>
+    } else {
+		<img src="@imageUrl" itemprop="thumbnail" alt="@altText" class="c-logo__image" />
+    }
+</figure>

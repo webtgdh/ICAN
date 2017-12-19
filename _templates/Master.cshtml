@@ -34,8 +34,8 @@
 		<a href="#main" class="c-button c-button--skiplink">Skip to main content</a>
         @Html.Partial("~/Views/Partials/Modules/Header.cshtml")
         @RenderBody()
-		@Html.Partial("Modules/Footer")
-        @Html.Partial("Meta/Analytics")
+		@Html.CachedPartial("~/Views/Partials/Modules/Footer.cshtml", Model, 3600)
+        @Html.CachedPartial("~/Views/Partials/Meta/Analytics.cshtml", Model, 3600)
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
 		<script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>

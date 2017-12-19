@@ -1,9 +1,12 @@
 ﻿@using iCAN;
 @using iCAN.Core.Models;
+@using RJP.MultiUrlPicker.Models;
 @inherits UmbracoViewPage<IPublishedContent>
 @{
     var siteName = TGDH.Settings<string>("websiteName");
     var copyright = TGDH.Settings<string>("copyrightDisclaimer");
+
+	var logos = TGDH.Settings<IEnumerable<IPublishedContent>>("footerLogos");
 }
 
 <footer id="footer" class="c-footer u-spacer" role="contentinfo">
@@ -15,6 +18,22 @@
 				SocialChannels = TGDH.Settings<IEnumerable<IPublishedContent>>("socialChannels"),
 				ModifierClass = "c-footer__social"
 			})
+
+			@if (logos != null) {
+				<div class="c-footer__logos u-clearfix">
+					@foreach (var item in logos) {
+						var link = item.GetPropertyValue<Link>("link");
+						var hasLink = link != null;
+						@Html.Partial("~/Views/Partials/Components/LogoViewModel.cshtml", new LogoViewModel {
+							Logo = item.GetPropertyValue<IPublishedContent>("logo"),
+							Url = hasLink ? link.Url : "",
+							Target = hasLink ? link.Target : "",
+							CtaName = hasLink ? link.Name : ""
+						})
+					}
+				</div>
+			}
+
 		</div>
 		<div class="c-footer__col c-footer__col--last">
 			@Html.Partial("~/Views/Partials/Components/LatestTweet.cshtml")
