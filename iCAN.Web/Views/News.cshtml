@@ -10,7 +10,7 @@
     var qMonth = Request.QueryString["month"];
     var qYear = Request.QueryString["year"];
 
-    var allArticles = News.AllArticles(Umbraco).ToList().Where(x => x.IsVisible()).ToList();
+    var allArticles = News.AllOrderedArticles(Umbraco).ToList().Where(x => x.IsVisible()).ToList();
     var filteredArticles = News.FilterSelection(allArticles, qCat, qMonth, qYear).ToList();
 
     var paging = new Paging(filteredArticles.Count(), 5);
