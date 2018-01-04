@@ -120,6 +120,9 @@ namespace iCAN.Core.Data
                 case "generalNews":
                     category = "General news";
                     break;
+                case "iCANSays":
+                    category = "I CAN Says";
+                    break;
             }
 
             return category;
